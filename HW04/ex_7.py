@@ -6,6 +6,23 @@ import numpy as np
 
 
 def sanitize_text(tokens):
+    """Sanizite Text:
+        Lowercase
+        Remove non characters
+        Change your and yours to you
+        Remove ['ll', 've', 're']
+    Parameters
+    ----------
+    tokens : string[]
+        Tokenized text
+
+    Returns
+    -------
+    string[]
+        Sanitized tokens.
+
+    """
+
     tokens = [x.lower() for x in tokens]
     regex = re.compile('[^a-z]')
 
@@ -21,6 +38,7 @@ def sanitize_text(tokens):
 
         tokens[index] = regex.sub('', tokens[index])
 
+    # remove empty elements
     tokens = [token for token in tokens if token != '']
     return tokens
 
@@ -32,11 +50,26 @@ def write_file(file_path, tokens):
 
 
 def calc_correlation(distance, tokens):
+    """Calculate correlations for a given distance
+
+    Parameters
+    ----------
+    distance : integer
+        The distance d.
+    tokens : string[]
+        Tokenized text
+
+    Returns
+    -------
+    double
+        The correlation for a given distance
+    """
+
     YOU = 'you'
-    # Count you with distance d
+    # Count 'you' with distance d
     count_you_sequence = 0
 
-    # count how often the word you appears in the text
+    # count how often the word 'you' appears in the text
     count_you = tokens.count(YOU)
 
     for i in range(len(tokens) - distance):
@@ -47,12 +80,12 @@ def calc_correlation(distance, tokens):
         print('No instance of you with distance d = ' + str(distance))
         return 0
 
+    # calcualte the relative frequencies
     rel_freq_you_sequence = count_you_sequence / float(len(tokens) - distance)
     rel_freq_total = count_you / float(len(tokens))
 
     corr = rel_freq_you_sequence / float(rel_freq_total * rel_freq_total)
-    #print("Correlation distance " + str(distance) + " :" + str(corr))
-    print(corr)
+    print("Correlation distance " + str(distance) + " :" + str(corr))
     return corr
 
 
@@ -65,13 +98,15 @@ def plot_correlation(tokens, max_distance):
         correlations[d] = calc_correlation(d + 1, tokens)
 
     plt.scatter(distances, correlations)
+    plt.ylabel('Correlation')
+    plt.xlabel('Distance')
     plt.show()
 
 
 def main():
     text = nltk.corpus.gutenberg.words('carroll-alice.txt')
     tokens = sanitize_text(text)
-    write_file('test2.txt', tokens)
+    write_file('output.txt', tokens)
 
     plot_correlation(tokens, 50)
 
