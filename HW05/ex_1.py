@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import re
+from nltk.tokenize import word_tokenize
+from math import log10
+
+
+def sanitize_text(tokens):
+    """Sanizite Text:
+        Lowercase
+        Remove non characters
+    Parameters
+    ----------
+    tokens : string[]
+        Tokenized text
+
+    Returns
+    -------
+    string[]
+        Sanitized tokens.
+
+    """
+
+    tokens = [x.lower() for x in tokens]
+    regex = re.compile('[^a-z]')
+
+    for index in range(len(tokens)):
+        tokens[index] = regex.sub('', tokens[index])
+
+    # remove empty elements
+    tokens = [token for token in tokens if token != '']
+    return tokens
+
+
+def calc_n_gram_frequencies(tokens, l):
+    frequencies = {}
+
+    for index, word in enumerate(tokens):
+        if index > len(tokens) - l:
+            break
+
+        ngram = " ".join(tokens[index:index + l + 1])
+        frequencies[ngram] = frequencies.get(ngram, 0) + 1
+    return frequencies
+
+
+def calc_1_gram_probabilities(unigrams, N):
+    uni_probs = {}
+
+    for u in unigrams:
+        uni_probs[u] = unigrams.get(u, 0) / float(N)
+
+    return uni_probs
+
+
+def calc_2_gram_probabilities(bigrams, unigrams):
+    bi_probs = {}
+
+    for bi in bigrams:
+        if bigrams[bi] < 2:
+            continue
+        bi_probs[bi] = bigrams.get(bi, 0) / float(unigrams[bi.split(" ")[0]])
+    return bi_probs
+
+
+def calc_3_gram_probabilities(trigrams, bigrams):
+    tri_probs = {}
+
+    for tri in trigrams:
+        if trigrams[tri] < 2:
+            continue
+        tri_probs[tri] = trigrams.get(
+            tri, 0) / float(bigrams[" ".join(tri.split(" ")[:2])])
+    return tri_probs
+
+
+def test_set_frequencies():
+    test = open("./data/train.txt", "r")
+    tokens = word_tokenize(test.read())
+    test.close()
+    tokens = sanitize_text(tokens)
+
+    freqs1 = {}
+    freqs2 = {}
+    freqs3 = {}
+
+    for index, word in enumerate(tokens):
+
+        ngram = " ".join(tokens[index:index + 1])
+        freq1[ngram] = freq1.get(ngram, 0) + 1
+
+        ngram = " ".join(tokens[index:index + 1 + 1])
+        freq2[ngram] = freq2.get(ngram, 0) + 1
+
+        ngram = " ".join(tokens[index:index + 2 + 1])
+        freq3[ngram] = freq3.get(ngram, 0) + 1
+
+
+def calculate_perplexity(uni_probs, bi_probs, tri_probs):
+    test = open("./data/train.txt", "r")
+    tokens = word_tokenize(test.read())
+    test.close()
+    tokens = sanitize_text(tokens)
+
+    # distribution from training data
+
+    perplexity(0, uni_probs, tokens)
+    perplexity(1, bi_probs, tokens)
+    perplexity(2, tri_probs, tokens)
+
+
+def perplexity(n, distribution, tokens):
+    log_prob = 0
+    N = len(tokens)
+
+    for i in range(len((tokens))):
+        s = " ".join(tokens[i:i + n + 1])
+        log_prob += -log10(distribution[s])
+        N += 1
+    perplexity = log_prob / float(N)
+    print(perplexity)
+
+
+def main():
+
+    f = open("./data/train.txt", "r")
+
+    tokens = word_tokenize(f.read())
+
+    f.close()
+    tokens = sanitize_text(tokens)
+
+    unigrams = calc_n_gram_frequencies(tokens, 0)
+    bigrams = calc_n_gram_frequencies(tokens, 1)
+    trigrams = calc_n_gram_frequencies(tokens, 2)
+
+    unigramProbs = calc_1_gram_probabilities(unigrams, len(tokens))
+    bigramProbs = calc_2_gram_probabilities(bigrams, unigrams)
+    trigramProbs = calc_3_gram_probabilities(trigrams, bigrams)
+
+    calculate_perplexity(unigramProbs, bigramProbs, trigramProbs)
+
+    print(bigramProbs)
+
+
+if __name__ == "__main__":
+    main()
