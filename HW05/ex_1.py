@@ -72,6 +72,7 @@ def calc_3_gram_probabilities(trigrams, bigrams):
             continue
         tri_probs[tri] = trigrams.get(
             tri, 0) / float(bigrams[" ".join(tri.split(" ")[:2])])
+    print(tri_probs)
     return tri_probs
 
 
@@ -123,20 +124,40 @@ def calculate_perplexity(uni_probs, bi_probs, tri_probs):
     perplexity(2, tri_probs, tokens)
 
 
-def perplexity(n, distribution, tokens, rel_frequencies):
+def perplexity(n, distribution, tokens):
     log_prob = 0
     N = len(tokens)
+    # print(distribution)
+    print(N)
 
-    for i in range(len((tokens))):
+    for i in range(len((tokens)) - n):
         s = " ".join(tokens[i:i + n + 1])
-        
+        # print(s)
+
         try:
             log_prob += -log10(distribution[s])
+#            print(log_prob)
         except:
-            pass 
+            N -= 1
 
-    perplexity = log_prob / float(N-n)
+    perplexity = 10**(log_prob / float(N - n))
     print(perplexity)
+
+
+"""
+def ex_2_1:
+    f = open("./test.txt", "r")
+
+    tokens = word_tokenize(f.read())
+
+    f.close()
+    tokens = sanitize_text(tokens)
+
+
+def partition(lst, n):
+    division = len(lst) / float(n)
+    return [lst[int(round(division * i)): int(round(division * (i + 1)))] for i in range(n)]
+"""
 
 
 def main():
@@ -161,6 +182,7 @@ def main():
     calculate_perplexity(unigramProbs, bigramProbs,
                          trigramProbs)
 
+    # Ex 2.1
 
 
 if __name__ == "__main__":
