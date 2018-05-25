@@ -34,6 +34,9 @@ def sanitize_text(tokens):
 
 
 def calc_n_gram_frequencies(tokens, l):
+    """
+    Calculate n grams frequencies based on tokens and l = ngram length
+    """
     frequencies = {}
 
     for index, word in enumerate(tokens):
@@ -51,6 +54,7 @@ def calc_1_gram_probabilities(unigrams, N):
     for u in unigrams:
         uni_probs[u] = unigrams.get(u, 0) / float(N)
 
+    print('Unigram probabilities:' + str(uni_probs))
     return uni_probs
 
 
@@ -61,6 +65,7 @@ def calc_2_gram_probabilities(bigrams, unigrams):
         if bigrams[bi] < 2:
             continue
         bi_probs[bi] = bigrams.get(bi, 0) / float(unigrams[bi.split(" ")[0]])
+    print('Bigram probabilities:' + str(bi_probs))
     return bi_probs
 
 
@@ -72,11 +77,14 @@ def calc_3_gram_probabilities(trigrams, bigrams):
             continue
         tri_probs[tri] = trigrams.get(
             tri, 0) / float(bigrams[" ".join(tri.split(" ")[:2])])
-    print(tri_probs)
+    print('Trigram probabilities:' + str(tri_probs))
     return tri_probs
 
 
 def test_set_frequencies():
+    """
+    Calculate rel frequencies for uni, bi and trigrams from the test data set
+    """
     test = open("./data/test.txt", "r")
     tokens = word_tokenize(test.read())
     test.close()
@@ -112,6 +120,9 @@ def test_set_frequencies():
 
 
 def calculate_perplexity(uni_probs, bi_probs, tri_probs):
+    """
+    Calculate perplexity from the test date for uni bi and trigrams
+    """
     test = open("./data/test.txt", "r")
     tokens = word_tokenize(test.read())
     test.close()
@@ -125,6 +136,9 @@ def calculate_perplexity(uni_probs, bi_probs, tri_probs):
 
 
 def perplexity(n, distribution, tokens):
+    """
+    Calculate perplexity
+    """
     log_prob = 0
     N = len(tokens)
 
@@ -137,7 +151,39 @@ def perplexity(n, distribution, tokens):
             N -= 1
 
     perplexity = 10**(log_prob / float(N - n))
-    print(perplexity)
+
+    if n == 0:
+        print("Unigram Perplexity: " + str(perplexity))
+
+    if n == 1:
+        print("Bigram Perplexity: " + str(perplexity))
+
+    if n == 2:
+        print("Trigram Perplexity: " + str(perplexity))
+
+
+def calculate_smoothed_perplexity(N, unigrams, bigrams, trigrams):
+    alpha = 0.1
+
+    logProb = 0
+    tokens = [t for t in open("./data/test.txt")]
+    N = len(tokens)
+
+    for i in range(len(tokens) - 2):
+        logProb += smoothed_perplexity(tokens[i:i + 3], N,
+                                       unigrams, bigrams, trigrams, alpha)
+
+    print("Smoothed Perplexity:",  10**(-logProb / float(N - 2)))
+
+
+def smoothed_perplexity(ngram_, N, unigrams, bigrams, trigrams, alpha):
+    ngram = " ".join(ngram_)
+    if len(ngram_) == 1:
+        return (unigrams.get(ngram, 0) + alpha) / float(N + len(unigrams) * alpha)
+    elif len(ngram_) == 2:
+        return (bigrams.get(ngram, 0) + alpha) / float(unigrams.get(ngram_[0], 0) + alpha * len(unigrams))
+    else:
+        return (trigrams.get(ngram, 0) + alpha) / float(bigrams.get(ngram_[0] + "  " + ngram_[1], 0) + alpha * len(unigrams))
 
 
 def partition(lst, n):
@@ -149,16 +195,20 @@ def partition(lst, n):
 
 
 def exercise2_1():
-    f = open("test.txt", "r")
+    f = open("./data/kfold.txt", "r")
 
     tokens = word_tokenize(f.read())
 
     f.close()
     tokens = sanitize_text(tokens)
     tokens_split = partition(tokens, 5)
+    cv(0.5, 0.5, tokens_split)
 
 
 def cv(lamdba1, lamdba2, token_list):
+    """
+    Perform crossvalidation
+    """
 
     for index, value in enumerate(token_list):
         # remove current value from list
@@ -178,33 +228,17 @@ def cv(lamdba1, lamdba2, token_list):
         for i in range(len(test_set) - 2):
             ngram = test_set[i:i + 2]
 
+            """
+            TODO: Fix
             interp_bigram_probs += lamdba1 * \
                 train_unigram_probabilities[ngram[0]] + lamdba2 * \
                 train_bigram_probabilities[" ".join(ngram)]
+            """
 
 
-def calculate_smoothed_perplexity(N, unigrams, bigrams, trigrams):
-    alpha = 0.1
-
-    logProb = 0
-    tokens = [t for t in open("./data/test.txt")]
-    N = len(tokens)
-
-    for i in range(len(tokens) - 2):
-        logProb += smoothed_perplexity(tokens[i:i + 3], N,
-                                       unigrams, bigrams, trigrams, alpha)
-
-    print("Perplexity:",  10**(-logProb / float(N - 2)))
-
-
-def smoothed_perplexity(ngram_, N, unigrams, bigrams, trigrams, alpha):
-    ngram = " ".join(ngram_)
-    if len(ngram_) == 1:
-        return (unigrams.get(ngram, 0) + alpha) / float(N + len(unigrams) * alpha)
-    elif len(ngram_) == 2:
-        return (bigrams.get(ngram, 0) + alpha) / float(unigrams.get(ngram_[0], 0) + alpha * len(unigrams))
-    else:
-        return (trigrams.get(ngram, 0) + alpha) / float(bigrams.get(ngram_[0] + "  " + ngram_[1], 0) + alpha * len(unigrams))
+"""
+def grid_seach(tokenlist):
+"""
 
 
 def main():
@@ -229,10 +263,11 @@ def main():
     calculate_perplexity(unigramProbs, bigramProbs,
                          trigramProbs)
 
-    # Ex 2.1
-
     calculate_smoothed_perplexity(len(
         tokens), unigrams, bigrams, trigrams)
+
+    # Ex 2.1
+    exercise2_1()
 
 
 if __name__ == "__main__":
