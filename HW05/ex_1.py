@@ -160,6 +160,35 @@ def partition(lst, n):
 """
 
 
+
+def calculate_smoothed_prob(ngram_, N, unigrams, bigrams, trigrams):
+    alpha = 0.1
+
+    logProb = 0
+    tokens = [t for t in open(".data/test.txt")]
+    N = len(tokens)
+
+    for i in range(len(tokens)-2):
+        logProbs += smoothed_perplexity(ngram_, N, unigrams, bigrams, trigrams, alpha):)
+    print("Perplexity:",  10**(-logProbs/float(N-2) ))
+
+
+
+
+def smoothed_perplexity(ngram, N, unigrams, bigrams, trigrams, alpha):
+    ngram = ngram_.split(" ")
+    if len(ngram) == 1:
+        return  (unigrams.get(ngram_, 0) + alpha) / float(N + len(unigrams) * alpha)
+    elif len(ngram) == 2:
+        return  (bigrams.get(ngram_, 0) + alpha) / float( unigrams.get(ngram[0], 0) + alpha * len(unigrams))
+    else:  
+        return (trigrams.get(ngram_, 0) + alpha) / float(bigrams.get(ngram[0]+ "  " +ngram[1]) + alpha * len(unigrams))
+
+
+
+
+
+
 def main():
 
     f = open("./data/train.txt", "r")
@@ -183,6 +212,12 @@ def main():
                          trigramProbs)
 
     # Ex 2.1
+
+    calculate_smoothed_perplexity(ngram, len(tokens), unigrams, bigrams, trigrams)
+
+
+
+
 
 
 if __name__ == "__main__":
