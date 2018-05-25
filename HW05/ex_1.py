@@ -110,17 +110,17 @@ def test_set_frequencies():
     return freq1, freq2, freq3
 
 
-def calculate_perplexity(uni_probs, bi_probs, tri_probs, freq1, freq2, freq3):
-    test = open("./data/train.txt", "r")
+def calculate_perplexity(uni_probs, bi_probs, tri_probs):
+    test = open("./data/test.txt", "r")
     tokens = word_tokenize(test.read())
     test.close()
     tokens = sanitize_text(tokens)
 
     # distribution from training data
 
-    perplexity(0, uni_probs, tokens, freq1)
-    perplexity(1, bi_probs, tokens, freq2)
-    perplexity(2, tri_probs, tokens, freq3)
+    perplexity(0, uni_probs, tokens)
+    perplexity(1, bi_probs, tokens)
+    perplexity(2, tri_probs, tokens)
 
 
 def perplexity(n, distribution, tokens, rel_frequencies):
@@ -129,9 +129,13 @@ def perplexity(n, distribution, tokens, rel_frequencies):
 
     for i in range(len((tokens))):
         s = " ".join(tokens[i:i + n + 1])
-        log_prob += -log10(distribution[s]) * rel_frequencies.get(s, 0)
-        N += 1
-    perplexity = log_prob / float(N)
+        
+        try:
+            log_prob += -log10(distribution[s])
+        except:
+            pass 
+
+    perplexity = log_prob / float(N-n)
     print(perplexity)
 
 
@@ -152,12 +156,11 @@ def main():
     bigramProbs = calc_2_gram_probabilities(bigrams, unigrams)
     trigramProbs = calc_3_gram_probabilities(trigrams, bigrams)
 
-    freq1, freq2, freq3 = test_set_frequencies()
+    #freq1, freq2, freq3 = test_set_frequencies()
 
     calculate_perplexity(unigramProbs, bigramProbs,
-                         trigramProbs, freq1, freq2, freq3)
+                         trigramProbs)
 
-    print(bigramProbs)
 
 
 if __name__ == "__main__":
