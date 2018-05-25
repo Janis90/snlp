@@ -127,16 +127,12 @@ def calculate_perplexity(uni_probs, bi_probs, tri_probs):
 def perplexity(n, distribution, tokens):
     log_prob = 0
     N = len(tokens)
-    # print(distribution)
-    print(N)
 
     for i in range(len((tokens)) - n):
         s = " ".join(tokens[i:i + n + 1])
-        # print(s)
 
         try:
             log_prob += -log10(distribution[s])
-#            print(log_prob)
         except:
             N -= 1
 
@@ -144,49 +140,71 @@ def perplexity(n, distribution, tokens):
     print(perplexity)
 
 
-"""
-def ex_2_1:
-    f = open("./test.txt", "r")
+def partition(lst, n):
+    """
+    Partition function from stack overflow
+    """
+    division = len(lst) / float(n)
+    return [lst[int(round(division * i)): int(round(division * (i + 1)))] for i in range(n)]
+
+
+def exercise2_1():
+    f = open("test.txt", "r")
 
     tokens = word_tokenize(f.read())
 
     f.close()
     tokens = sanitize_text(tokens)
+    tokens_split = partition(tokens, 5)
 
 
-def partition(lst, n):
-    division = len(lst) / float(n)
-    return [lst[int(round(division * i)): int(round(division * (i + 1)))] for i in range(n)]
-"""
+def cv(lamdba1, lamdba2, token_list):
+
+    for index, value in enumerate(token_list):
+        # remove current value from list
+        train_set = [x for i, x in enumerate(token_list) if i != index]
+        # flatten list
+        train_set = [y for x in train_set for y in x]
+        test_set = value
+
+        train_unigrams = calc_n_gram_frequencies(train_set, 0)
+        train_unigram_probabilities = calc_1_gram_probabilities(
+            train_unigrams, len(train_set))
+        train_bigrams = calc_n_gram_frequencies(train_set, 1)
+        train_bigram_probabilities = calc_2_gram_probabilities(
+            train_bigrams, train_unigrams)
+
+        interp_bigram_probs = 0
+        for i in range(len(test_set) - 2):
+            ngram = test_set[i:i + 2]
+
+            interp_bigram_probs += lamdba1 * \
+                train_unigram_probabilities[ngram[0]] + lamdba2 * \
+                train_bigram_probabilities[" ".join(ngram)]
 
 
-
-def calculate_smoothed_prob(ngram_, N, unigrams, bigrams, trigrams):
+def calculate_smoothed_perplexity(N, unigrams, bigrams, trigrams):
     alpha = 0.1
 
     logProb = 0
-    tokens = [t for t in open(".data/test.txt")]
+    tokens = [t for t in open("./data/test.txt")]
     N = len(tokens)
 
-    for i in range(len(tokens)-2):
-        logProbs += smoothed_perplexity(ngram_, N, unigrams, bigrams, trigrams, alpha):)
-    print("Perplexity:",  10**(-logProbs/float(N-2) ))
+    for i in range(len(tokens) - 2):
+        logProb += smoothed_perplexity(tokens[i:i + 3], N,
+                                       unigrams, bigrams, trigrams, alpha)
+
+    print("Perplexity:",  10**(-logProb / float(N - 2)))
 
 
-
-
-def smoothed_perplexity(ngram, N, unigrams, bigrams, trigrams, alpha):
-    ngram = ngram_.split(" ")
-    if len(ngram) == 1:
-        return  (unigrams.get(ngram_, 0) + alpha) / float(N + len(unigrams) * alpha)
-    elif len(ngram) == 2:
-        return  (bigrams.get(ngram_, 0) + alpha) / float( unigrams.get(ngram[0], 0) + alpha * len(unigrams))
-    else:  
-        return (trigrams.get(ngram_, 0) + alpha) / float(bigrams.get(ngram[0]+ "  " +ngram[1]) + alpha * len(unigrams))
-
-
-
-
+def smoothed_perplexity(ngram_, N, unigrams, bigrams, trigrams, alpha):
+    ngram = " ".join(ngram_)
+    if len(ngram_) == 1:
+        return (unigrams.get(ngram, 0) + alpha) / float(N + len(unigrams) * alpha)
+    elif len(ngram_) == 2:
+        return (bigrams.get(ngram, 0) + alpha) / float(unigrams.get(ngram_[0], 0) + alpha * len(unigrams))
+    else:
+        return (trigrams.get(ngram, 0) + alpha) / float(bigrams.get(ngram_[0] + "  " + ngram_[1], 0) + alpha * len(unigrams))
 
 
 def main():
@@ -206,18 +224,15 @@ def main():
     bigramProbs = calc_2_gram_probabilities(bigrams, unigrams)
     trigramProbs = calc_3_gram_probabilities(trigrams, bigrams)
 
-    #freq1, freq2, freq3 = test_set_frequencies()
+    # freq1, freq2, freq3 = test_set_frequencies()
 
     calculate_perplexity(unigramProbs, bigramProbs,
                          trigramProbs)
 
     # Ex 2.1
 
-    calculate_smoothed_perplexity(ngram, len(tokens), unigrams, bigrams, trigrams)
-
-
-
-
+    calculate_smoothed_perplexity(len(
+        tokens), unigrams, bigrams, trigrams)
 
 
 if __name__ == "__main__":
