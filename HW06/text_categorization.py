@@ -7,6 +7,7 @@
     - Syntax (Einfache vs. verschachtelte Sätze)
     - Wörter bestimmter Kategorien (Emotionen, Thema, ...)
     - Morphologische Eigenschaften (# Nomen, #Verben, vor allem AdjektiveØ...)
+    
 """
 
 import re
@@ -15,6 +16,7 @@ from collections import Counter
 import matplotlib.pyplot as plt
 import numpy as np
 from math import log10
+import utils
 
 
 def sanitize_text(tokens):
@@ -135,123 +137,78 @@ def calc_word_frequencies(tokens):
     return word_frequencies
 
 
-def calc_bayes(tokens, frequencies, n, v, class_prob, alpha):
-    """Calculate the bayes probability for a given class.
-
-    Parameters
-    ----------
-    tokens : string[]
-        Tokens from the test set.
-    frequencies : dict
-        Relative word frequencies for a given class.
-    n : integer
-        Number of tokens for a given class
-    v : integer
-        Vocabulary size for a given class.
-    class_prob : float
-        Class probability for a given class
-    alpha : float
-        Alpha value for the lidstone smoothing
-
-    Returns
-    -------
-    foat
-        Bayes probability for a given class.
-
+def calc_bayes_prob(class_prob, class_tokens, all_tokens, test_tokens, lidstone_lamda, get_log_prob=False):
     """
-
-    probability = log10(class_prob)
-    # denominator = 0
-
-    for word in tokens:
-        probability += log10(smooth_lidstone(frequencies.get(word, 0), n, alpha, v))
-        # TODO: denominator = log()
-
-    return probability
-
-
-def calc_bayes_classification(tokens, freq_lists, n_lists, v_lists, class_prob_lists, alpha):
-    """Calculate classification for n classes.
-
-    Parameters
-    ----------
-    tokens : string[]
-        Tokens from the test set.
-    freq_lists: dict[]
-        List containing the relative word frequencies for each class
-    n_lists : integer[]
-        Total number for tokens for each class
-    v_lists : integer[]
-        Vocabulary size for each class.
-    class_prob_lists : float
-        Description of parameter `class_prob_lists`.
-    alpha : float
-        Alpha value for the lidstone smoothing
-
-    Returns
+    Computes the bayes probability that a test text belongs to a certain class.
+    Parameters:
+    ---------
+    class_prob: General probability of the class
+    class_tokens: token list from the training text(s) of the considered class
+    all_tokens: token list from the training texts of all classes
+    test_tokens: token list of test text which should be classified
+    lidstone_lambde: Lidstone smoothing parameter
+    get_log_prob: If True, the logarithmic probability to the base 10 will be returned
+    Returns:
     -------
-    max_index: integer
-        Index of the element with the highest bayes probability
-    bayes_classification: float[]
-        Array containing bayes probabilities for each class
-
-
+    (Smoothed!) probability that the test text belongs to the considered class
     """
-    bayes_classification = []
+  
+    # computing the joint probability P(test_text) of the test text unsing the frequencies of all words in the train set
+    totoal_probs = utils.get_probabilities_lidstone(test_tokens, all_tokens, lidstone_lamda=lidstone_lamda, get_log_prob=True)
+    p_test_text = utils.compute_joint_probability(test_tokens, totoal_probs, use_log_prob=True)
 
-    for index in range(len(freq_lists)):
-        bayes_classification.append(calc_bayes(
-            tokens, freq_lists[index], n_lists[index], v_lists[index], class_prob_lists[index], alpha))
+    # computing the joint probability P(test_text | class=x) of the test text using the frequencies of the words of the class
+    x_class_probs = utils.get_probabilities_lidstone(test_tokens, class_tokens, lidstone_lamda=lidstone_lamda, get_log_prob=True)
+    p_test_class = utils.compute_joint_probability(test_tokens, x_class_probs, use_log_prob=True)
 
-    max_value = max(bayes_classification)
-    max_index = bayes_classification.index(max_value)
+    # P(class=x | test_text) = (P(class = x) * P(test_text | class=x)) / P(test_text)
+    # log(P(class=x | test_text)) = log(P(class = x)) + log(P(test_text | class=x)) - log(P(test_text))
+    final_bayes_prob = log10(class_prob) + p_test_class - p_test_text
+   
+    if get_log_prob:
+       return final_bayes_prob
 
-    return max_index, bayes_classification
+    return 10**final_bayes_prob
 
 
 def ex_5():
-    ALPHA = 0.00001
 
-    tokens_james_1 = sanitize_text(
-        getTokens('./corpus/james/Henry James___1.txt'))
-    tokens_james_2 = sanitize_text(
-        getTokens('./corpus/james/Henry James___3.txt'))
-    tokens_james_3 = sanitize_text(
-        getTokens('./corpus/james/Henry James___3.txt'))
+    smoothing_lambda = 0.0001
+
+    # get tokens of the different text files by James
+    tokens_james_1 = utils.tokenize_text_file('./corpus/james/Henry James___1.txt')
+    tokens_james_2 = utils.tokenize_text_file('./corpus/james/Henry James___3.txt')
+    tokens_james_3 = utils.tokenize_text_file('./corpus/james/Henry James___3.txt')
+
     tokens_james = tokens_james_1 + tokens_james_2 + tokens_james_3
 
-    tokens_london_1 = sanitize_text(
-        getTokens('./corpus/london/Jack London___1.txt'))
-    tokens_london_2 = sanitize_text(
-        getTokens('./corpus/london/Jack London___2.txt'))
-    tokens_london_3 = sanitize_text(
-        getTokens('./corpus/london/Jack London___3.txt'))
+    # get tokens of the different text files by London
+    tokens_london_1 = utils.tokenize_text_file('./corpus/london/Jack London___1.txt')
+    tokens_london_2 = utils.tokenize_text_file('./corpus/london/Jack London___2.txt')
+    tokens_london_3 = utils.tokenize_text_file('./corpus/london/Jack London___3.txt')
 
     tokens_london = tokens_london_1 + tokens_london_2 + tokens_london_3
 
-    word_frequencies_james = calc_word_frequencies(tokens_james)
-    v_james = len(word_frequencies_james)
-    n_james = len(tokens_james)
+    # get tokens of the different test text files
+    tokens_test_1 = utils.tokenize_text_file('./corpus/test/test1.txt')
+    tokens_test_2 = utils.tokenize_text_file('./corpus/test/test2.txt')
+    tokens_test_3 = utils.tokenize_text_file('./corpus/test/test3.txt')
 
-    word_frequencies_london = calc_word_frequencies(tokens_london)
-    v_london = len(word_frequencies_london)
-    n_london = len(tokens_london)
+    # class probabilities are equal as we have 3 documents of each author
+    prob_james = 0.5
+    prob_london = 0.5
 
-    tokens_test_1 = sanitize_text(getTokens('./corpus/test/test1.txt'))
-    tokens_test_2 = sanitize_text(getTokens('./corpus/test/test2.txt'))
-    tokens_test_3 = sanitize_text(getTokens('./corpus/test/test3.txt'))
+    # computing probabilities for each test corpus
+    for i, test_tokens in enumerate([tokens_test_1, tokens_test_2, tokens_test_3]):
+        class_prob_james = calc_bayes_prob(prob_james, tokens_james, tokens_james + tokens_london, test_tokens, smoothing_lambda, get_log_prob=False)
+        class_prob_london = calc_bayes_prob(prob_london, tokens_london, tokens_james + tokens_london, test_tokens, smoothing_lambda, get_log_prob=False)
 
-    for tokens in [tokens_test_1, tokens_test_2, tokens_test_3]:
+        print("\nClassifying Text {}".format(i))
+        print("Probabilities: \n James: {}% - London: {}%".format(class_prob_james * 100, class_prob_london * 100))
 
-        index, probs = calc_bayes_classification(tokens, [word_frequencies_james, word_frequencies_london], [
-                                                 n_james, n_london], [v_james, v_london], [0.5, 0.5], ALPHA)
-        if index == 0:
-            print("Classified as JAMES with " +
-                  str(probs[0]) + " vs. " + str(probs[1]) + " log probs")
-        else:
-            print("Classified as LONDON with " +
-                  str(probs[1]) + " vs. " + str(probs[0]) + " log probs")
-
+        prediction = ["James", "London"][[class_prob_james, class_prob_london].index(max(class_prob_james, class_prob_london))]
+        print("Classification Result: {}".format(prediction))
+   
 
 def main():
     ex_4()
