@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-3)
-    - Wortschatz (#unterschiedlicher Wörter)
-    - Sprache
-    - Syntax (Einfache vs. verschachtelte Sätze)
-    - Wörter bestimmter Kategorien (Emotionen, Thema, ...)
-    - Morphologische Eigenschaften (# Nomen, #Verben, vor allem AdjektiveØ...)
-    
-"""
 
 import re
 from nltk.tokenize import word_tokenize
@@ -111,30 +102,6 @@ def ex_4():
         getTokens('./corpus/london/Jack London___3.txt')))
     plot_most_common_words(cnt, 10, 'Jack London 3')
 
-
-def smooth_lidstone(token_count, total_tokens, alpha, len_vocabulary):
-    return (token_count + alpha) / float(total_tokens + alpha * len_vocabulary)
-
-
-def calc_word_frequencies(tokens):
-    """Calculate absolute word frequencies.
-
-        Parameters
-        ----------
-        tokens:  string[]
-                 Tokens of a language corpus.
-    """
-    if (len(tokens) == 0):
-        print('no words received')
-        return
-
-    word_frequencies = {}
-
-    # count word frequencies
-    for word in tokens:
-        word_frequencies[word] = word_frequencies.get(word, 0) + 1
-
-    return word_frequencies
 
 
 def calc_bayes_prob(class_prob, class_tokens, all_tokens, test_tokens, lidstone_lamda, get_log_prob=False):
