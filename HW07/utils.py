@@ -14,6 +14,7 @@ def sanitize_text(tokens, stopwords=None):
     Parameters
     ----------
         tokens : list of tokens (words)
+        stopwords: string[] containing words that should be removed from the text
 
     Returns
     -------
