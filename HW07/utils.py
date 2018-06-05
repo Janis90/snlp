@@ -4,6 +4,12 @@ from collections import Counter
 import matplotlib.pyplot as plt
 import numpy as np
 from math import log10
+import nltk.stem package
+
+from nltk.stem import WordNetLemmatizer
+from nltk.stem.porter import PorterStemmer
+
+
 
 
 def sanitize_text(tokens, stopwords=None):
@@ -32,6 +38,18 @@ def sanitize_text(tokens, stopwords=None):
     # remove empty elements
     tokens = [token for token in tokens if token != '']
     return tokens
+
+
+def lemma_stemming(tokens):
+
+    porter_stemmer = PorterStemmer()
+    wnl = WordNetLemmatizer()
+
+    for token in tokens:
+        token = porter_stemmer.stem(token)
+        token = wnl.lemmatize(token)
+
+    return tokens  
 
 
 def tokenize_text_string(text_string, sanitize=True, remove_duplicates=False):
