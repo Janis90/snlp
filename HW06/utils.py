@@ -86,9 +86,12 @@ def get_frequencies(tokens):
     -------
         A dictionary with the tokens as keys and the count as values.
     """
-    cnt = Counter()
+    cnt = {}
 
     for word in tokens:
+        if word not in cnt:
+            cnt[word] = 0
+
         cnt[word] += 1
 
     return cnt
@@ -127,44 +130,49 @@ def get_probabilities(vocabulary, text_tokens):
     return probs
 
 
-def get_probabilities_lidstone(vocabulary, text_tokens, lidstone_lamda, get_log_prob):
+def get_probabilities_lidstone(test_tokens, train_tokens, lidstone_lamda, vocabulary=None, get_log_prob=False):
     """
-    Compute the probability of each token of the vocabulary in the given text.
+    Compute the probability of each token of the test_tokens list in the given text.
     The probability distribution will be smoothed by additive Lidstone Smoothing
 
     Parameters
     ----------
-    vocabulary: token list containing words representing the vocabulary\n
-    text_tokens: token list of words in a text\n
+    test_tokens: token list containing words representing the test corpus\n
+    train_tokens:  token list containing words representing the train corpus\n
     lidstone_lamda: Lidstone smoothing parameter
+    vocabulary: List of tokens representing the vocabulary. If None, the vocabulary will be generated out of the train text
+    get_log_prob: compute and return logarithmic probabilities with base 10
 
     Returns
     -------
-    a dictionary with each word of the vocabulary as token and its corresponding probability as value
+    a dictionary with each word of the test_token list with the token and its corresponding probability as value
     """
-    # make sure vocabulary is a set
-    vocabulary = list(set(vocabulary))
+    # create vocabulary
+    if vocabulary is not None:
+        vocab = list(set(vocabulary))
+    else:
+        vocab = list(set(train_tokens))
 
-    # size of text must not be 0
-    assert len(vocabulary) > 0
+    # compute frequencies
+    train_freqs = get_frequencies(train_tokens)
 
-    # get frequencies of words in text
-    freqs = get_frequencies(text_tokens)
+    # apply smoothing
+    smoothed_probs = {}
 
-    # compute the probabilites of the words in the vocabulary
-    probs = {}
+    for test_word in set(test_tokens):
 
-    for word in vocabulary:
-        word_freq = freqs.get(word, 0)
+        # print("word: {} - seen {} times".format(test_word, train_freqs.get(test_word, 0)))
 
         if get_log_prob:
-            probs[word] = log10(word_freq + lidstone_lamda) - log10(len(text_tokens) + lidstone_lamda * len(vocabulary))
+            smoothed_prob = log10(train_freqs.get(test_word, 0) + lidstone_lamda) - log10(len(train_tokens) + lidstone_lamda * len(vocab))
         else:
-            probs[word] = (word_freq + lidstone_lamda) / float(len(text_tokens) + lidstone_lamda * len(vocabulary))
+            smoothed_prob = (train_freqs.get(test_word, 0) + lidstone_lamda) / float(len(train_tokens) + lidstone_lamda * len(vocab))
+        
+        smoothed_probs[test_word] = smoothed_prob
 
-    return probs
+    return smoothed_probs
 
-
+        
 def compute_joint_probability(token_list, token_probabilities, use_log_prob=False):
     """
     Computes the joint probability of the occurrence of a sequence of words given the probabilities of the single words.
@@ -188,10 +196,10 @@ def compute_joint_probability(token_list, token_probabilities, use_log_prob=Fals
         # do not allow zero probabilites
         assert word in token_probabilities
 
-    if use_log_prob:
-        log_prob += token_probabilities[word]
-    else:
-        log_prob += log10(token_probabilities[word])
+        if use_log_prob:
+            log_prob += token_probabilities[word]
+        else:
+            log_prob += log10(token_probabilities[word])
 
     if use_log_prob:
         return log_prob
@@ -199,15 +207,6 @@ def compute_joint_probability(token_list, token_probabilities, use_log_prob=Fals
     return 10**log_prob
 
 if __name__ == "__main__":
+    pass
 
-    sample_text = "hallo hallo Sven lol nein"
-
-    vocab = tokenize_text_string(sample_text, True, True)
-    text = tokenize_text_string(sample_text, True, False)
-
-    probs = get_probabilities(vocab, text)
-
-    print(probs)
-    print("\n")
-    print(compute_joint_probability(text, probs))
 
