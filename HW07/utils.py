@@ -6,9 +6,9 @@ import numpy as np
 from math import log10
 
 
-def sanitize_text(tokens):
+def sanitize_text(tokens, stopwords=None):
     """
-    Sanitizes a list of tokens from whitespaces and punktuations. All tokens 
+    Sanitizes a list of tokens from whitespaces and punktuations. All tokens
     will be set lowercase.
 
     Parameters
@@ -25,6 +25,8 @@ def sanitize_text(tokens):
 
     for index in range(len(tokens)):
         tokens[index] = regex.sub('', tokens[index])
+        if stopwords and tokens[index] in stopwords:
+            tokens[index] = ''
 
     # remove empty elements
     tokens = [token for token in tokens if token != '']
@@ -164,15 +166,17 @@ def get_probabilities_lidstone(test_tokens, train_tokens, lidstone_lamda, vocabu
         # print("word: {} - seen {} times".format(test_word, train_freqs.get(test_word, 0)))
 
         if get_log_prob:
-            smoothed_prob = log10(train_freqs.get(test_word, 0) + lidstone_lamda) - log10(len(train_tokens) + lidstone_lamda * len(vocab))
+            smoothed_prob = log10(train_freqs.get(
+                test_word, 0) + lidstone_lamda) - log10(len(train_tokens) + lidstone_lamda * len(vocab))
         else:
-            smoothed_prob = (train_freqs.get(test_word, 0) + lidstone_lamda) / float(len(train_tokens) + lidstone_lamda * len(vocab))
-        
+            smoothed_prob = (train_freqs.get(test_word, 0) + lidstone_lamda) / \
+                float(len(train_tokens) + lidstone_lamda * len(vocab))
+
         smoothed_probs[test_word] = smoothed_prob
 
     return smoothed_probs
 
-        
+
 def compute_joint_probability(token_list, token_probabilities, use_log_prob=False):
     """
     Computes the joint probability of the occurrence of a sequence of words given the probabilities of the single words.
@@ -185,7 +189,7 @@ def compute_joint_probability(token_list, token_probabilities, use_log_prob=Fals
 
     Returns
     -------
-    joint porbability value of the occurence of the words in token_list 
+    joint porbability value of the occurence of the words in token_list
     --> P(w1) * P(w2) * ... * P(wn)
     """
 
@@ -206,7 +210,6 @@ def compute_joint_probability(token_list, token_probabilities, use_log_prob=Fals
 
     return 10**log_prob
 
+
 if __name__ == "__main__":
     pass
-
-
