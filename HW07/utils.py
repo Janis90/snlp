@@ -4,12 +4,9 @@ from collections import Counter
 import matplotlib.pyplot as plt
 import numpy as np
 from math import log10
-import nltk.stem package
 
 from nltk.stem import WordNetLemmatizer
 from nltk.stem.porter import PorterStemmer
-
-
 
 
 def sanitize_text(tokens, stopwords=None):
@@ -42,17 +39,20 @@ def sanitize_text(tokens, stopwords=None):
 
 def lemma_stemming(tokens):
 
+    result = []
     porter_stemmer = PorterStemmer()
     wnl = WordNetLemmatizer()
 
     for token in tokens:
-        token = porter_stemmer.stem(token)
-        token = wnl.lemmatize(token)
+        out_token = porter_stemmer.stem(token)
+        out_token = wnl.lemmatize(out_token)
 
-    return tokens  
+        result.append(out_token)
+
+    return result  
 
 
-def tokenize_text_string(text_string, sanitize=True, remove_duplicates=False):
+def tokenize_text_string(text_string, sanitize=True, remove_duplicates=False, stopwords=None):
     """
     Reads a text string and creates a list of single words.
 
@@ -69,7 +69,7 @@ def tokenize_text_string(text_string, sanitize=True, remove_duplicates=False):
     tokens = word_tokenize(text_string)
 
     if sanitize:
-        tokens = sanitize_text(tokens)
+        tokens = sanitize_text(tokens, stopwords=stopwords)
 
     if remove_duplicates:
         tokens = list(set(tokens))
@@ -77,7 +77,7 @@ def tokenize_text_string(text_string, sanitize=True, remove_duplicates=False):
     return tokens
 
 
-def tokenize_text_file(path, sanitize=True, remove_duplicates=False):
+def tokenize_text_file(path, sanitize=True, remove_duplicates=False, stopwords=None):
     """
     Reads a text file and creates a list of single words.
 
@@ -93,7 +93,7 @@ def tokenize_text_file(path, sanitize=True, remove_duplicates=False):
     """
     with open(path, 'r') as f:
         text_string = f.read()
-        tokens = tokenize_text_string(text_string, sanitize, remove_duplicates)
+        tokens = tokenize_text_string(text_string, sanitize, remove_duplicates, stopwords=stopwords)
     return tokens
 
 
@@ -118,10 +118,11 @@ def get_frequencies(tokens):
     return cnt
 
 
-def get_probabilities(vocabulary, text_tokens):
+def get_probabilities(vocabulary, text_tokens, get_log_prob=False):
     """
     Compute the probability of each token of the vocabulary in the given text.
-    OOV words will receive probability 0.
+    OOV words will receive probability 0. If log_prob is True and a word would get
+    probability 0 this function returns -inf.
 
     Parameters
     ----------
@@ -146,7 +147,14 @@ def get_probabilities(vocabulary, text_tokens):
 
     for word in vocabulary:
         word_freq = freqs.get(word, 0)
-        probs[word] = word_freq / float(len(text_tokens))
+        if get_log_prob:
+            # CAUTION - word_freq can be 0 log(0) is not definded. We return -inf for this case
+            if word_freq == 0:
+                probs[word] = -float('Inf')
+            else:
+                probs[word] = log10(word_freq) - log10(len(text_tokens))
+        else:
+            probs[word] = word_freq / float(len(text_tokens))
 
     return probs
 
