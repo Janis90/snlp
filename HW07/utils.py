@@ -49,7 +49,7 @@ def lemma_stemming(tokens):
 
         result.append(out_token)
 
-    return result  
+    return result
 
 
 def tokenize_text_string(text_string, sanitize=True, remove_duplicates=False, stopwords=None):
@@ -76,6 +76,7 @@ def tokenize_text_string(text_string, sanitize=True, remove_duplicates=False, st
 
     return tokens
 
+
 def get_frequence(token_vocab, token_list):
 
     # compute all frequencies
@@ -86,8 +87,6 @@ def get_frequence(token_vocab, token_list):
         res_freqs[token] = freqs.get(token, 0)
 
     return res_freqs
-
-
 
 
 def tokenize_text_file(path, sanitize=True, remove_duplicates=False, stopwords=None):
@@ -106,7 +105,8 @@ def tokenize_text_file(path, sanitize=True, remove_duplicates=False, stopwords=N
     """
     with open(path, 'r') as f:
         text_string = f.read()
-        tokens = tokenize_text_string(text_string, sanitize, remove_duplicates, stopwords=stopwords)
+        tokens = tokenize_text_string(
+            text_string, sanitize, remove_duplicates, stopwords=stopwords)
     return tokens
 
 
@@ -215,6 +215,41 @@ def get_probabilities_lidstone(test_tokens, train_tokens, lidstone_lamda, vocabu
         smoothed_probs[test_word] = smoothed_prob
 
     return smoothed_probs
+
+
+def get_mutual_information(c_wic, c_wioc, c_owic, c_owioc):
+    """Caluclate the mututal information, based on 
+    formula from: https://nlp.stanford.edu/IR-book/html/htmledition/mutual-information-1.html
+    Parameters
+    ----------
+    c_wic: integer
+        Count `word_in_class`.
+    c_wioc: integer
+        Count`word_in_other_classes`.
+    c_owic: integer
+        Count`other_words_in_class`.
+    c_owioc: integer
+        Count `other_words_in_other_classes`.
+
+    Returns
+    -------
+    type
+        Description of returned object.
+
+    """
+    # total word count
+    c_total = c_wic + c_wioc + c_owic + c_owioc
+
+    mi_1 = (c_wic / float(c_total)) * log10((c_total * c_wic) /
+                                            float((c_wic + c_wioc) * (c_wic + c_owic)))
+    mi_2 = (c_owic / float(c_total)) * log10((c_total * c_owic) /
+                                             float((c_owic + c_owioc) * (c_wic + c_owic)))
+    mi_3 = (c_wioc / float(c_total)) * log10((c_total * c_wioc) /
+                                             float((c_wic + c_wioc) * (c_wioc + c_owioc)))
+    mi_4 = (c_owioc / float(c_total)) * log10((c_total * c_owioc) /
+                                              float((c_owic + c_owioc) * (c_wioc + c_owioc)))
+
+    return mi_1 + mi_2 + mi_3 + mi_4
 
 
 def compute_joint_probability(token_list, token_probabilities, use_log_prob=False):
