@@ -60,6 +60,51 @@ def ex4_1():
 
     return all_pmis
 
+
+
+
+def compute_mi(terms, corpora_list):
+
+    mi_values = {}    
+
+    # iter over all terms
+    for term in terms:
+        # count occurrences
+
+        # contains frequencies off all corpora
+        freq_list = []
+        abs_list = []
+
+        for cur_corpus in corpora_list:
+            d = get_frequence(token_vocab, cur_corpus)
+            freq_list.append(d)
+            abs_list.append(sum(x for x in d.values()))
+
+        
+    # for t in GlobalVocabulary:
+    #   for c in classes:
+    #       compute MI(t,c)
+
+
+
+
+def ex_4_2():
+
+    # read data
+    stop_words = utils.tokenize_text_file("Materials/stopwords.txt")
+    train_bio = utils.tokenize_text_file("Materials/train/Biology.txt", stopwords=stop_words)
+    train_chem = utils.tokenize_text_file("Materials/train/Chemistry.txt", stopwords=stop_words)
+    train_phys = utils.tokenize_text_file("Materials/train/Physics.txt", stopwords=stop_words)
+
+    # preprocess data
+    train_bio = utils.lemma_stemming(train_bio) 
+    train_chem = utils.lemma_stemming(train_chem)
+    train_phys = utils.lemma_stemming(train_phys)
+
+    train_all = train_bio + train_chem + train_phys
+
+    pass
+
 if __name__ == "__main__":
     res_lists = ex4_1()
     categories = ["bio", "chem", "phys"]

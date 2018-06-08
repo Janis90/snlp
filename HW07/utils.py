@@ -76,6 +76,19 @@ def tokenize_text_string(text_string, sanitize=True, remove_duplicates=False, st
 
     return tokens
 
+def get_frequence(token_vocab, token_list):
+
+    # compute all frequencies
+    freqs = get_frequencies(token_list)
+    res_freqs = {}
+
+    for token in token_vocab:
+        res_freqs[token] = freqs.get(token, 0)
+
+    return res_freqs
+
+
+
 
 def tokenize_text_file(path, sanitize=True, remove_duplicates=False, stopwords=None):
     """
