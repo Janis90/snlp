@@ -313,34 +313,50 @@ def compute_joint_probability(token_list, token_probabilities, use_log_prob=Fals
 
     return 10**log_prob
 
-    def lesks_similartiy(meaning_definition, context_defintions, type='default'):
-        """Calculate the similarity for Lesks Algorithm .
 
-        Parameters
-        ----------
-        meaning_definition : string set
-            Bag of words from the dictionary for a meaning of a word
-        context_definitions : string set
-            Bag of words for all defintions from the context
-        type: string
-            Type of the similary. Can be 'default' or, 'jaccards'
-        Returns
-        -------
-        float
-            Similarity.
+def lesks_similartiy(definition, context_words, type='default'):
+    """Calculate the similarity for Lesks Algorithm .
 
-        """
+    Parameters
+    ----------
+    definition : string set
+        Bag of words from the dictionary for a meaning of a word
+    context_words : string set
+        Bag of words for all defintions from the context
+    type: string
+        Type of the similary. Can be 'default' or, 'jaccards'
+    Returns
+    -------
+    float
+        Similarity.
 
-        if type == 'default':
-            return 2 * len(meaning_definition.intersection(context_defintions)) / float(len(meaning_definition) + len(context_defintions))
+    """
 
-        if type == 'jaccards':
-            return len(meaning_definition.intersection(context_defintions)) / float(len(meaning_definition.union(context_defintions)))
+    if type == 'default':
+        return 2 * len(definition.intersection(context_words)) / float(len(definition) + len(context_words))
 
-        print("type not mathing")
+    if type == 'jaccards':
+        return len(definition.intersection(context_words)) / float(len(definition.union(context_words)))
 
-    def lesks_algorithm():
-        return
+    print("type not mathing")
+    return
+
+
+def lesks_algorithm(definitions, context, type='default'):
+
+    similarity_def_1 = lesks_similartiy(
+        set(definitions[0][1]), set(context[1]), type)
+
+    similarity_def_2 = lesks_similartiy(
+        set(definitions[1][1]), set(context[1]), type)
+
+    # print(definitions[0][0] + ' ' + str(similarity_def_1) +
+    #      'vs. ' + definitions[1][0] + ' ' + str(similarity_def_2))
+
+    if similarity_def_1 >= similarity_def_2:
+        return definitions[0][0]
+    else:
+        return definitions[1][0]
 
 
 if __name__ == "__main__":
