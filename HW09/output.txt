@@ -6,7 +6,7 @@ LEICESTERSHIRE	NNP	I-NP	I-ORG	I-PER
 TAKE	NNP	I-NP	O	O
 OVER	IN	I-PP	O	O
 AT	NNP	I-NP	O	O
-TOP	NNP	I-NP	O	O
+TOP	NNP	I-NP	O	I-LOC
 AFTER	NNP	I-NP	O	O
 INNINGS	NNP	I-NP	O	O
 VICTORY	NN	I-NP	O	O
@@ -15,8 +15,8 @@ VICTORY	NN	I-NP	O	O
 LONDON	NNP	I-NP	I-LOC	I-LOC
 1996-08-30	CD	I-NP	O	O
 
-West	NNP	I-NP	I-MISC	I-LOC
-Indian	NNP	I-NP	I-MISC	I-MISC
+West	NNP	I-NP	I-MISC	I-ORG
+Indian	NNP	I-NP	I-MISC	I-ORG
 all-rounder	NN	I-NP	O	O
 Phil	NNP	I-NP	I-PER	I-PER
 Simmons	NNP	I-NP	I-PER	I-PER
@@ -169,7 +169,7 @@ Nasser	NNP	I-NP	I-PER	I-PER
 Hussain	NNP	I-NP	I-PER	I-PER
 and	CC	I-NP	O	O
 Peter	NNP	I-NP	I-PER	I-PER
-Such	JJ	I-NP	I-PER	I-PER
+Such	JJ	I-NP	I-PER	O
 gave	VBD	I-VP	O	O
 them	PRP	I-NP	O	O
 a	DT	B-NP	O	O
@@ -184,7 +184,7 @@ at	IN	I-PP	O	O
 Headingley	NNP	I-NP	I-LOC	I-LOC
 .	.	O	O	O
 
-Hussain	NN	I-NP	I-PER	I-PER
+Hussain	NN	I-NP	I-PER	O
 ,	,	O	O	O
 considered	VBD	I-VP	O	O
 surplus	NN	I-NP	O	O
@@ -411,14 +411,14 @@ by	IN	I-PP	O	O
 the	DT	I-NP	O	O
 weather	NN	I-NP	O	O
 ,	,	O	O	O
-Kent	NNP	I-NP	I-ORG	I-ORG
+Kent	NNP	I-NP	I-ORG	I-PER
 stepped	VBD	I-VP	O	O
 up	RP	I-PRT	O	O
 a	DT	I-NP	O	O
 gear	NN	I-NP	O	O
 to	TO	I-VP	O	O
 dismiss	VB	I-VP	O	O
-Nottinghamshire	NNP	I-NP	I-ORG	I-ORG
+Nottinghamshire	NNP	I-NP	I-ORG	I-LOC
 for	IN	I-PP	O	O
 214	CD	I-NP	O	O
 .	.	O	O	O
@@ -671,7 +671,7 @@ J.	NNP	I-NP	I-PER	I-PER
 Adams	NNP	I-NP	I-PER	I-PER
 123	CD	I-NP	O	O
 ,	,	O	O	O
-T.O'Gorman	JJ	I-NP	I-PER	I-PER
+T.O'Gorman	JJ	I-NP	I-PER	O
 109	CD	I-NP	O	O
 not	RB	I-VP	O	O
 out	RP	I-PRT	O	O
@@ -814,7 +814,7 @@ and	CC	O	O	O
 Scotland	NNP	I-NP	I-LOC	I-LOC
 .	.	O	O	O
 
-Tour	NNP	I-NP	O	I-MISC
+Tour	NNP	I-NP	O	O
 itinerary	NN	I-NP	O	O
 :	:	O	O	O
 
@@ -826,7 +826,7 @@ Arrive	NNP	I-NP	O	I-ORG
 in	IN	I-PP	O	O
 London	NNP	I-NP	I-LOC	I-LOC
 
-May	NNP	I-NP	O	O
+May	NNP	I-NP	O	I-ORG
 14	CD	I-NP	O	O
 Practice	NNP	I-NP	O	O
 at	IN	I-PP	O	O
@@ -838,9 +838,9 @@ May	NNP	I-NP	O	O
 v	SYM	I-VP	O	O
 Duke	NNP	I-NP	I-ORG	I-ORG
 of	IN	I-PP	I-ORG	O
-Norfolk	NNP	I-NP	I-ORG	I-ORG
+Norfolk	NNP	I-NP	I-ORG	I-LOC
 's	POS	B-NP	I-ORG	O
-XI	NNP	I-NP	I-ORG	I-PER
+XI	NNP	I-NP	I-ORG	O
 (	(	O	O	O
 at	IN	I-PP	O	O
 Arundel	NNP	I-NP	I-LOC	I-LOC
@@ -874,7 +874,7 @@ Headingley	NNP	I-NP	I-LOC	I-LOC
 Leeds	NNS	I-NP	I-ORG	O
 )	)	O	O	O
 
-May	NNP	I-NP	O	O
+May	NNP	I-NP	O	I-ORG
 24	CD	I-NP	O	O
 Second	NNP	I-NP	O	O
 one-day	JJ	I-NP	O	O
@@ -1033,7 +1033,7 @@ days	NNS	I-NP	O	O
 July	NNP	I-NP	O	O
 19-21	CD	I-NP	O	O
 v	SYM	I-VP	O	O
-Middlesex	NNP	I-NP	I-ORG	I-ORG
+Middlesex	NNP	I-NP	I-ORG	I-PER
 (	(	O	O	O
 three	CD	I-NP	O	O
 days	NNS	I-NP	O	O
@@ -1053,7 +1053,7 @@ August	NNP	I-NP	O	O
 August	NNP	I-NP	O	O
 1-4	CD	I-NP	O	O
 v	SYM	I-VP	O	O
-Somerset	NNP	I-NP	I-ORG	I-ORG
+Somerset	NNP	I-NP	I-ORG	I-PER
 (	(	O	O	O
 four	CD	I-NP	O	O
 days	NNS	I-NP	O	O
@@ -1100,7 +1100,7 @@ SOCCER	NN	I-NP	O	O
 SHEARER	NN	I-NP	I-PER	I-PER
 NAMED	VBD	I-VP	O	O
 AS	NNP	I-NP	O	O
-ENGLAND	NNP	I-NP	I-LOC	I-LOC
+ENGLAND	NNP	I-NP	I-LOC	I-PER
 CAPTAIN	NNP	I-NP	O	O
 .	.	O	O	O
 
@@ -1130,7 +1130,7 @@ The	DT	I-NP	O	O
 ,	,	O	O	O
 who	WP	I-NP	O	O
 joined	VBD	I-VP	O	O
-Newcastle	NNP	I-NP	I-ORG	I-ORG
+Newcastle	NNP	I-NP	I-ORG	I-LOC
 for	IN	I-PP	O	O
 15	CD	I-NP	O	O
 million	CD	I-NP	O	O
@@ -1408,7 +1408,7 @@ SOCCER	NN	I-NP	O	O
 -	:	O	O	O
 ROMANIA	NNP	I-NP	I-LOC	I-LOC
 BEAT	NN	I-INTJ	O	O
-LITHUANIA	NNP	I-NP	I-LOC	I-LOC
+LITHUANIA	NNP	I-NP	I-LOC	I-ORG
 IN	IN	I-PP	O	O
 UNDER-21	NNP	I-NP	O	O
 MATCH	NNP	I-NP	O	O
@@ -1536,7 +1536,7 @@ said	VBD	I-VP	O	O
 on	IN	I-PP	O	O
 Friday	NNP	I-NP	O	O
 that	IN	I-SBAR	O	O
-Rotor	NNP	I-NP	I-ORG	I-ORG
+Rotor	NNP	I-NP	I-ORG	I-LOC
 would	MD	I-VP	O	O
 play	VB	I-VP	O	O
 Lada	NNP	I-NP	I-ORG	I-ORG
@@ -1555,7 +1555,7 @@ club	NN	I-NP	O	O
 who	WP	I-NP	O	O
 put	VBD	I-VP	O	O
 Manchester	NNP	I-NP	I-ORG	I-ORG
-United	NNP	I-NP	I-ORG	I-ORG
+United	NNP	I-NP	I-ORG	I-PER
 out	IN	I-PP	O	O
 of	IN	B-PP	O	O
 last	JJ	I-NP	O	O
@@ -1596,7 +1596,7 @@ Alania	NNP	I-NP	I-ORG	I-ORG
 and	CC	O	O	O
 two	CD	I-NP	O	O
 behind	IN	I-PP	O	O
-Dynamo	NNP	I-NP	I-ORG	I-ORG
+Dynamo	NNP	I-NP	I-ORG	I-PER
 Moscow	NNP	I-NP	I-ORG	I-LOC
 ,	,	O	O	O
 the	DT	I-NP	O	O
@@ -1622,7 +1622,7 @@ club	NN	I-NP	O	O
 
 BOXING	VBG	I-VP	O	O
 -	:	O	O	O
-PANAMA	NNP	I-NP	I-LOC	I-PER
+PANAMA	NNP	I-NP	I-LOC	I-LOC
 'S	POS	B-NP	O	O
 ROBERTO	NNP	I-NP	I-PER	O
 DURAN	NNP	I-NP	I-PER	O
@@ -1640,7 +1640,7 @@ CITY	NNP	I-NP	I-LOC	I-LOC
 Panamanian	JJ	I-NP	I-MISC	O
 boxing	NN	I-NP	O	O
 legend	NN	I-NP	O	O
-Roberto	NNP	I-NP	I-PER	I-MISC
+Roberto	NNP	I-NP	I-PER	I-ORG
 "	"	O	I-PER	O
 Hands	NNS	I-NP	I-PER	O
 of	IN	I-PP	I-PER	O
@@ -1866,7 +1866,7 @@ him	PRP	I-NP	O	O
 a	DT	B-NP	O	O
 rematch	NN	I-NP	O	O
 against	IN	I-PP	O	O
-Puerto	NNP	I-NP	I-LOC	I-LOC
+Puerto	NNP	I-NP	I-LOC	I-PER
 Rico	NNP	I-NP	I-LOC	I-LOC
 's	POS	B-NP	O	O
 Hector	NNP	I-NP	I-PER	I-ORG
@@ -2184,7 +2184,7 @@ Thursday	NNP	I-NP	O	O
 
 LG	VBG	I-VP	I-ORG	I-ORG
 2	CD	I-NP	O	O
-OB	IN	I-PP	I-ORG	I-ORG
+OB	IN	I-PP	I-ORG	O
 0	CD	I-NP	O	O
 
 Lotte	NNP	I-NP	I-ORG	I-ORG
@@ -3319,7 +3319,7 @@ disaster	NN	I-NP	O	O
 on	IN	I-PP	O	O
 Thursday	NNP	I-NP	O	O
 but	CC	O	O	O
-Wimbledon	NNP	I-NP	I-MISC	I-MISC
+Wimbledon	NNP	I-NP	I-MISC	I-ORG
 finalist	NN	I-NP	O	O
 MaliVai	NNP	I-NP	I-PER	I-PER
 Washington	NNP	I-NP	I-PER	I-PER
@@ -3480,7 +3480,7 @@ Todd	NNP	I-NP	I-PER	I-PER
 Martin	NNP	I-NP	I-PER	I-PER
 in	IN	I-PP	O	O
 the	DT	I-NP	O	O
-Wimbledon	JJ	I-NP	I-MISC	I-MISC
+Wimbledon	JJ	I-NP	I-MISC	O
 semifinals	NNS	I-NP	O	O
 ,	,	O	O	O
 looked	VBD	I-VP	O	O
@@ -3758,7 +3758,7 @@ year	NN	I-NP	O	O
 tournament	NN	I-NP	O	O
 at	IN	I-PP	O	O
 the	DT	I-NP	O	O
-All-England	NNP	I-NP	I-ORG	I-ORG
+All-England	NNP	I-NP	I-ORG	I-LOC
 Club	NNP	I-NP	I-ORG	I-ORG
 ,	,	O	O	O
 argued	VBD	I-VP	O	O
@@ -3776,7 +3776,7 @@ hour	NN	I-NP	O	O
 minute	NN	I-NP	O	O
 tango	NN	I-NP	O	O
 with	IN	I-PP	O	O
-Rios	NNP	I-NP	I-PER	I-PER
+Rios	NNP	I-NP	I-PER	I-LOC
 on	IN	I-PP	O	O
 the	DT	I-NP	O	O
 grandstand	NN	I-NP	O	O
@@ -4130,8 +4130,8 @@ Cunningham	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
 the	DT	I-NP	O	O
 National	NNP	I-NP	I-ORG	I-ORG
-Football	NNP	I-NP	I-ORG	I-MISC
-League	NNP	I-NP	I-ORG	I-MISC
+Football	NNP	I-NP	I-ORG	I-ORG
+League	NNP	I-NP	I-ORG	I-ORG
 's	POS	B-NP	O	O
 all-time	JJ	I-NP	O	O
 leading	VBG	I-NP	O	O
@@ -4172,7 +4172,7 @@ Eagles	NNPS	I-NP	I-ORG	I-ORG
 A	DT	I-NP	O	O
 three-time	JJ	I-NP	O	O
 Pro	FW	I-NP	I-MISC	O
-Bowl	NNP	I-NP	I-MISC	I-PER
+Bowl	NNP	I-NP	I-MISC	I-ORG
 selection	NN	I-NP	O	O
 ,	,	O	O	O
 Cunningham	NNP	I-NP	I-PER	I-PER
@@ -4360,7 +4360,7 @@ the	DT	I-NP	O	O
 $	$	I-NP	O	O
 1.2	CD	I-NP	O	O
 million	CD	I-NP	O	O
-Greater	NNP	I-NP	I-MISC	I-MISC
+Greater	NNP	I-NP	I-MISC	O
 Milwaukee	NNP	I-NP	I-MISC	I-MISC
 Open	NNP	I-NP	I-MISC	I-MISC
 at	IN	I-PP	O	O
@@ -4372,7 +4372,7 @@ par-71	CD	I-NP	O	O
 Brown	NNP	I-NP	I-LOC	O
 Deer	NNP	I-NP	I-LOC	I-ORG
 Park	NNP	I-NP	I-LOC	O
-Golf	NNP	I-NP	I-LOC	O
+Golf	NNP	I-NP	I-LOC	I-PER
 Course	NNP	I-NP	I-LOC	I-PER
 after	IN	I-PP	O	O
 the	DT	I-NP	O	O
@@ -4523,7 +4523,7 @@ the	DT	I-NP	O	O
 $	$	I-NP	O	O
 1.2	CD	I-NP	O	O
 million	CD	I-NP	O	O
-Greater	NNP	I-NP	I-MISC	I-MISC
+Greater	NNP	I-NP	I-MISC	O
 Milwaukee	NNP	I-NP	I-MISC	I-MISC
 Open	NNP	I-NP	I-MISC	I-MISC
 Thursday	NNP	I-NP	O	O
@@ -4539,7 +4539,7 @@ professional	JJ	I-NP	O	O
 debut	NN	I-NP	O	O
 .	.	O	O	O
 
-Henke	NN	I-NP	I-PER	O
+Henke	NN	I-NP	I-PER	I-PER
 stood	VBD	I-VP	O	O
 two	CD	I-NP	O	O
 strokes	NNS	I-NP	O	O
@@ -4574,7 +4574,7 @@ unprecedented	JJ	I-NP	O	O
 third	JJ	I-NP	O	O
 successive	JJ	I-NP	O	O
 U.S.	NNP	I-NP	I-MISC	I-LOC
-Amateur	NNP	I-NP	I-MISC	I-MISC
+Amateur	NNP	I-NP	I-MISC	I-PER
 Championship	NNP	I-NP	I-MISC	I-PER
 ,	,	O	O	O
 almost	RB	I-ADVP	O	O
@@ -4806,7 +4806,7 @@ at	IN	I-PP	O	O
 the	DT	I-NP	O	O
 1994	CD	I-NP	O	O
 Texas	NNP	I-NP	I-MISC	I-MISC
-Open	NNP	I-NP	I-MISC	I-MISC
+Open	NNP	I-NP	I-MISC	I-PER
 and	CC	O	O	O
 whose	WP$	I-NP	O	O
 best	JJS	I-NP	O	O
@@ -4980,7 +4980,7 @@ off	RB	I-PRT	O	O
 
 SOCCER	NN	I-NP	O	O
 -	:	O	O	O
-SILVA	NNP	I-NP	I-PER	I-PER
+SILVA	NNP	I-NP	I-PER	I-LOC
 'S	POS	B-NP	O	O
 `LOST	NN	I-NP	O	O
 PASSPORT	NN	I-NP	O	O
@@ -5013,7 +5013,7 @@ Saturday	NNP	I-NP	O	O
 's	POS	B-NP	O	O
 game	NN	I-NP	O	O
 with	IN	I-PP	O	O
-Real	NNP	I-NP	I-ORG	I-ORG
+Real	NNP	I-NP	I-ORG	I-PER
 Madrid	NNP	I-NP	I-ORG	I-ORG
 after	IN	I-PP	O	O
 FIFA	NNP	I-NP	I-ORG	I-LOC
@@ -5040,7 +5040,7 @@ European	JJ	I-NP	I-MISC	I-MISC
 tour	NN	I-NP	O	O
 .	.	O	O	O
 
-Silva	NN	I-NP	I-PER	O
+Silva	NN	I-NP	I-PER	I-PER
 excused	VBN	I-VP	O	O
 his	PRP$	I-NP	O	O
 absence	NN	I-NP	O	O
@@ -6688,7 +6688,7 @@ seconds	NNS	I-NP	O	O
 Michael	NNP	I-NP	I-PER	I-PER
 Green	NNP	I-NP	I-PER	I-PER
 (	(	O	O	O
-Jamaica	NNP	I-NP	I-LOC	I-LOC
+Jamaica	NNP	I-NP	I-LOC	I-ORG
 )	)	O	O	O
 ,	,	O	O	O
 Osmond	VB	I-VP	I-PER	I-PER
@@ -6990,7 +6990,7 @@ stadium	NN	I-NP	O	O
 .	.	O	O	O
 
 Atlanta	NNP	I-NP	I-MISC	I-ORG
-Games	NNPS	I-NP	I-MISC	I-MISC
+Games	NNPS	I-NP	I-MISC	I-ORG
 silver	NN	I-NP	O	O
 medal	NN	I-NP	O	O
 winner	NN	I-NP	O	O
@@ -7111,7 +7111,7 @@ French	JJ	I-NP	I-MISC	I-MISC
 first	JJ	I-NP	O	O
 division	NN	I-NP	O	O
 side	NN	I-NP	O	O
-Nice	JJ	I-ADJP	I-ORG	I-ORG
+Nice	JJ	I-ADJP	I-ORG	O
 ,	,	O	O	O
 the	DT	I-NP	O	O
 club	NN	I-NP	O	O
@@ -7142,7 +7142,7 @@ fired	VBN	I-VP	O	O
 on	IN	I-PP	O	O
 Thursday	NNP	I-NP	O	O
 after	IN	I-PP	O	O
-Nice	JJ	I-ADJP	I-ORG	I-ORG
+Nice	JJ	I-ADJP	I-ORG	O
 's	POS	I-NP	O	O
 home	NN	I-NP	O	O
 defeat	VB	I-VP	O	O
@@ -7204,7 +7204,7 @@ Lentini	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
 transferred	VBD	I-VP	O	O
 to	TO	I-PP	O	O
-Milan	NNP	I-NP	I-ORG	I-ORG
+Milan	NNP	I-NP	I-ORG	I-LOC
 in	IN	I-PP	O	O
 1992	CD	I-NP	O	O
 for	IN	I-PP	O	O
@@ -7672,7 +7672,7 @@ Did	VBD	O	O	O
 not	RB	O	O	O
 bat	VB	I-VP	O	O
 :	:	O	O	O
-Dharmasena	NNP	I-NP	I-PER	I-PER
+Dharmasena	NNP	I-NP	I-PER	I-LOC
 ,	,	O	O	O
 Vaas	NNP	I-NP	I-PER	I-LOC
 ,	,	O	O	O
@@ -7855,7 +7855,7 @@ McGrath	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
 Ricky	NNP	I-NP	I-PER	I-PER
 
-Ponting	NNP	I-VP	I-PER	I-LOC
+Ponting	NNP	I-VP	I-PER	I-PER
 ,	,	O	O	O
 Michael	NNP	I-NP	I-PER	I-PER
 Slater	NNP	I-NP	I-PER	I-PER
@@ -7917,7 +7917,7 @@ Chandana	NNS	I-NP	I-PER	O
 
 -DOCSTART-	-X-	-X-	O	O
 
-ROMANIA	NNP	I-NP	I-LOC	I-ORG
+ROMANIA	NNP	I-NP	I-LOC	O
 COMELF	NNP	I-NP	I-ORG	O
 H1	NNP	I-NP	O	O
 PROFIT	NNP	I-NP	O	O
@@ -8203,7 +8203,7 @@ realistic	JJ	I-NP	O	O
 Luli	NNP	I-NP	I-PER	I-PER
 Popescu	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
-Bucharest	JJS	I-NP	I-ORG	I-ORG
+Bucharest	JJS	I-NP	I-ORG	O
 Newsroom	NNP	I-NP	I-ORG	I-ORG
 40-1	NNP	I-NP	O	O
 3120264	CD	I-NP	O	O
@@ -8367,7 +8367,7 @@ dollar	NN	I-NP	O	O
 639.38	CD	I-NP	O	O
 
 Total	JJ	I-NP	O	O
-Canadian	JJ	I-NP	I-MISC	I-MISC
+Canadian	JJ	I-NP	I-MISC	O
 liquid	JJ	I-NP	O	O
 assets	NNS	I-NP	O	O
 107.83	CD	I-NP	O	O
@@ -8453,12 +8453,12 @@ about	IN	I-NP	O	O
 2,960,000	CD	I-NP	O	O
 shares	NNS	I-NP	O	O
 of	IN	I-PP	O	O
-Jones	NNP	I-NP	I-ORG	I-MISC
+Jones	NNP	I-NP	I-ORG	I-LOC
 common	JJ	I-NP	O	O
 stock	NN	I-NP	O	O
 .	.	O	O	O
 
-Jones	NNP	I-NP	I-ORG	I-PER
+Jones	NNP	I-NP	I-ORG	O
 stock	NN	I-NP	O	O
 closed	VBD	I-VP	O	O
 down	RB	I-ADVP	O	O
@@ -8468,7 +8468,7 @@ at	IN	I-PP	O	O
 Friday	NNP	B-NP	O	O
 .	.	O	O	O
 
-Daniels	NNP	I-NP	I-ORG	I-PER
+Daniels	NNP	I-NP	I-ORG	I-ORG
 Pharmaceuticals	NNP	I-NP	I-ORG	I-ORG
 manufactures	VBZ	I-VP	O	O
 prescription	NN	I-NP	O	O
@@ -8480,7 +8480,7 @@ largest	JJS	I-NP	O	O
 of	IN	I-PP	O	O
 which	WDT	I-NP	O	O
 is	VBZ	I-VP	O	O
-Levoxyl	NNP	I-NP	I-MISC	O
+Levoxyl	NNP	I-NP	I-MISC	I-PER
 ,	,	O	O	O
 a	DT	I-NP	O	O
 synthetic	JJ	I-NP	O	O
@@ -8730,7 +8730,7 @@ traders	NNS	I-NP	O	O
 said	VBD	I-VP	O	O
 .	.	O	O	O
 
-NYMEX	NNP	I-NP	O	O
+NYMEX	NNP	I-NP	O	I-PER
 will	MD	I-VP	O	O
 be	VB	I-VP	O	O
 closed	VBN	I-VP	O	O
@@ -8748,7 +8748,7 @@ Milling	NNP	I-NP	I-PER	I-PER
 New	NNP	I-NP	I-ORG	I-ORG
 York	NNP	I-NP	I-ORG	I-ORG
 Energy	NNP	I-NP	I-ORG	I-ORG
-Desk	NNP	I-NP	I-ORG	I-ORG
+Desk	NNP	I-NP	I-ORG	I-PER
 ,	,	O	O	O
 +1	CD	I-NP	O	O
 212-859-1761	CD	I-NP	O	O
@@ -8763,8 +8763,8 @@ lower	JJR	I-ADJP	O	O
 ,	,	O	O	O
 shaken	VBN	I-VP	O	O
 by	IN	I-PP	O	O
-Chicago	NNP	I-NP	I-LOC	I-LOC
-NAPM	NNP	I-NP	I-ORG	I-ORG
+Chicago	NNP	I-NP	I-LOC	I-PER
+NAPM	NNP	I-NP	I-ORG	I-PER
 .	.	O	O	O
 
 CHICAGO	NNP	I-NP	I-LOC	I-LOC
@@ -8801,12 +8801,12 @@ of	IN	I-PP	I-ORG	I-ORG
 Purchasing	NNP	I-NP	I-ORG	I-ORG
 Management	NNP	I-NP	I-ORG	I-PER
 (	(	O	O	O
-NAPM	NNP	I-NP	I-ORG	I-LOC
+NAPM	NNP	I-NP	I-ORG	I-ORG
 )	)	I-NP	O	O
 index	NN	I-NP	O	O
 for	IN	I-PP	O	O
 the	DT	I-NP	O	O
-Chicago	NNP	I-NP	I-LOC	I-LOC
+Chicago	NNP	I-NP	I-LOC	I-ORG
 area	NN	I-NP	O	O
 ,	,	I-NP	O	O
 traders	NNS	I-NP	O	O
@@ -9108,7 +9108,7 @@ rates	NNS	I-NP	O	O
 before	IN	I-PP	O	O
 the	DT	I-NP	O	O
 next	JJ	I-NP	O	O
-Federal	NNP	I-NP	I-ORG	I-MISC
+Federal	NNP	I-NP	I-ORG	I-ORG
 Open	NNP	I-NP	I-ORG	I-MISC
 Market	NNP	I-NP	I-ORG	I-ORG
 Committee	NNP	I-NP	I-ORG	I-MISC
@@ -9319,7 +9319,7 @@ at	IN	I-PP	O	O
 
 Douglas	NNP	I-NP	I-ORG	I-ORG
 &	CC	I-NP	I-ORG	O
-Lomason	NN	I-NP	I-ORG	I-ORG
+Lomason	NN	I-NP	I-ORG	O
 shares	NNS	I-NP	O	O
 rise	NN	I-NP	O	O
 on	IN	I-PP	O	O
@@ -10137,9 +10137,9 @@ on	IN	I-PP	O	O
 Friday	NNP	I-NP	O	O
 .	.	O	O	O
 
-GERMANY	JJ	I-NP	I-LOC	I-ORG
+GERMANY	JJ	I-NP	I-LOC	O
 -	:	I-NP	O	O
-Bunds	NNP	I-NP	O	I-PER
+Bunds	NNP	I-NP	O	I-ORG
 extended	VBD	I-VP	O	O
 losses	NNS	I-NP	O	O
 ,	,	O	O	O
@@ -10221,7 +10221,7 @@ sharp	JJ	I-NP	O	O
 plunge	NN	I-NP	O	O
 in	IN	I-PP	O	O
 U.S.	NNP	I-NP	I-ORG	I-LOC
-Treasuries	NNP	I-NP	I-ORG	I-ORG
+Treasuries	NNP	I-NP	I-ORG	I-LOC
 after	IN	I-SBAR	O	O
 a	DT	I-NP	O	O
 shock	NN	I-NP	O	O
@@ -10281,7 +10281,7 @@ FRANCE	NNP	I-NP	I-LOC	O
 -	:	O	O	O
 Bond	NNP	I-NP	O	I-ORG
 and	CC	I-NP	O	O
-PIBOR	NNP	I-NP	O	I-MISC
+PIBOR	NNP	I-NP	O	I-ORG
 futures	NNS	I-NP	O	O
 ended	VBD	I-VP	O	O
 the	DT	I-NP	O	O
@@ -10502,7 +10502,7 @@ the	DT	I-NP	O	O
 September	NNP	I-NP	O	O
 future	JJ	I-NP	O	O
 on	IN	I-PP	O	O
-LIFFE	NNP	I-NP	I-ORG	I-LOC
+LIFFE	NNP	I-NP	I-ORG	O
 was	VBD	I-VP	O	O
 trading	VBG	I-VP	O	O
 at	IN	I-PP	O	O
@@ -10875,7 +10875,7 @@ was	VBD	I-VP	O	O
 only	RB	I-NP	O	O
 the	DT	I-NP	O	O
 third	JJ	I-NP	O	O
-Briton	NNP	I-NP	I-MISC	I-MISC
+Briton	NNP	I-NP	I-MISC	I-LOC
 ever	RB	I-ADVP	O	O
 to	TO	I-VP	O	O
 hold	VB	I-VP	O	O
@@ -10979,7 +10979,7 @@ selected	VBN	I-VP	O	O
 ahead	RB	I-ADVP	O	O
 of	IN	I-PP	O	O
 Phil	NNP	I-NP	I-PER	I-PER
-Babb	NNP	I-NP	I-PER	I-PER
+Babb	NNP	I-NP	I-PER	I-LOC
 in	IN	I-PP	O	O
 defence	NN	I-NP	O	O
 ,	,	O	O	O
@@ -11000,7 +11000,7 @@ of	IN	I-PP	O	O
 Norwich	NNP	I-NP	I-ORG	I-ORG
 City	NNP	I-NP	I-ORG	I-LOC
 joins	VBZ	I-VP	O	O
-Niall	NNP	I-NP	I-PER	O
+Niall	NNP	I-NP	I-PER	I-ORG
 Quinn	NNP	I-NP	I-PER	O
 up	RP	I-PRT	O	O
 front	NN	I-NP	O	O
@@ -11013,7 +11013,7 @@ as	RB	I-ADJP	O	O
 follows	VBZ	I-VP	O	O
 :	:	O	O	O
 
-Given	VBN	I-PP	I-PER	I-LOC
+Given	VBN	I-PP	I-PER	O
 ,	,	O	O	O
 Breen	NNP	I-NP	I-PER	I-LOC
 ,	,	O	O	O
@@ -11281,7 +11281,7 @@ at	IN	I-PP	O	O
 Driefontein	NNP	I-NP	I-ORG	I-LOC
 Consolidated	NNP	I-NP	I-ORG	I-LOC
 and	CC	O	I-ORG	O
-Gold	NNP	I-NP	I-ORG	I-ORG
+Gold	NNP	I-NP	I-ORG	I-PER
 Fields	NNP	I-NP	I-ORG	I-ORG
 '	POS	B-NP	I-ORG	O
 Kloof	NNP	I-NP	I-ORG	I-ORG
@@ -11785,7 +11785,7 @@ deal	NN	I-NP	O	O
 
 KHASAVYURT	NNP	I-NP	I-LOC	I-LOC
 ,	,	O	O	O
-Russia	NNP	I-NP	I-LOC	I-LOC
+Russia	NNP	I-NP	I-LOC	I-PER
 1996-08-31	NNP	I-NP	O	I-PER
 
 Russian	JJ	I-NP	I-MISC	I-MISC
@@ -11810,7 +11810,7 @@ the	DT	I-NP	O	O
 decision	NN	I-NP	O	O
 on	IN	I-PP	O	O
 whether	IN	I-SBAR	O	O
-Chechnya	NNP	I-NP	I-LOC	I-LOC
+Chechnya	NNP	I-NP	I-LOC	I-PER
 should	MD	I-VP	O	O
 be	VB	I-VP	O	O
 independent	JJ	I-ADJP	O	O
@@ -12286,7 +12286,7 @@ airport	NN	I-NP	O	O
 runway	NN	I-NP	O	O
 repairs	NNS	I-NP	O	O
 Sept	NNP	B-NP	O	O
-21-26-agency	NNP	I-NP	O	I-ORG
+21-26-agency	NNP	I-NP	O	I-PER
 .	.	O	O	O
 
 BELGRADE	VB	I-VP	I-LOC	I-LOC
@@ -12436,7 +12436,7 @@ period	NN	I-NP	O	O
 Federal	NNP	I-NP	I-ORG	I-ORG
 Air	NNP	I-NP	I-ORG	I-ORG
 Traffic	NNP	I-NP	I-ORG	I-ORG
-Control	NNP	I-NP	I-ORG	I-ORG
+Control	NNP	I-NP	I-ORG	O
 Administration	NNP	I-NP	I-ORG	I-ORG
 Director	NNP	I-NP	O	O
 Branko	NNP	I-NP	I-PER	I-PER
@@ -12931,7 +12931,7 @@ Tajikistan	NNP	I-NP	I-LOC	I-LOC
 armed	JJ	I-NP	O	O
 forces	NNS	I-NP	O	O
 ,	,	O	O	O
-Major-General	NNP	I-NP	O	O
+Major-General	NNP	I-NP	O	I-ORG
 Nikolai	NNP	I-NP	I-PER	I-PER
 Sherbatov	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
@@ -12965,7 +12965,7 @@ said	VBD	I-VP	O	O
 his	PRP$	I-NP	O	O
 troops	NNS	I-NP	O	O
 took	VBD	I-VP	O	O
-Tavildara	NNP	I-NP	I-LOC	I-LOC
+Tavildara	NNP	I-NP	I-LOC	I-ORG
 without	IN	I-PP	O	O
 casualties	NNS	I-NP	O	O
 on	IN	I-PP	O	O
@@ -13159,7 +13159,7 @@ barefoot	RB	I-ADVP	O	O
 children	NNS	I-NP	O	O
 .	.	O	O	O
 
-Fruit	NN	I-NP	O	O
+Fruit	NN	I-NP	O	I-PER
 remained	VBD	I-VP	O	O
 on	IN	I-PP	O	O
 the	DT	I-NP	O	O
@@ -13443,7 +13443,7 @@ saying	VBG	I-VP	O	O
 
 The	DT	I-NP	O	O
 Federal	NNP	I-NP	I-LOC	I-ORG
-Republic	NNP	I-NP	I-LOC	I-LOC
+Republic	NNP	I-NP	I-LOC	I-ORG
 of	IN	I-PP	I-LOC	O
 Yugoslavia	NNP	I-NP	I-LOC	I-LOC
 is	VBZ	I-VP	O	O
@@ -13639,7 +13639,7 @@ telephone	NN	I-NP	O	O
 .	.	O	O	O
 
 "	"	O	O	O
-Naina	NNP	I-NP	I-PER	I-PER
+Naina	NNP	I-NP	I-PER	O
 Yeltsin	NNP	I-NP	I-PER	I-PER
 looks	VBZ	I-VP	O	O
 well	RB	I-ADVP	O	O
@@ -13778,7 +13778,7 @@ Moscow	NNP	I-NP	I-LOC	I-LOC
 
 Lebed	JJ	I-ADJP	I-PER	I-PER
 ,	,	O	O	O
-Chechens	NNP	I-NP	I-MISC	I-MISC
+Chechens	NNP	I-NP	I-MISC	O
 start	NN	I-NP	O	O
 peace	NN	I-NP	O	O
 talks	NNS	I-NP	O	O
@@ -13922,7 +13922,7 @@ said	VBD	I-VP	O	O
 
 Interfax	RB	I-SBAR	I-ORG	I-ORG
 said	VBD	I-VP	O	O
-Judge	NNP	I-NP	O	I-PER
+Judge	NNP	I-NP	O	O
 Olga	NNP	I-NP	I-PER	I-PER
 Lavrentyeva	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
@@ -13951,7 +13951,7 @@ was	VBD	I-VP	O	O
 illegally	RB	I-VP	O	O
 trading	VBG	I-VP	O	O
 on	IN	I-PP	O	O
-Moscow	NNP	I-NP	I-LOC	I-ORG
+Moscow	NNP	I-NP	I-LOC	I-LOC
 streets	NNS	I-NP	O	O
 and	CC	O	O	O
 fined	VBD	I-VP	O	O
@@ -14034,7 +14034,7 @@ Budapest	NNP	I-NP	I-ORG	I-ORG
 Stock	NNP	I-NP	I-ORG	I-ORG
 Exchange	NNP	I-NP	I-ORG	I-ORG
 (	(	O	O	O
-BSE	NNP	I-NP	I-ORG	I-MISC
+BSE	NNP	I-NP	I-ORG	I-ORG
 )	)	O	O	O
 on	IN	I-PP	O	O
 Friday	NNP	I-NP	O	O
@@ -14194,7 +14194,7 @@ next	JJ	B-NP	O	O
 week	NN	I-NP	O	O
 .	.	O	O	O
 
-Cofinec	JJ	I-ADJP	I-ORG	I-ORG
+Cofinec	JJ	I-ADJP	I-ORG	I-PER
 ,	,	O	O	O
 the	DT	I-NP	O	O
 first	JJ	I-NP	O	O
@@ -14230,7 +14230,7 @@ said	VBD	I-VP	O	O
 he	PRP	I-NP	O	O
 regarded	VBD	I-VP	O	O
 Cofinec	NNP	I-NP	I-ORG	I-ORG
-GDRs	NNP	I-NP	O	I-ORG
+GDRs	NNP	I-NP	O	I-PER
 --	:	O	O	O
 which	WDT	I-NP	O	O
 are	VBP	I-VP	O	O
@@ -14623,7 +14623,7 @@ Potent	JJ	I-ADJP	O	O
 landmines	NNS	I-NP	O	O
 found	VBD	I-VP	O	O
 near	IN	I-PP	O	O
-Colombian	JJ	I-NP	I-MISC	I-MISC
+Colombian	JJ	I-NP	I-MISC	O
 presidency	NN	I-NP	O	O
 .	.	O	O	O
 
@@ -14698,7 +14698,7 @@ on	IN	I-PP	O	O
 the	DT	I-NP	O	O
 ornate	JJ	I-NP	O	O
 Casa	NNP	I-NP	I-LOC	I-ORG
-de	NNP	I-NP	I-LOC	I-LOC
+de	NNP	I-NP	I-LOC	I-ORG
 Narino	NNP	I-NP	I-LOC	I-LOC
 presidential	JJ	I-NP	O	O
 palace	NN	I-NP	O	O
@@ -15000,14 +15000,14 @@ interests	NNS	I-NP	O	O
 
 -DOCSTART-	-X-	-X-	O	O
 
-Cambodian	JJ	I-NP	I-MISC	I-MISC
+Cambodian	JJ	I-NP	I-MISC	O
 opposition	NN	I-NP	O	O
 newspaper	NN	I-NP	O	O
 editor	NN	I-NP	O	O
 pardoned	VBD	I-VP	O	O
 .	.	O	O	O
 
-PHNOM	NNP	I-NP	I-LOC	I-ORG
+PHNOM	NNP	I-NP	I-LOC	I-LOC
 PENH	NNP	I-NP	I-LOC	I-LOC
 1996-08-30	CD	I-NP	O	O
 
@@ -15070,7 +15070,7 @@ on	IN	I-PP	O	O
 his	PRP$	I-NP	O	O
 behalf	NN	I-NP	O	O
 by	IN	I-PP	O	O
-King	NNP	I-NP	O	O
+King	NNP	I-NP	O	I-PER
 Sihanouk	NNP	I-NP	I-PER	I-PER
 .	.	O	O	O
 
@@ -15205,11 +15205,11 @@ amnesty	NN	I-NP	O	O
 
 -DOCSTART-	-X-	-X-	O	O
 
-Far	NNP	I-NP	I-LOC	I-LOC
+Far	NNP	I-NP	I-LOC	O
 East	NNP	I-NP	I-LOC	O
-Gold	NNP	I-NP	O	I-ORG
+Gold	NNP	I-NP	O	O
 -	:	O	O	O
-Moribund	NNP	I-NP	O	O
+Moribund	NNP	I-NP	O	I-LOC
 market	NN	I-NP	O	O
 seen	VBN	I-VP	O	O
 continuing	VBG	I-VP	O	O
@@ -15312,7 +15312,7 @@ ounce	NN	I-NP	O	O
 over	IN	I-PP	O	O
 spot	NN	I-NP	O	O
 loco	NN	I-NP	O	O
-London	NNP	I-NP	I-LOC	I-LOC
+London	NNP	I-NP	I-LOC	I-ORG
 prices	NNS	I-NP	O	O
 ,	,	O	O	O
 with	IN	I-PP	O	O
@@ -15462,7 +15462,7 @@ Friday	NNP	I-NP	O	O
 ,	,	O	O	O
 versus	CC	O	O	O
 New	NNP	I-NP	I-LOC	I-ORG
-York	NNP	I-NP	I-LOC	I-LOC
+York	NNP	I-NP	I-LOC	I-ORG
 's	POS	I-NP	O	O
 $	$	I-ADJP	O	O
 387.60	CD	O	O	O
@@ -15713,7 +15713,7 @@ Nations	NNP	I-NP	I-ORG	I-ORG
 sanctions	VBZ	I-VP	O	O
 imposed	VBN	I-VP	O	O
 for	IN	I-PP	O	O
-Libya	NNP	I-NP	I-LOC	I-LOC
+Libya	NNP	I-NP	I-LOC	I-PER
 's	POS	B-NP	O	O
 refusal	NN	I-NP	O	O
 to	TO	I-PP	O	O
@@ -15785,7 +15785,7 @@ the	DT	I-NP	O	O
 city	NN	I-NP	O	O
 's	POS	B-NP	O	O
 Green	NNP	I-NP	I-LOC	I-LOC
-Square	NNP	I-NP	I-LOC	I-PER
+Square	NNP	I-NP	I-LOC	I-LOC
 where	WRB	I-ADVP	O	O
 makeshift	JJ	I-NP	O	O
 stages	NNS	I-NP	O	O
@@ -15962,7 +15962,7 @@ after	IN	I-PP	O	O
 bodyguards	NNS	I-NP	O	O
 loyal	JJ	I-ADJP	O	O
 to	TO	I-PP	O	O
-Gaddafi	NNP	I-NP	I-PER	I-LOC
+Gaddafi	NNP	I-NP	I-PER	I-PER
 's	POS	B-NP	O	O
 sons	NNS	I-NP	O	O
 fired	VBN	I-VP	O	O
@@ -15998,7 +15998,7 @@ thousands	NNS	I-NP	O	O
 of	IN	I-PP	O	O
 Sudanese	NNP	I-NP	I-MISC	I-MISC
 and	CC	O	O	O
-Egyptian	NNP	I-NP	I-MISC	I-MISC
+Egyptian	NNP	I-NP	I-MISC	I-LOC
 workers	NNS	I-NP	O	O
 .	.	O	O	O
 
@@ -17200,7 +17200,7 @@ wanted	VBN	I-VP	O	O
 It	PRP	I-NP	O	O
 appears	VBZ	I-VP	O	O
 that	IN	I-SBAR	O	O
-August	NNP	I-NP	O	O
+August	NNP	I-NP	O	I-PER
 is	VBZ	I-VP	O	O
 showing	VBG	I-VP	O	O
 an	DT	I-NP	O	O
@@ -17447,7 +17447,7 @@ flat	JJ	I-ADJP	O	O
 Economist	NNP	I-NP	O	O
 Joel	NNP	I-NP	I-PER	I-PER
 Naroff	NNP	I-NP	I-PER	I-PER
-of	IN	I-PP	O	I-ORG
+of	IN	I-PP	O	O
 First	NNP	I-NP	I-ORG	I-ORG
 Union	NNP	I-NP	I-ORG	I-ORG
 bank	NN	I-NP	O	O
@@ -17492,7 +17492,7 @@ The	DT	I-NP	O	O
 FOMC	NNP	I-NP	I-ORG	I-ORG
 (	(	O	O	O
 Federal	NNP	I-NP	I-ORG	I-ORG
-Open	NNP	I-NP	I-ORG	I-ORG
+Open	NNP	I-NP	I-ORG	I-MISC
 Market	NNP	I-NP	I-ORG	I-ORG
 Committee	NNP	I-NP	I-ORG	I-ORG
 )	)	O	O	O
@@ -17587,7 +17587,7 @@ Friday	NNP	B-NP	O	O
 Federal	NNP	I-NP	I-ORG	I-ORG
 Reserve	NNP	I-NP	I-ORG	I-ORG
 Governor	NNP	I-NP	O	I-ORG
-Lawrence	NNP	I-NP	I-PER	I-PER
+Lawrence	NNP	I-NP	I-PER	I-ORG
 Lindsey	NNP	I-NP	I-PER	I-PER
 said	VBD	I-VP	O	O
 there	RB	I-ADVP	O	O
@@ -17864,7 +17864,7 @@ McNeil	NNP	I-NP	I-PER	I-PER
 WASHINGTON	NNP	I-NP	I-LOC	I-LOC
 1996-08-30	CD	I-NP	O	O
 
-U.S.	NNP	I-NP	I-ORG	I-ORG
+U.S.	NNP	I-NP	I-ORG	I-LOC
 Agriculture	NNP	I-NP	I-ORG	I-ORG
 Department	NNP	I-NP	I-ORG	I-ORG
 officials	NNS	I-NP	O	O
@@ -18108,7 +18108,7 @@ trading	NN	I-NP	O	O
 rules	NNS	I-NP	O	O
 of	IN	I-PP	O	O
 the	DT	I-NP	O	O
-World	NNP	I-NP	I-ORG	I-ORG
+World	NNP	I-NP	I-ORG	I-MISC
 Trade	NNP	I-NP	I-ORG	I-ORG
 Organisation	NNP	I-NP	I-ORG	I-ORG
 .	.	O	O	O
@@ -18174,7 +18174,7 @@ be	VB	I-VP	O	O
 allowed	VBN	I-VP	O	O
 .	.	O	O	O
 
-Mexican	JJ	I-NP	I-MISC	I-MISC
+Mexican	JJ	I-NP	I-MISC	O
 growers	NNS	I-NP	O	O
 and	CC	I-NP	O	O
 distributors	NNS	I-NP	O	O
@@ -18422,7 +18422,7 @@ CHICAGO	NNP	I-NP	I-LOC	I-LOC
 1996-08-30	CD	I-NP	O	O
 
 Chicago	NNP	I-NP	I-LOC	I-ORG
-Cardinal	NNP	I-NP	O	O
+Cardinal	NNP	I-NP	O	I-ORG
 Joseph	NNP	I-NP	I-PER	I-PER
 Bernardin	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
@@ -19056,7 +19056,7 @@ of	IN	I-PP	O	O
 other	JJ	I-NP	O	O
 mergers	NNS	I-NP	O	O
 involving	VBG	I-VP	O	O
-Missouri	NNP	I-NP	I-LOC	I-ORG
+Missouri	NNP	I-NP	I-LOC	I-MISC
 banks	NNS	I-NP	O	O
 ,	,	O	O	O
 which	WDT	I-NP	O	O
@@ -19122,9 +19122,9 @@ come	VB	I-VP	O	O
 in	IN	I-ADVP	O	O
 and	CC	O	O	O
 grab	VB	I-VP	O	O
-Mercantile	NNP	I-NP	I-ORG	I-PER
+Mercantile	NNP	I-NP	I-ORG	I-LOC
 or	CC	I-NP	O	O
-Commerce	NNP	I-NP	I-ORG	I-ORG
+Commerce	NNP	I-NP	I-ORG	I-LOC
 .	.	I-NP	O	O
 "	"	O	O	O
 
@@ -19205,7 +19205,7 @@ attention	NN	I-NP	O	O
 on	IN	I-PP	O	O
 Mercantile	NNP	I-NP	I-ORG	I-LOC
 ,	,	I-NP	O	O
-Commerce	NNP	I-NP	I-ORG	I-PER
+Commerce	NNP	I-NP	I-ORG	I-LOC
 and	CC	I-NP	O	O
 Roosevelt	NNP	I-NP	I-ORG	I-LOC
 ,	,	O	O	O
@@ -19290,10 +19290,10 @@ Norwest	NNP	I-NP	I-ORG	I-ORG
 Corp.	NNP	I-NP	I-ORG	I-ORG
 ,	,	I-NP	O	O
 Ohio-based	JJ	I-NP	I-MISC	O
-KeyCorp	NNP	I-NP	I-ORG	I-LOC
+KeyCorp	NNP	I-NP	I-ORG	I-PER
 and	CC	O	O	O
 Banc	NNP	I-NP	I-ORG	I-ORG
-One	CD	I-NP	I-ORG	I-ORG
+One	CD	I-NP	I-ORG	O
 Corp.	NNP	I-NP	I-ORG	I-ORG
 ,	,	O	O	O
 and	CC	O	O	O
@@ -19310,13 +19310,13 @@ of	IN	I-PP	O	O
 First	NNP	I-NP	I-ORG	I-ORG
 Bank	NNP	I-NP	I-ORG	I-ORG
 ,	,	O	O	O
-Norwest	NNP	I-NP	I-ORG	I-ORG
+Norwest	NNP	I-NP	I-ORG	I-LOC
 ,	,	O	O	O
 Banc	NNP	I-NP	I-ORG	I-PER
 One	CD	I-NP	I-ORG	O
 and	CC	O	O	O
 First	NNP	I-NP	I-ORG	I-ORG
-Chicago	NNP	I-NP	I-ORG	I-ORG
+Chicago	NNP	I-NP	I-ORG	I-PER
 said	VBD	I-VP	O	O
 the	DT	I-NP	O	O
 banks	NNS	I-NP	O	O
@@ -19383,7 +19383,7 @@ statute	NN	I-NP	O	O
 .	.	O	O	O
 
 "	"	O	O	O
-Boatmen	NNP	I-NP	I-ORG	I-LOC
+Boatmen	NNP	I-NP	I-ORG	O
 's	POS	I-NP	I-ORG	O
 was	VBD	I-VP	O	O
 the	DT	I-NP	O	O
@@ -19407,7 +19407,7 @@ said	VBD	I-VP	O	O
 Talk	NN	I-NP	O	O
 that	IN	I-SBAR	O	O
 the	DT	I-NP	O	O
-Missouri	NNP	I-NP	I-LOC	I-LOC
+Missouri	NNP	I-NP	I-LOC	I-ORG
 banks	NNS	I-NP	O	O
 were	VBD	I-VP	O	O
 seeking	VBG	I-VP	O	O
@@ -19457,7 +19457,7 @@ done	VBN	I-VP	O	O
 "	"	O	O	O
 I	PRP	I-NP	O	O
 think	VBP	I-VP	O	O
-Boatmen	NNP	I-NP	I-ORG	I-PER
+Boatmen	NNP	I-NP	I-ORG	O
 's	POS	I-NP	I-ORG	O
 was	VBD	I-VP	O	O
 shopping	VBG	I-VP	O	O
@@ -19581,7 +19581,7 @@ Co	NNP	I-NP	I-ORG	I-ORG
 U.S.	NNP	I-NP	I-LOC	I-LOC
 tight-lipped	JJ	I-ADJP	O	O
 on	IN	I-PP	O	O
-Libya	NNP	I-NP	I-LOC	I-LOC
+Libya	NNP	I-NP	I-LOC	O
 's	POS	B-NP	O	O
 award	NN	I-NP	O	O
 to	TO	I-PP	O	O
@@ -19664,7 +19664,7 @@ U.S.	NNP	I-NP	I-LOC	I-LOC
 government	NN	I-NP	O	O
 on	IN	I-PP	O	O
 (	(	O	O	O
-Farrakhan	NNP	I-NP	I-PER	I-LOC
+Farrakhan	NNP	I-NP	I-PER	I-PER
 's	POS	I-NP	O	O
 )	)	O	O	O
 not	RB	I-ADJP	O	O
@@ -19785,7 +19785,7 @@ terrorism	NN	I-NP	O	O
 and	CC	O	O	O
 noted	VBD	I-VP	O	O
 that	IN	I-SBAR	O	O
-Tripoli	NNP	I-NP	I-LOC	I-ORG
+Tripoli	NNP	I-NP	I-LOC	I-PER
 has	VBZ	I-VP	O	O
 refused	VBN	I-VP	O	O
 to	TO	I-PP	O	O
@@ -19825,7 +19825,7 @@ Libya	NNP	I-NP	I-LOC	I-LOC
 -DOCSTART-	-X-	-X-	O	O
 
 U.S.	NNP	I-NP	I-LOC	I-LOC
-Gulf	NNP	I-NP	I-LOC	I-MISC
+Gulf	NNP	I-NP	I-LOC	I-LOC
 rig	NN	I-NP	O	O
 down	RB	I-ADVP	O	O
 by	IN	I-PP	O	O
@@ -20098,7 +20098,7 @@ Sept	NNP	I-NP	O	O
 
 25	CD	I-NP	O	O
 ,	,	O	O	O
-Oct.	NNP	I-NP	O	O
+Oct.	NNP	I-NP	O	I-PER
 9	CD	I-NP	O	O
 and	CC	O	O	O
 Oct.	NNP	I-NP	O	O
@@ -20156,7 +20156,7 @@ by	IN	I-PP	O	O
 mid-September	NN	I-NP	O	O
 on	IN	I-PP	O	O
 whether	IN	I-SBAR	O	O
-Texas	NNP	I-NP	I-LOC	I-LOC
+Texas	NNP	I-NP	I-LOC	I-ORG
 billionaire	NN	I-NP	O	O
 Ross	NNP	I-NP	I-PER	I-PER
 Perot	NNP	I-NP	I-PER	I-PER
@@ -20294,7 +20294,7 @@ Erin	NNP	I-NP	I-PER	I-PER
 Purcell	NNP	I-NP	I-PER	I-PER
 of	IN	I-PP	O	O
 Boston-based	JJ	I-NP	I-MISC	O
-Reagan	NNP	I-NP	I-ORG	I-MISC
+Reagan	NNP	I-NP	I-ORG	I-LOC
 Communications	NNP	I-NP	I-ORG	I-MISC
 that	WDT	B-NP	O	O
 represents	VBZ	I-VP	O	O
@@ -20497,7 +20497,7 @@ expansion	NN	I-NP	O	O
 of	IN	I-PP	O	O
 Jewish	NNP	I-NP	I-MISC	I-ORG
 West	NNP	I-NP	I-LOC	I-LOC
-Bank	NNP	I-NP	I-LOC	I-LOC
+Bank	NNP	I-NP	I-LOC	I-ORG
 settlements	NNS	I-NP	O	O
 surrounding	VBG	I-VP	O	O
 Jerusalem	NNP	I-NP	I-LOC	I-LOC
@@ -20851,7 +20851,7 @@ home	NN	I-ADVP	O	O
 .	.	O	O	O
 
 A	DT	I-NP	O	O
-Guinean	NNP	I-NP	I-MISC	I-MISC
+Guinean	NNP	I-NP	I-MISC	I-LOC
 man	NN	I-NP	O	O
 ,	,	O	O	O
 detained	VBD	I-VP	O	O
@@ -20945,7 +20945,7 @@ the	DT	I-NP	O	O
 CFDT	NNPS	I-NP	I-ORG	I-ORG
 and	CC	O	O	O
 the	DT	I-NP	O	O
-Communist-led	JJ	I-NP	I-MISC	I-MISC
+Communist-led	JJ	I-NP	I-MISC	O
 CGT	JJ	I-NP	I-ORG	O
 unions	NNS	I-NP	O	O
 marched	VBD	I-VP	O	O
@@ -20989,7 +20989,7 @@ France	NNP	I-NP	I-ORG	I-LOC
 chairman	NN	I-NP	O	O
 )	)	O	O	O
 Christian	JJ	I-NP	I-PER	O
-Blanc	NNP	I-NP	I-PER	I-MISC
+Blanc	NNP	I-NP	I-PER	I-LOC
 that	IN	I-SBAR	O	O
 no	DT	I-NP	O	O
 plane	NN	I-NP	O	O
@@ -21250,7 +21250,7 @@ girl	NN	I-NP	O	O
 found	VBD	I-VP	O	O
 alive	JJ	I-ADJP	O	O
 at	IN	I-PP	O	O
-Dutch	JJ	I-NP	I-MISC	I-MISC
+Dutch	JJ	I-NP	I-MISC	O
 campsite	NN	I-NP	O	O
 .	.	O	O	O
 
@@ -21573,14 +21573,14 @@ the	DT	I-NP	O	O
 stockists	NNS	I-NP	O	O
 who	WP	B-NP	O	O
 expect	VBP	I-VP	O	O
-Hindustan	NNP	I-NP	I-ORG	I-ORG
+Hindustan	NNP	I-NP	I-ORG	I-PER
 Copper	NNP	I-NP	I-ORG	I-ORG
 to	TO	I-VP	O	O
 cut	VB	I-VP	O	O
 prices	NNS	I-NP	O	O
 .	.	O	O	O
 
-Nickel	NNP	I-NP	O	I-ORG
+Nickel	NNP	I-NP	O	I-PER
 rose	VBD	I-VP	O	O
 by	IN	I-PP	O	O
 500	CD	I-NP	O	O
@@ -21638,9 +21638,9 @@ Commodities	NNP	I-NP	I-ORG	I-ORG
 MARTELA	NNP	I-NP	I-ORG	I-ORG
 H1	NNP	I-NP	O	O
 PROFIT	NNP	I-NP	O	O
-FIM	NNP	I-NP	O	O
+FIM	NNP	I-NP	O	I-ORG
 6.3	CD	I-NP	O	O
-MLN	NNP	I-NP	O	O
+MLN	NNP	I-NP	O	I-ORG
 VS	NNP	I-NP	O	I-ORG
 21.0	CD	I-NP	O	O
 MLN	NNP	I-NP	O	O
@@ -21728,7 +21728,7 @@ U.S.	NNP	I-NP	I-LOC	I-LOC
 bonds	NNS	I-NP	O	O
 on	IN	I-PP	O	O
 positive	JJ	I-NP	O	O
-Canadian	JJ	I-NP	I-MISC	I-MISC
+Canadian	JJ	I-NP	I-MISC	O
 economic	JJ	I-NP	O	O
 data	NNS	I-NP	O	O
 ,	,	O	O	O
@@ -22171,7 +22171,7 @@ shrs	NNS	I-NP	O	O
 All	DT	I-NP	O	O
 Data	NNP	I-NP	O	I-ORG
 Above	IN	I-PP	O	I-ORG
-000s	NNPS	I-NP	O	I-MISC
+000s	NNPS	I-NP	O	I-ORG
 Except	IN	I-PP	O	O
 Per	IN	I-NP	O	O
 Share	NN	I-NP	O	O
@@ -22500,7 +22500,7 @@ not	RB	I-VP	O	O
 confront	VB	I-VP	O	O
 a	DT	I-NP	O	O
 united	VBN	I-NP	O	O
-Arab	JJ	I-NP	I-MISC	I-MISC
+Arab	JJ	I-NP	I-MISC	O
 stand	NN	I-NP	O	O
 or	CC	O	O	O
 usurp	VB	I-VP	O	O
@@ -22508,7 +22508,7 @@ their	PRP$	I-NP	O	O
 rights	NNS	I-NP	O	O
 because	IN	I-SBAR	O	O
 the	DT	I-NP	O	O
-Arab	JJ	I-NP	I-MISC	I-MISC
+Arab	JJ	I-NP	I-MISC	O
 rights	NNS	I-NP	O	O
 could	MD	I-VP	O	O
 be	VB	I-VP	O	O
@@ -23190,7 +23190,7 @@ road	NN	I-NP	O	O
 Abu	NNP	I-NP	I-PER	I-PER
 Ammar	NNP	I-NP	I-PER	I-PER
 (	(	O	O	O
-Arafat	NNP	I-NP	I-PER	I-PER
+Arafat	NNP	I-NP	I-PER	I-ORG
 )	)	O	O	O
 is	VBZ	I-VP	O	O
 right	JJ	I-ADJP	O	O
@@ -23234,7 +23234,7 @@ PRESALE	NNP	I-NP	O	O
 -	:	O	O	O
 Bay	NNP	I-NP	I-ORG	I-ORG
 Co	NNP	I-NP	I-ORG	I-ORG
-Bldg	NNP	I-NP	I-ORG	I-ORG
+Bldg	NNP	I-NP	I-ORG	I-PER
 Auth	NNP	I-NP	I-ORG	I-PER
 ,	,	O	O	O
 Mich	NNP	I-NP	I-LOC	I-LOC
@@ -23246,8 +23246,8 @@ AMT	NNP	O	O	O
 DATE	NN	I-NP	O	O
 :	:	O	O	O
 09/05/96	CD	I-NP	O	O
-NYC	NNP	I-NP	I-MISC	I-MISC
-Time	NNP	I-NP	O	I-MISC
+NYC	NNP	I-NP	I-MISC	O
+Time	NNP	I-NP	O	O
 :	:	O	O	O
 1600	CD	I-NP	O	O
 CUSIP	NN	I-NP	O	O
@@ -23274,11 +23274,11 @@ enforcement	NN	I-NP	O	O
 ctr	VBZ	I-VP	O	O
 )	)	O	O	O
 Series	NN	I-NP	O	O
-1996-A	NNP	I-NP	O	I-MISC
+1996-A	NNP	I-NP	O	O
 TAX	NN	I-NP	O	O
 STAT	NN	I-NP	O	O
 :	:	O	O	O
-Exempt-REV	NNS	I-NP	O	I-LOC
+Exempt-REV	NNS	I-NP	O	O
 
 M	NNP	I-NP	O	O
 /	SYM	O	O	O
@@ -23349,14 +23349,14 @@ Michigan	NNP	I-NP	I-ORG	I-ORG
 National	NNP	I-NP	I-ORG	I-ORG
 Bank	NNP	I-NP	I-ORG	I-ORG
 ,	,	O	O	O
-Detroit	NNP	I-NP	I-LOC	I-ORG
+Detroit	NNP	I-NP	I-LOC	I-PER
 
 L.O.	NNP	I-NP	O	O
 :	:	O	O	O
 Bodman	NNP	I-NP	I-ORG	I-LOC
 ,	,	O	I-ORG	O
 Longely	NNP	I-NP	I-ORG	I-ORG
-&	CC	I-NP	I-ORG	I-ORG
+&	CC	I-NP	I-ORG	O
 Dahling	NNP	I-NP	I-ORG	I-ORG
 ,	,	O	O	O
 Detroit	NNP	I-NP	I-LOC	I-PER
@@ -23368,7 +23368,7 @@ of	IN	I-PP	I-ORG	O
 Michigan	NNP	I-NP	I-ORG	I-ORG
 Corp.	NNP	I-NP	I-ORG	I-ORG
 ,	,	O	O	O
-Detroit	NNP	I-NP	I-LOC	I-ORG
+Detroit	NNP	I-NP	I-LOC	I-PER
 
 LAST	NNS	I-NP	O	O
 SALE	NNP	I-NP	O	O
@@ -23997,15 +23997,15 @@ MARKETS	NNS	I-NP	O	O
 ROUND-UP	JJ	I-ADJP	O	O
 
 STOCKS	NNS	I-NP	O	O
-GOLD	NNP	I-NP	O	O
-METALS	NNPS	I-NP	O	I-PER
+GOLD	NNP	I-NP	O	I-ORG
+METALS	NNPS	I-NP	O	I-ORG
 
 NY	DT	I-NP	I-MISC	O
-Dow	NNP	I-NP	I-MISC	I-MISC
+Dow	NNP	I-NP	I-MISC	I-ORG
 close	NN	I-NP	O	O
-London	NNP	I-NP	I-LOC	I-LOC
+London	NNP	I-NP	I-LOC	I-ORG
 opening	NN	I-NP	O	O
-LME	NNP	I-NP	I-ORG	O
+LME	NNP	I-NP	I-ORG	I-PER
 close	NN	I-NP	O	O
 
 5647.65	CD	I-NP	O	O
@@ -24019,7 +24019,7 @@ copper	NN	I-NP	O	O
 per	IN	I-PP	O	O
 tonne	NN	I-NP	O	O
 
-Nikkei	NNP	I-NP	I-MISC	I-MISC
+Nikkei	NNP	I-NP	I-MISC	O
 latest	JJS	I-NP	O	O
 CRUDE	NNP	I-NP	O	O
 OIL	NNP	I-NP	O	O
@@ -24060,7 +24060,7 @@ BOND	NN	I-NP	O	O
 RATES	NNS	I-NP	O	O
 JUMP	NNP	I-NP	O	O
 ON	NNP	O	O	O
-STRONG	NNP	I-NP	O	O
+STRONG	NNP	I-NP	O	I-PER
 DATA	NNP	I-NP	O	O
 
 Blue-chip	JJ	I-NP	O	O
@@ -24785,7 +24785,7 @@ cables	NNS	I-NP	O	O
 look	VB	I-VP	O	O
 to	TO	I-VP	O	O
 tap	VB	I-VP	O	O
-Chinese	JJ	I-NP	I-MISC	I-MISC
+Chinese	JJ	I-NP	I-MISC	O
 growth	NN	I-NP	O	O
 .	.	O	O	O
 
@@ -24927,7 +24927,7 @@ expand	VB	I-VP	O	O
 in	IN	I-PP	O	O
 the	DT	I-NP	O	O
 fast-growing	JJ	I-NP	O	O
-Far	NNP	I-NP	I-MISC	I-MISC
+Far	NNP	I-NP	I-MISC	I-PER
 Eastern	NNP	I-NP	I-MISC	I-ORG
 developing	VBG	I-VP	O	O
 markets	NNS	I-NP	O	O
@@ -25073,7 +25073,7 @@ industrial	JJ	I-NP	O	O
 involvement	NN	I-NP	O	O
 in	IN	I-PP	O	O
 a	DT	I-NP	O	O
-Chinese	JJ	I-NP	I-MISC	I-MISC
+Chinese	JJ	I-NP	I-MISC	O
 market	NN	I-NP	O	O
 where	WRB	I-ADVP	O	O
 demand	NN	I-NP	O	O
@@ -25172,7 +25172,7 @@ Asia	NNP	I-NP	I-LOC	I-LOC
 "	"	O	O	O
 said	VBD	I-VP	O	O
 Pirelli	NNP	I-NP	I-ORG	I-PER
-SpA	NNP	I-NP	I-ORG	I-PER
+SpA	NNP	I-NP	I-ORG	I-ORG
 chairman	NN	I-NP	O	O
 and	CC	I-NP	O	O
 chief	JJ	I-NP	O	O
@@ -25225,7 +25225,7 @@ Pacific	NNP	I-NP	I-ORG	I-PER
 is	VBZ	I-VP	O	O
 a	DT	I-NP	O	O
 major	JJ	I-NP	O	O
-Hong	NNP	I-NP	I-MISC	I-MISC
+Hong	NNP	I-NP	I-MISC	I-LOC
 Kong-listed	JJ	I-NP	I-MISC	O
 company	NN	I-NP	O	O
 focusing	VBG	I-VP	O	O
@@ -25442,7 +25442,7 @@ their	PRP$	I-NP	O	O
 portfolios	NNS	I-NP	O	O
 because	IN	I-SBAR	O	O
 the	DT	I-NP	O	O
-FTO	NNP	I-NP	I-ORG	I-LOC
+FTO	NNP	I-NP	I-ORG	I-ORG
 contract	NN	I-NP	O	O
 is	VBZ	I-VP	O	O
 so	RB	I-ADJP	O	O
@@ -25579,7 +25579,7 @@ not	RB	I-VP	O	O
 forget	VB	I-VP	O	O
 that	IN	I-SBAR	O	O
 the	DT	I-NP	O	O
-OSCE	RB	I-NP	I-ORG	I-ORG
+OSCE	RB	I-NP	I-ORG	O
 only	JJ	B-NP	O	O
 has	VBZ	I-VP	O	O
 limited	VBN	I-VP	O	O
@@ -25852,8 +25852,8 @@ carqo	VBD	I-VP	O	O
 enquiry	RB	I-ADVP	O	O
 .	.	O	O	O
 
-THE	DT	I-NP	I-LOC	O
-HAGUE	NNP	I-NP	I-LOC	O
+THE	DT	I-NP	I-LOC	I-ORG
+HAGUE	NNP	I-NP	I-LOC	I-ORG
 1996-08-30	CD	I-NP	O	O
 
 The	DT	I-NP	O	O
@@ -25990,7 +25990,7 @@ latest	JJS	I-NP	O	O
 evidence	NN	I-NP	O	O
 from	IN	I-PP	O	O
 El	NNP	I-NP	I-ORG	I-PER
-Al	NNP	I-NP	I-ORG	I-LOC
+Al	NNP	I-NP	I-ORG	I-PER
 in	IN	I-PP	O	O
 no	DT	I-NP	O	O
 way	NN	I-NP	O	O
@@ -26031,7 +26031,7 @@ Fax	NN	I-NP	O	O
 
 Armenians	NNPS	I-NP	I-MISC	I-LOC
 ,	,	O	O	O
-Azeris	NNP	I-NP	I-MISC	I-LOC
+Azeris	NNP	I-NP	I-MISC	I-ORG
 hold	VBP	I-VP	O	O
 peace	NN	I-NP	O	O
 talks	NNS	I-NP	O	O
@@ -26138,7 +26138,7 @@ after	IN	I-PP	O	O
 ethnic	JJ	I-NP	O	O
 Armenians	NNPS	I-NP	I-MISC	I-MISC
 drove	VBD	I-VP	O	O
-Azeris	NNPS	I-NP	I-MISC	O
+Azeris	NNPS	I-NP	I-MISC	I-MISC
 out	IN	I-PP	O	O
 of	IN	B-PP	O	O
 the	DT	I-NP	O	O
@@ -26325,7 +26325,7 @@ crash	NN	I-NP	O	O
 Rolf	NNP	I-NP	I-PER	I-PER
 Soderlind	NNP	I-NP	I-PER	I-PER
 
-LONGYEAR	NN	I-NP	I-LOC	I-LOC
+LONGYEAR	NN	I-NP	I-LOC	O
 ,	,	O	O	O
 Norway	NNP	I-NP	I-LOC	I-LOC
 1996-08-30	CD	I-NP	O	O
@@ -26473,7 +26473,7 @@ snow-capped	JJ	I-NP	O	O
 mountain	NN	I-NP	O	O
 on	IN	I-PP	O	O
 the	DT	I-NP	O	O
-Arctic	NNP	I-NP	I-MISC	I-MISC
+Arctic	NNP	I-NP	I-MISC	I-LOC
 island	NN	I-NP	O	O
 of	IN	I-PP	O	O
 Spitzbergen	NNP	I-NP	I-LOC	I-LOC
@@ -27064,9 +27064,9 @@ from	IN	I-PP	O	O
 the	DT	I-NP	O	O
 Guangdong	NNP	I-NP	I-ORG	I-ORG
 Post	NNP	I-NP	I-ORG	I-ORG
-and	CC	I-NP	I-ORG	I-ORG
+and	CC	I-NP	I-ORG	O
 Telecommunications	NNP	I-NP	I-ORG	I-PER
-Administration	NNP	I-NP	I-ORG	I-ORG
+Administration	NNP	I-NP	I-ORG	I-PER
 (	(	O	O	O
 GPTA	NNP	I-NP	I-ORG	I-ORG
 )	)	O	O	O
@@ -28004,7 +28004,7 @@ details	NNS	I-NP	O	O
 
 -DOCSTART-	-X-	-X-	O	O
 
-Singapore	NNP	I-NP	I-LOC	I-LOC
+Singapore	NNP	I-NP	I-LOC	I-ORG
 hangs	VBZ	I-VP	O	O
 Thai	NNP	I-NP	I-MISC	I-MISC
 drug	NN	I-NP	O	O
@@ -28031,7 +28031,7 @@ trafficking	NN	I-NP	O	O
 the	DT	I-NP	O	O
 Central	NNP	I-NP	I-ORG	I-ORG
 Narcotics	NNP	I-NP	I-ORG	I-ORG
-Bureau	NNP	I-NP	I-ORG	I-ORG
+Bureau	NNP	I-NP	I-ORG	I-PER
 (	(	O	O	O
 CNB	NNP	I-NP	I-ORG	I-ORG
 )	)	O	O	O
@@ -28069,7 +28069,7 @@ CNB	NNP	I-NP	I-ORG	I-ORG
 said	VBD	I-VP	O	O
 .	.	O	O	O
 
-Singapore	NNP	I-NP	I-LOC	I-LOC
+Singapore	NNP	I-NP	I-LOC	I-ORG
 has	VBZ	I-VP	O	O
 a	DT	I-NP	O	O
 mandatory	JJ	I-NP	O	O
@@ -28475,7 +28475,7 @@ The	DT	I-NP	O	O
 Palestinian	JJ	I-NP	I-MISC	I-MISC
 letter	NN	I-NP	O	O
 from	IN	I-PP	O	O
-Marwan	NNP	I-NP	I-PER	I-PER
+Marwan	NNP	I-NP	I-PER	I-ORG
 Jilani	NNP	I-NP	I-PER	I-PER
 said	VBD	I-VP	O	O
 the	DT	I-NP	O	O
@@ -28502,7 +28502,7 @@ status	NN	I-NP	O	O
 of	IN	I-PP	O	O
 the	DT	I-NP	O	O
 Holy	NNP	I-NP	I-LOC	I-ORG
-City	NNP	I-NP	I-LOC	I-LOC
+City	NNP	I-NP	I-LOC	I-ORG
 of	IN	I-PP	I-LOC	O
 Jerusalem	NNP	I-NP	I-LOC	I-LOC
 "	"	O	O	O
@@ -28637,7 +28637,7 @@ called	VBD	I-VP	O	O
 the	DT	I-NP	O	O
 Burj	NNP	I-NP	I-LOC	I-ORG
 al-Laqlaq	JJ	I-NP	I-LOC	O
-Society	NNP	I-NP	I-LOC	I-ORG
+Society	NNP	I-NP	I-LOC	O
 .	.	O	O	O
 
 -DOCSTART-	-X-	-X-	O	O
@@ -28657,7 +28657,7 @@ MATCH	NNP	B-NP	O	O
 LA	NNP	I-NP	I-LOC	I-ORG
 CORUNA	NNP	I-NP	I-LOC	I-PER
 ,	,	O	O	O
-Spain	NNP	I-NP	I-LOC	I-LOC
+Spain	NNP	I-NP	I-LOC	I-PER
 1996-08-31	NNP	I-NP	O	I-PER
 
 A	DT	I-NP	O	O
@@ -28745,7 +28745,7 @@ after	IN	I-PP	O	O
 a	DT	I-NP	O	O
 flick-on	JJ	I-NP	O	O
 by	IN	I-PP	O	O
-Brazilian-born	NNP	I-NP	I-MISC	I-LOC
+Brazilian-born	NNP	I-NP	I-MISC	I-PER
 Spanish	NNP	I-NP	B-MISC	I-MISC
 international	JJ	I-NP	O	O
 midfielder	NN	I-NP	O	O
@@ -28823,7 +28823,7 @@ defence	NN	I-NP	O	O
 and	CC	O	O	O
 equalised	VBD	I-VP	O	O
 for	IN	I-PP	O	O
-Real	NNP	I-NP	I-ORG	I-PER
+Real	NNP	I-NP	I-ORG	I-LOC
 with	IN	I-PP	O	O
 a	DT	I-NP	O	O
 shot	NN	I-NP	O	O
@@ -28832,7 +28832,7 @@ was	VBD	I-VP	O	O
 deflected	VBN	I-VP	O	O
 past	IN	I-PP	O	O
 despairing	JJ	I-NP	O	O
-Deportivo	NNP	I-NP	I-ORG	I-ORG
+Deportivo	NNP	I-NP	I-ORG	O
 '	POS	B-NP	O	O
 keeper	NN	I-NP	O	O
 Jacques	NNP	I-NP	I-PER	I-PER
@@ -29275,7 +29275,7 @@ GOLF	NN	I-NP	O	I-LOC
 -	:	O	O	O
 BRITISH	JJ	I-NP	I-MISC	I-MISC
 MASTERS	NNS	I-NP	I-MISC	I-MISC
-FINAL	NNP	I-NP	O	O
+FINAL	NNP	I-NP	O	I-PER
 SCORES	NNP	I-NP	O	O
 .	.	O	O	O
 
@@ -29571,7 +29571,7 @@ Saturday	NNP	I-NP	O	O
 Scorers	NNS	I-NP	O	O
 :	:	O	O	O
 
-Faroe	NNP	I-NP	I-LOC	I-LOC
+Faroe	NNP	I-NP	I-LOC	O
 Islands	NNP	I-NP	I-LOC	I-LOC
 -	:	O	O	O
 Jan	NNP	I-NP	I-PER	O
@@ -29582,7 +29582,7 @@ Mueller	NNP	I-NP	I-PER	I-PER
 minute	NN	I-NP	O	O
 )	)	O	O	O
 
-Slovakia	NNP	I-NP	I-LOC	I-LOC
+Slovakia	NNP	I-NP	I-LOC	O
 -	:	O	O	O
 Lubomir	NNP	I-NP	I-PER	I-PER
 Moravcik	NNP	I-NP	I-PER	I-PER
@@ -29887,7 +29887,7 @@ Andersson	NNP	I-NP	I-PER	I-PER
 1:34	CD	I-NP	O	O
 
 10.	CD	I-NP	O	O
-Skibby	NNP	I-NP	I-PER	I-PER
+Skibby	NNP	I-NP	I-PER	I-LOC
 1:45	CD	I-NP	O	O
 
 -DOCSTART-	-X-	-X-	O	O
@@ -30181,7 +30181,7 @@ Headley	NNP	I-NP	I-PER	I-PER
 
 7-0-32-0	NNP	I-NP	O	I-PER
 ,	,	O	O	O
-Irani	JJ	I-NP	I-PER	I-PER
+Irani	JJ	I-NP	I-PER	O
 2-0-22-0	CD	I-NP	O	O
 ,	,	O	O	O
 Croft	NNP	I-NP	I-PER	I-PER
@@ -30312,7 +30312,7 @@ Ukraine	NNP	I-NP	I-LOC	I-LOC
 )	)	O	O	O
 3:52.204	CD	I-NP	O	O
 
-World	NNP	I-NP	O	O
+World	NNP	I-NP	O	I-ORG
 4,000	CD	I-NP	O	O
 metres	NNS	I-NP	O	O
 team	NN	I-NP	O	O
@@ -30332,7 +30332,7 @@ Andrea	NNP	I-NP	I-PER	I-PER
 Collinelli	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
 Mauro	NNP	I-NP	I-PER	I-PER
-Trentino	NNP	I-NP	I-PER	I-LOC
+Trentino	NNP	I-NP	I-PER	I-PER
 )	)	O	O	O
 4:00.958	CD	I-NP	O	O
 (	(	I-NP	O	O
@@ -30349,7 +30349,7 @@ Edouard	NNP	I-NP	I-PER	I-PER
 Gritsoun	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
 Nikolai	NNP	I-NP	I-PER	I-PER
-Kouznetsov	NNP	I-NP	I-PER	I-LOC
+Kouznetsov	NNP	I-NP	I-PER	I-PER
 )	)	O	O	O
 4:06.534	CD	I-NP	O	O
 .	.	O	O	O
@@ -30370,7 +30370,7 @@ Moreau	NNP	I-NP	I-PER	I-PER
 )	)	O	O	O
 4:05.104	CD	I-NP	O	O
 beat	NN	I-NP	O	O
-Germany	NNP	I-NP	I-LOC	I-LOC
+Germany	NNP	I-NP	I-LOC	I-PER
 (	(	O	O	O
 Guido	NNP	I-NP	I-PER	I-PER
 Fulst	NNP	I-NP	I-PER	I-PER
@@ -30382,7 +30382,7 @@ Thorsten	NNP	I-NP	I-PER	I-PER
 Rund	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
 Heiko	NNP	I-NP	I-PER	I-PER
-Szonn	NNP	I-NP	I-PER	I-LOC
+Szonn	NNP	I-NP	I-PER	I-PER
 )	)	O	O	O
 4:05.463	CD	I-NP	O	O
 
@@ -30512,7 +30512,7 @@ Lithuania	NNP	I-NP	I-LOC	I-LOC
 )	)	O	O	O
 38.546	CD	I-NP	O	O
 
-World	NNP	I-NP	O	O
+World	NNP	I-NP	O	I-ORG
 4,000	CD	I-NP	O	O
 metres	NNS	I-NP	O	O
 team	NN	I-NP	O	O
@@ -30533,11 +30533,11 @@ Andrea	NNP	I-NP	I-PER	I-PER
 Collinelli	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
 Mauro	NNP	I-NP	I-PER	I-PER
-Trentino	NNP	I-NP	I-PER	I-LOC
+Trentino	NNP	I-NP	I-PER	I-PER
 )	)	O	O	O
 4:02.752	CD	I-NP	O	O
 beat	NN	I-NP	O	O
-France	NNP	I-NP	I-LOC	I-ORG
+France	NNP	I-NP	I-LOC	I-PER
 (	(	O	O	O
 Cyril	NNP	I-NP	I-PER	I-PER
 Bos	NNP	I-NP	I-PER	I-PER
@@ -30553,7 +30553,7 @@ Moreau	NNP	I-NP	I-PER	I-PER
 )	)	O	O	O
 4:04.539	CD	I-NP	O	O
 
-World	NNP	I-NP	O	O
+World	NNP	I-NP	O	I-MISC
 sprint	VBG	I-VP	O	O
 championship	NN	I-NP	O	O
 quarter	NN	I-NP	O	O
@@ -30704,7 +30704,7 @@ PAKISTAN	NNP	I-NP	I-LOC	I-LOC
 WIN	NNP	I-NP	O	O
 TOSS	NNP	I-NP	O	O
 ,	,	O	O	O
-PUT	NNP	I-NP	O	O
+PUT	NNP	I-NP	O	I-PER
 ENGLAND	NNP	I-NP	I-LOC	I-PER
 IN	IN	I-PP	O	O
 TO	TO	I-VP	O	O
@@ -30879,7 +30879,7 @@ BASEBALL	NNP	I-NP	O	O
 GONZALEZ	NNP	I-NP	I-PER	I-ORG
 HOMERS	NNP	I-NP	O	O
 TWICE	NNP	I-NP	O	O
-AS	NNP	I-NP	O	O
+AS	NNP	I-NP	O	I-ORG
 RANGERS	NNP	I-NP	I-ORG	I-ORG
 BEAT	NN	I-INTJ	O	O
 INDIANS	NNS	I-NP	I-ORG	I-ORG
@@ -31071,7 +31071,7 @@ the	DT	I-NP	O	O
 10	CD	I-NP	O	O
 meetings	NNS	I-NP	O	O
 from	IN	I-PP	O	O
-Cleveland	NNP	I-NP	I-ORG	I-ORG
+Cleveland	NNP	I-NP	I-ORG	I-LOC
 this	DT	B-NP	O	O
 season	NN	I-NP	O	O
 .	.	O	O	O
@@ -31166,7 +31166,7 @@ in	IN	I-PP	O	O
 the	DT	I-NP	O	O
 American	NNP	I-NP	I-MISC	I-MISC
 League	NNP	I-NP	I-MISC	I-MISC
-Central	NNP	I-NP	I-MISC	I-PER
+Central	NNP	I-NP	I-MISC	I-MISC
 dropped	VBD	I-VP	O	O
 to	TO	I-PP	O	O
 nine	CD	I-NP	O	O
@@ -31219,7 +31219,7 @@ Angels	NNPS	I-NP	I-ORG	I-ORG
 6-2	NN	I-NP	O	O
 .	.	O	O	O
 
-New	NNP	I-NP	I-LOC	I-LOC
+New	NNP	I-NP	I-LOC	I-ORG
 York	NNP	I-NP	I-LOC	I-LOC
 snapped	VBD	I-VP	O	O
 a	DT	I-NP	O	O
@@ -31754,7 +31754,7 @@ lead	NN	I-NP	O	O
 .	.	O	O	O
 
 But	CC	O	O	O
-Milwaukee	NNP	I-NP	I-ORG	I-ORG
+Milwaukee	NNP	I-NP	I-ORG	I-PER
 tied	VBD	I-VP	O	O
 it	PRP	I-NP	O	O
 up	RP	I-PRT	O	O
@@ -31838,7 +31838,7 @@ in	IN	I-PP	O	O
 hand	NN	I-NP	O	O
 to	TO	I-VP	O	O
 beat	VB	I-VP	O	O
-Yorkshire	NNP	I-NP	I-ORG	I-ORG
+Yorkshire	NNP	I-NP	I-ORG	I-PER
 after	IN	I-PP	O	O
 a	DT	I-NP	O	O
 maiden	JJ	I-NP	O	O
@@ -31870,7 +31870,7 @@ their	PRP$	I-NP	O	O
 nerve	NN	I-NP	O	O
 against	IN	I-PP	O	O
 struggling	VBG	I-VP	O	O
-Nottinghamshire	NNP	I-NP	I-ORG	I-ORG
+Nottinghamshire	NNP	I-NP	I-ORG	I-PER
 who	WP	B-NP	O	O
 will	MD	I-VP	O	O
 enter	VB	I-VP	O	O
@@ -31898,7 +31898,7 @@ Derbyshire	NN	I-NP	I-ORG	O
 nine-wicket	JJ	I-NP	O	O
 winners	NNS	I-NP	O	O
 over	IN	I-PP	O	O
-Worcestershire	NNP	I-NP	I-ORG	I-ORG
+Worcestershire	NNP	I-NP	I-ORG	I-LOC
 ,	,	O	O	O
 and	CC	O	O	O
 Surrey	NNP	I-NP	I-ORG	I-ORG
@@ -31956,7 +31956,7 @@ Dave	NNP	I-NP	I-PER	I-PER
 Gilbert	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
 but	CC	O	O	O
-Derbyshire	NNP	I-NP	I-ORG	I-ORG
+Derbyshire	NNP	I-NP	I-ORG	I-LOC
 's	POS	B-NP	O	O
 Australian	JJ	I-NP	I-MISC	I-MISC
 captain	NN	I-NP	O	O
@@ -32035,7 +32035,7 @@ on	IN	I-PP	O	O
 the	DT	I-NP	O	O
 
 European	NNP	I-NP	I-MISC	I-MISC
-Tour	NNP	I-NP	I-MISC	I-MISC
+Tour	NNP	I-NP	I-MISC	I-PER
 after	IN	I-PP	O	O
 the	DT	I-NP	O	O
 British	NNP	I-NP	I-MISC	I-MISC
@@ -32161,7 +32161,7 @@ Africa	NNP	I-NP	I-LOC	I-LOC
 195,283	CD	I-NP	O	O
 
 16.	NNP	I-NP	O	O
-Miguel	NNP	I-NP	I-PER	I-PER
+Miguel	NNP	I-NP	I-PER	O
 Angel	NNP	I-NP	I-PER	I-PER
 Jimenez	NNP	I-NP	I-PER	I-PER
 (	(	O	O	O
@@ -32213,7 +32213,7 @@ Results	NNS	I-NP	O	O
 of	IN	I-PP	O	O
 English	NNP	I-NP	I-MISC	I-MISC
 ,	,	O	O	O
-Scottish	NNP	I-NP	I-MISC	I-MISC
+Scottish	NNP	I-NP	I-MISC	I-LOC
 and	CC	O	O	O
 
 Welsh	NNP	I-NP	I-MISC	O
@@ -32231,7 +32231,7 @@ one	CD	B-NP	O	O
 
 Harlequins	NNS	I-NP	I-ORG	I-ORG
 75	CD	B-NP	O	O
-Gloucester	NNP	I-NP	I-ORG	I-ORG
+Gloucester	NNP	I-NP	I-ORG	O
 19	CD	I-NP	O	O
 
 London	NNP	I-NP	I-ORG	I-ORG
@@ -32258,7 +32258,7 @@ Wasps	NNP	I-NP	I-ORG	O
 
 Saracens	NNPS	I-NP	I-ORG	I-ORG
 25	CD	I-NP	O	O
-Leicester	NNP	I-NP	I-ORG	I-ORG
+Leicester	NNP	I-NP	I-ORG	I-LOC
 23	CD	I-NP	O	O
 
 Welsh	NNP	I-NP	I-MISC	O
@@ -32267,7 +32267,7 @@ one	CD	B-NP	O	O
 
 Bridgend	NN	I-NP	I-ORG	I-ORG
 13	CD	I-NP	O	O
-Llanelli	NNP	I-NP	I-ORG	O
+Llanelli	NNP	I-NP	I-ORG	I-ORG
 9	CD	I-NP	O	O
 
 Dunvant	NN	I-NP	I-ORG	I-ORG
@@ -32288,7 +32288,7 @@ Caerphilly	NNP	I-NP	I-ORG	I-ORG
 
 Swansea	NN	I-NP	I-ORG	I-ORG
 49	CD	I-NP	O	O
-Cardiff	NNP	I-NP	I-ORG	I-ORG
+Cardiff	NNP	I-NP	I-ORG	O
 23	CD	I-NP	O	O
 
 Scottish	JJ	I-NP	I-MISC	I-MISC
@@ -32401,7 +32401,7 @@ SOCCER	NN	I-NP	O	O
 -	:	O	O	O
 UKRAINE	NNP	I-NP	I-LOC	I-LOC
 BEAT	NN	I-INTJ	O	O
-NORTHERN	NNP	I-NP	I-LOC	I-PER
+NORTHERN	NNP	I-NP	I-LOC	I-LOC
 IRELAND	NNP	I-NP	I-LOC	O
 IN	IN	I-PP	O	O
 WORLD	NN	I-NP	I-MISC	I-MISC
@@ -32465,7 +32465,7 @@ LONDON	NNP	I-NP	I-LOC	I-LOC
 1996-08-31	NNP	I-NP	O	I-PER
 
 Former	NNP	I-NP	O	O
-Wallaby	NNP	I-NP	I-ORG	I-MISC
+Wallaby	NNP	I-NP	I-ORG	I-LOC
 captain	NN	I-NP	O	O
 Michael	NNP	I-NP	I-PER	I-PER
 Lynagh	NNP	I-NP	I-PER	I-PER
@@ -32497,7 +32497,7 @@ with	IN	I-PP	O	O
 Leicester	NNP	I-NP	I-LOC	I-LOC
 .	.	O	O	O
 
-Lynagh	NN	I-NP	I-PER	O
+Lynagh	NN	I-NP	I-PER	I-PER
 kicked	VBD	I-VP	O	O
 five	CD	I-NP	O	O
 penalties	NNS	I-NP	O	O
@@ -32551,7 +32551,7 @@ a	DT	I-NP	O	O
 good	JJ	I-NP	O	O
 game	NN	I-NP	O	O
 alongside	IN	I-PP	O	O
-Lynagh	NNP	I-NP	I-PER	I-ORG
+Lynagh	NNP	I-NP	I-PER	I-LOC
 ,	,	O	O	O
 although	IN	I-SBAR	O	O
 the	DT	I-NP	O	O
@@ -32656,7 +32656,7 @@ over	IN	I-PP	O	O
 Orrell	NNP	I-NP	I-ORG	I-LOC
 ,	,	O	O	O
 and	CC	O	O	O
-Northampton	NNP	I-NP	I-ORG	I-PER
+Northampton	NNP	I-NP	I-ORG	I-LOC
 and	CC	O	O	O
 narrow	JJ	I-NP	O	O
 successes	NNS	I-NP	O	O
@@ -34119,7 +34119,7 @@ Glamorgan	NNP	I-NP	I-ORG	I-ORG
 and	CC	I-NP	O	O
 207	CD	I-NP	O	O
 ,	,	O	O	O
-Durham	NNP	I-NP	I-ORG	I-ORG
+Durham	NNP	I-NP	I-ORG	I-PER
 114	CD	I-NP	O	O
 and	CC	I-NP	O	O
 211	CD	I-NP	O	O
@@ -34167,7 +34167,7 @@ DeFreitas	NNP	I-NP	I-PER	I-PER
 Derbyshire	NNP	I-NP	I-ORG	I-ORG
 471	CD	B-NP	O	O
 and	CC	O	O	O
-71-1	NNP	I-NP	O	O
+71-1	NNP	I-NP	O	I-ORG
 .	.	O	O	O
 
 Derbyshire	NNP	I-NP	I-ORG	I-ORG
@@ -34180,7 +34180,7 @@ Worcestershire	NN	I-NP	I-ORG	O
 
 At	IN	I-PP	O	O
 The	DT	I-NP	I-LOC	I-LOC
-Oval	JJ	I-NP	I-LOC	I-LOC
+Oval	JJ	I-NP	I-LOC	O
 (	(	O	O	O
 London	NNP	I-NP	I-LOC	I-LOC
 )	)	O	O	O
@@ -34239,7 +34239,7 @@ Surrey	NNP	I-NP	I-ORG	I-ORG
 24	CD	I-NP	O	O
 points	NNS	I-NP	O	O
 ,	,	O	O	O
-Warwickshire	NN	I-NP	I-ORG	I-ORG
+Warwickshire	NN	I-NP	I-ORG	O
 2	CD	I-NP	O	O
 .	.	O	O	O
 
@@ -34281,7 +34281,7 @@ Sussex	NNP	I-NP	I-ORG	I-ORG
 and	CC	I-NP	O	O
 144	CD	I-NP	O	O
 ,	,	O	O	O
-Lancashire	NN	I-NP	I-ORG	I-ORG
+Lancashire	NN	I-NP	I-ORG	O
 218	CD	I-NP	O	O
 and	CC	I-NP	O	O
 53-0	CD	I-NP	O	O
@@ -34363,7 +34363,7 @@ for	IN	I-PP	O	O
 
 Sunday	NNP	I-NP	O	O
 's	POS	B-NP	O	O
-Vancouver	NNP	I-NP	I-LOC	I-LOC
+Vancouver	NNP	I-NP	I-LOC	I-MISC
 IndyCar	NNP	I-NP	I-MISC	I-PER
 race	NN	I-NP	O	O
 after	IN	I-PP	O	O
@@ -34550,7 +34550,7 @@ halftime	NN	I-NP	O	O
 )	)	O	O	O
 in	IN	I-PP	O	O
 their	PRP$	I-NP	O	O
-CONCACAF	NNP	I-NP	I-ORG	I-LOC
+CONCACAF	NNP	I-NP	I-ORG	I-MISC
 semifinal	JJ	I-NP	O	O
 phase	NN	I-NP	O	O
 qualifying	VBG	I-VP	O	O
@@ -34650,7 +34650,7 @@ front	NN	I-NP	O	O
 of	IN	I-PP	O	O
 an	DT	I-NP	O	O
 ecstatic	JJ	I-NP	O	O
-Ellis	NNP	I-NP	I-LOC	I-LOC
+Ellis	NNP	I-NP	I-LOC	I-ORG
 Park	NNP	I-NP	I-LOC	I-LOC
 crowd	NN	I-NP	O	O
 on	IN	I-PP	O	O
@@ -34893,7 +34893,7 @@ the	DT	I-NP	O	O
 gap	NN	I-NP	O	O
 .	.	O	O	O
 
-Mehrtens	NNS	I-NP	I-PER	I-PER
+Mehrtens	NNS	I-NP	I-PER	O
 missed	VBD	I-VP	O	O
 three	CD	I-NP	O	O
 further	JJ	I-NP	O	O
@@ -34960,8 +34960,8 @@ referee	NN	I-NP	O	O
 Derek	NNP	I-NP	I-PER	I-PER
 Bevan	NNP	I-NP	I-PER	I-PER
 allowed	VBD	I-VP	O	O
-Van	NNP	I-NP	I-PER	I-PER
-der	FW	I-NP	I-PER	I-PER
+Van	NNP	I-NP	I-PER	I-ORG
+der	FW	I-NP	I-PER	O
 Westhuizen	NNS	I-NP	I-PER	O
 to	TO	I-VP	O	O
 pick	VB	I-VP	O	O
@@ -35039,14 +35039,14 @@ quick	JJ	I-NP	O	O
 penalty	NN	I-NP	O	O
 from	IN	I-PP	O	O
 Van	NNP	I-NP	I-PER	I-PER
-der	FW	I-NP	I-PER	I-PER
-Westhuizen	FW	I-NP	I-PER	I-PER
+der	FW	I-NP	I-PER	O
+Westhuizen	FW	I-NP	I-PER	O
 five	CD	I-NP	O	O
 metres	NNS	I-NP	O	O
 from	IN	I-PP	O	O
 the	DT	I-NP	O	O
-All	DT	I-NP	I-ORG	I-MISC
-Black	NNP	I-NP	I-ORG	I-MISC
+All	DT	I-NP	I-ORG	O
+Black	NNP	I-NP	I-ORG	I-ORG
 line	NN	I-NP	O	O
 set	VBD	I-VP	O	O
 up	RP	I-PRT	O	O
@@ -35054,7 +35054,7 @@ the	DT	I-NP	O	O
 third	JJ	I-NP	O	O
 try	NN	I-NP	O	O
 for	IN	I-PP	O	O
-Venter	NNP	I-NP	I-PER	I-LOC
+Venter	NNP	I-NP	I-PER	I-ORG
 five	CD	B-NP	O	O
 minutes	NNS	I-NP	O	O
 later	RBR	I-ADVP	O	O
@@ -35398,7 +35398,7 @@ Joubert	NNP	I-NP	I-PER	I-PER
 Conversion	NNP	I-NP	O	O
 :	:	O	O	O
 Henry	NNP	I-NP	I-PER	I-PER
-Honiball	NNP	I-NP	I-PER	I-PER
+Honiball	NNP	I-NP	I-PER	I-ORG
 .	.	O	O	O
 
 Penalties	NNS	I-NP	O	O
@@ -35460,7 +35460,7 @@ DISSOLVES	NNP	I-NP	O	O
 NATIONAL	NNP	I-NP	O	O
 TEAM	NNP	I-NP	O	O
 AFTER	NNP	I-NP	O	O
-CUP	NNP	I-NP	I-MISC	I-MISC
+CUP	NNP	I-NP	I-MISC	O
 EXIT	NNP	I-NP	O	O
 .	.	O	O	O
 
@@ -35777,7 +35777,7 @@ Zemun	NN	I-NP	I-ORG	I-ORG
 
 Rad	NN	I-NP	I-ORG	O
 (	(	O	I-ORG	O
-B	NNP	I-NP	I-ORG	O
+B	NNP	I-NP	I-ORG	I-LOC
 )	)	O	I-ORG	O
 4	CD	I-NP	O	O
 1	CD	I-NP	O	O
@@ -36060,7 +36060,7 @@ stadium	NN	I-NP	O	O
 in	IN	I-PP	O	O
 Chisinau	NNP	I-NP	I-LOC	I-LOC
 as	IN	I-PP	O	O
-Glenn	NNP	I-NP	I-PER	I-PER
+Glenn	NNP	I-NP	I-PER	I-ORG
 Hoddle	NNP	I-NP	I-PER	I-PER
 's	POS	B-NP	O	O
 England	NNP	I-NP	I-LOC	I-LOC
@@ -36174,7 +36174,7 @@ Fifth	NN	I-NP	O	O
 place	NN	I-NP	O	O
 :	:	O	O	O
 
-Benetton	NNP	I-NP	I-ORG	I-ORG
+Benetton	NNP	I-NP	I-ORG	I-PER
 (	(	O	O	O
 Italy	NNP	I-NP	I-LOC	I-LOC
 )	)	O	O	O
@@ -36193,7 +36193,7 @@ Third	JJ	I-NP	O	O
 place	NN	I-NP	O	O
 :	:	O	O	O
 
-Alba	NNP	I-NP	I-ORG	I-ORG
+Alba	NNP	I-NP	I-ORG	I-PER
 (	(	O	O	O
 Germany	NNP	I-NP	I-LOC	I-LOC
 )	)	O	O	O
@@ -36239,7 +36239,7 @@ Fifth	NN	I-NP	O	O
 place	NN	I-NP	O	O
 :	:	O	O	O
 
-Benetton	NNP	I-NP	I-ORG	I-ORG
+Benetton	NNP	I-NP	I-ORG	I-PER
 (	(	O	O	O
 Italy	NNP	I-NP	I-LOC	I-LOC
 )	)	O	O	O
@@ -36258,7 +36258,7 @@ Third	JJ	I-NP	O	O
 place	NN	I-NP	O	O
 :	:	O	O	O
 
-Alba	NNP	I-NP	I-ORG	I-ORG
+Alba	NNP	I-NP	I-ORG	I-PER
 (	(	O	O	O
 Germany	NNP	I-NP	I-LOC	I-LOC
 )	)	O	O	O
@@ -36435,8 +36435,8 @@ BASKETBALL	NNP	I-NP	O	O
 -	:	O	O	O
 BENETTON	NNP	I-NP	I-ORG	I-ORG
 BEAT	NN	I-INTJ	O	O
-DINAMO	NNP	I-NP	I-ORG	I-PER
-92-81	NNP	I-NP	O	I-PER
+DINAMO	NNP	I-NP	I-ORG	I-ORG
+92-81	NNP	I-NP	O	O
 .	.	O	O	O
 
 BELGRADE	VB	I-VP	I-LOC	O
@@ -36462,7 +36462,7 @@ play-off	NN	I-NP	O	O
 in	IN	I-PP	O	O
 the	DT	I-NP	O	O
 Trofej	NNP	I-NP	I-MISC	I-ORG
-Beograd	NNP	I-NP	I-MISC	I-MISC
+Beograd	NNP	I-NP	I-MISC	I-ORG
 96	CD	I-NP	I-MISC	O
 international	JJ	I-NP	O	O
 basketball	NN	I-NP	O	O
@@ -36477,7 +36477,7 @@ SOCCER	NN	I-NP	O	O
 -	:	O	O	O
 SWEDEN	NNP	I-NP	I-LOC	I-LOC
 BEAT	NN	I-INTJ	O	O
-LATVIA	NNP	I-NP	I-LOC	I-LOC
+LATVIA	NNP	I-NP	I-LOC	I-ORG
 IN	IN	I-PP	O	O
 EUROPEAN	NNP	I-NP	I-MISC	I-MISC
 UNDER-21	NN	I-NP	O	O
@@ -36539,7 +36539,7 @@ QUALIFIER	VBN	I-VP	O	O
 MINSK	NNP	I-NP	I-LOC	I-PER
 1996-08-31	NNP	I-NP	O	I-PER
 
-Belarus	NN	I-NP	I-LOC	I-ORG
+Belarus	NN	I-NP	I-LOC	I-PER
 beat	VBD	I-VP	O	O
 Estonia	NNP	I-NP	I-LOC	I-PER
 1-0	NNP	I-NP	O	I-PER
@@ -36580,7 +36580,7 @@ ENGLAND	NNP	I-NP	I-LOC	I-LOC
 BEAT	NN	I-INTJ	O	O
 MOLDOVA	NNP	I-NP	I-LOC	I-LOC
 IN	IN	I-PP	O	O
-UNDER-21	NNP	I-NP	O	O
+UNDER-21	NNP	I-NP	O	I-MISC
 QUALIFIER	NNP	I-NP	O	O
 .	.	O	O	O
 
@@ -36641,8 +36641,8 @@ CHEAT	NNP	I-NP	O	O
 .	.	O	O	O
 
 HONG	IN	I-PP	I-LOC	I-LOC
-KONG	VBG	I-VP	I-LOC	O
-1996-08-31	NNP	I-NP	O	I-ORG
+KONG	VBG	I-VP	I-LOC	I-LOC
+1996-08-31	NNP	I-NP	O	I-LOC
 
 Controversial	NNP	I-NP	O	O
 Australian	NNP	I-NP	I-MISC	I-MISC
@@ -36717,7 +36717,7 @@ Hill	NNP	I-NP	I-PER	I-PER
 shrieked	VBD	I-VP	O	O
 at	IN	I-PP	O	O
 the	DT	I-NP	O	O
-Pakistani	JJ	I-NP	I-MISC	I-MISC
+Pakistani	JJ	I-NP	I-MISC	O
 :	:	O	O	O
 "	"	O	O	O
 You	PRP	I-NP	O	O
@@ -37122,8 +37122,8 @@ RESULTS	NNS	I-NP	O	O
 .	.	O	O	O
 
 HONG	IN	I-PP	I-LOC	I-LOC
-KONG	VBG	I-VP	I-LOC	O
-1996-08-31	NNP	I-NP	O	I-ORG
+KONG	VBG	I-VP	I-LOC	I-LOC
+1996-08-31	NNP	I-NP	O	I-LOC
 
 Semifinal	JJ	I-NP	O	O
 results	NNS	I-NP	O	O
@@ -37222,7 +37222,7 @@ the	DT	I-NP	O	O
 $	$	I-NP	O	O
 1.2	CD	I-NP	O	O
 million	CD	I-NP	O	O
-Greater	NNP	I-NP	I-MISC	I-MISC
+Greater	NNP	I-NP	I-MISC	O
 Milwaukee	NNP	I-NP	I-MISC	I-MISC
 Open	NNP	I-NP	I-MISC	I-MISC
 .	.	O	O	O
@@ -37308,8 +37308,8 @@ for	IN	I-PP	O	O
 his	PRP$	I-NP	O	O
 fourth	JJ	I-NP	O	O
 career	NN	I-NP	O	O
-PGA	NNP	B-NP	I-MISC	I-MISC
-Tour	NNP	I-NP	I-MISC	I-MISC
+PGA	NNP	B-NP	I-MISC	I-PER
+Tour	NNP	I-NP	I-MISC	I-PER
 victory	NN	I-NP	O	O
 and	CC	O	O	O
 first	JJ	I-NP	O	O
@@ -37363,7 +37363,7 @@ unprecedented	JJ	I-NP	O	O
 third	JJ	I-NP	O	O
 successive	JJ	I-NP	O	O
 U.S.	NNP	I-NP	I-MISC	I-LOC
-Amateur	NNP	I-NP	I-MISC	I-MISC
+Amateur	NNP	I-NP	I-MISC	I-PER
 Championship	NNP	I-NP	I-MISC	I-ORG
 ,	,	O	O	O
 struggled	VBD	I-VP	O	O
@@ -37412,7 +37412,7 @@ and	CC	I-NP	O	O
 .	.	O	O	O
 
 After	IN	I-PP	O	O
-Parnevik	NNP	I-NP	I-PER	I-PER
+Parnevik	NNP	I-NP	I-PER	I-LOC
 started	VBD	I-VP	O	O
 off	RP	I-PRT	O	O
 his	PRP$	I-NP	O	O
@@ -37754,7 +37754,7 @@ U.S.	NNP	I-NP	I-LOC	I-LOC
 TEAMS	NNS	I-NP	O	O
 OPEN	IN	I-PP	O	O
 ON	IN	I-PP	O	O
-ROAD	NNP	I-NP	O	O
+ROAD	NNP	I-NP	O	I-LOC
 FOR	IN	I-PP	O	O
 1997	CD	I-NP	I-MISC	O
 FED	NNP	I-NP	I-MISC	I-MISC
@@ -37934,7 +37934,7 @@ U.S.	NNP	I-NP	I-LOC	I-LOC
 captain	NN	I-NP	O	O
 Billie	NNP	B-NP	I-PER	I-PER
 Jean	NNP	I-NP	I-PER	I-PER
-King	NNP	I-NP	I-PER	O
+King	NNP	I-NP	I-PER	I-PER
 said	VBD	I-VP	O	O
 at	IN	I-PP	O	O
 the	DT	I-NP	O	O
@@ -38043,7 +38043,7 @@ King	NNP	I-NP	I-PER	I-PER
 said	VBD	I-VP	O	O
 .	.	O	O	O
 
-Seles	NNS	I-NP	I-PER	I-PER
+Seles	NNS	I-NP	I-PER	O
 's	POS	B-NP	O	O
 sore	JJ	I-NP	O	O
 left	VBD	I-VP	O	O
@@ -38140,7 +38140,7 @@ that	DT	I-NP	O	O
 threesome	NN	I-NP	O	O
 together	RB	I-ADVP	O	O
 ,	,	O	O	O
-King	NNP	I-NP	I-PER	O
+King	NNP	I-NP	I-PER	I-PER
 will	MD	I-VP	O	O
 feel	VB	I-VP	O	O
 good	JJ	I-ADJP	O	O
@@ -38310,7 +38310,7 @@ DRAW	NN	I-NP	O	O
 FOR	IN	I-PP	O	O
 1997	CD	I-NP	I-MISC	O
 FED	NNP	I-NP	I-MISC	I-MISC
-CUP	NNP	I-NP	I-MISC	I-MISC
+CUP	NNP	I-NP	I-MISC	I-PER
 WOMEN	VBD	I-VP	O	O
 'S	VBZ	I-VP	O	O
 TEAM	NNP	I-NP	O	O
@@ -38343,8 +38343,8 @@ on	IN	I-PP	O	O
 Saturday	NNP	I-NP	O	O
 :	:	O	O	O
 
-World	NNP	I-NP	O	I-ORG
-Group	NNP	I-NP	O	O
+World	NNP	I-NP	O	O
+Group	NNP	I-NP	O	I-PER
 I	NNP	I-NP	O	I-PER
 ,	,	O	O	O
 first	JJ	I-NP	O	O
@@ -38383,8 +38383,8 @@ September	NNP	B-NP	O	O
 27-28	CD	I-NP	O	O
 )	)	O	O	O
 
-World	NNP	I-NP	O	I-ORG
-Group	NNP	I-NP	O	I-ORG
+World	NNP	I-NP	O	O
+Group	NNP	I-NP	O	I-PER
 II	NNP	I-NP	O	I-PER
 ,	,	O	O	O
 first	JJ	I-NP	O	O
@@ -38398,7 +38398,7 @@ Austria	NNP	I-NP	I-LOC	I-LOC
 at	IN	I-PP	O	O
 Croatia	NNP	I-NP	I-LOC	I-LOC
 
-Switzerland	NNP	I-NP	I-LOC	I-LOC
+Switzerland	NNP	I-NP	I-LOC	O
 at	IN	I-PP	O	O
 Slovak	VBD	I-NP	I-LOC	O
 Republic	NNP	I-NP	I-LOC	I-LOC
@@ -38471,8 +38471,8 @@ Wynalda	NNP	I-NP	I-PER	I-PER
 61st	CD	I-NP	O	O
 )	)	O	O	O
 
-El	NNP	I-NP	I-LOC	I-ORG
-Salvador	NNP	I-NP	I-LOC	I-LOC
+El	NNP	I-NP	I-LOC	O
+Salvador	NNP	I-NP	I-LOC	I-PER
 -	:	O	O	O
 Luis	NNP	I-NP	I-PER	I-PER
 Lazo	NNP	I-NP	I-PER	I-PER
@@ -38967,16 +38967,16 @@ KEVIN	NNP	I-NP	I-PER	I-ORG
 BROWN	NNP	I-NP	I-PER	O
 LOWERS	NNP	I-NP	O	O
 ERA	NNP	I-NP	I-MISC	O
-AS	NNP	I-NP	O	O
+AS	NNP	I-NP	O	I-ORG
 MARLINS	NNP	I-NP	I-ORG	I-ORG
 BEAT	NN	I-INTJ	O	O
-REDS	NNS	I-NP	I-ORG	O
+REDS	NNS	I-NP	I-ORG	I-ORG
 .	.	O	O	O
 
 CINCINNATI	NNP	I-NP	I-LOC	I-ORG
 1996-08-31	NNP	I-NP	O	I-PER
 
-Major	JJ	I-NP	O	O
+Major	JJ	I-NP	O	I-MISC
 league	NN	I-NP	O	O
 ERA	NNP	I-NP	I-MISC	I-ORG
 leader	NN	I-NP	O	O
@@ -38989,7 +38989,7 @@ and	CC	O	O	O
 Devon	NNP	I-NP	I-PER	I-PER
 White	NNP	I-NP	I-PER	I-PER
 's	POS	B-NP	O	O
-RBI	NNP	I-NP	I-MISC	I-MISC
+RBI	NNP	I-NP	I-MISC	I-PER
 double	VB	I-VP	O	O
 snapped	VBN	I-VP	O	O
 a	DT	I-NP	O	O
@@ -39080,7 +39080,7 @@ season	NN	I-NP	O	O
 .	.	O	O	O
 
 "	"	O	O	O
-Bolesy	NNP	I-NP	I-PER	I-PER
+Bolesy	NNP	I-NP	I-PER	O
 (	(	O	O	O
 Florida	NNP	I-NP	I-ORG	I-ORG
 manager	NN	I-NP	O	O
@@ -39212,7 +39212,7 @@ league	NN	I-NP	O	O
 I	PRP	I-NP	O	O
 remember	VBP	I-VP	O	O
 Nolan	NNP	I-NP	I-PER	I-PER
-Ryan	NNP	I-NP	I-PER	I-ORG
+Ryan	NNP	I-NP	I-PER	I-PER
 saying	VBG	I-VP	O	O
 in	IN	I-PP	O	O
 '	''	O	O	O
@@ -39237,12 +39237,12 @@ and	CC	O	O	O
 he	PRP	I-NP	O	O
 saw	VBD	I-VP	O	O
 (	(	O	I-PER	O
-Tom	NNP	I-NP	I-PER	I-PER
+Tom	NNP	I-NP	I-PER	I-LOC
 )	)	O	I-PER	O
 Seaver	NNP	I-NP	I-PER	I-ORG
 and	CC	O	O	O
 (	(	I-LST	I-PER	O
-Jerry	NNP	I-NP	I-PER	O
+Jerry	NNP	I-NP	I-PER	I-LOC
 )	)	O	I-PER	O
 Koosman	NNP	I-NP	I-PER	I-ORG
 when	WRB	I-ADVP	O	O
@@ -39676,7 +39676,7 @@ Mets	NNPS	I-NP	I-ORG	I-ORG
 6-4	CD	I-NP	O	O
 .	.	O	O	O
 
-Benard	RB	I-ADVP	I-PER	O
+Benard	RB	I-ADVP	I-PER	I-PER
 ,	,	O	O	O
 hitting	VBG	I-VP	O	O
 .467	CD	I-NP	O	O
@@ -39709,7 +39709,7 @@ fence	NN	I-NP	O	O
 to	TO	I-VP	O	O
 put	VB	I-VP	O	O
 the	DT	I-NP	O	O
-Giants	NNP	I-NP	I-ORG	I-ORG
+Giants	NNP	I-NP	I-ORG	I-LOC
 up	RB	I-ADVP	O	O
 4-2	JJ	I-ADVP	O	O
 .	.	O	O	O
@@ -39804,7 +39804,7 @@ and	CC	O	O	O
 three	CD	I-NP	O	O
 RBI	NNP	I-NP	I-MISC	I-MISC
 and	CC	I-NP	O	O
-Alan	NNP	I-NP	I-PER	I-PER
+Alan	NNP	I-NP	I-PER	I-ORG
 Benes	NNPS	I-NP	I-PER	I-PER
 scattered	VBN	I-VP	O	O
 six	CD	I-NP	O	O
@@ -39975,10 +39975,10 @@ win	NN	I-NP	O	O
 TENNIS	NNS	I-NP	O	O
 -	:	O	O	O
 EDBERG	NNP	I-NP	I-PER	I-PER
-REFUSES	NNP	I-NP	O	O
+REFUSES	NNP	I-NP	O	I-PER
 TO	TO	I-PP	O	O
 QO	TO	I-VP	O	O
-QUIETLY	NNP	I-NP	O	I-LOC
+QUIETLY	NNP	I-NP	O	O
 .	.	O	O	O
 
 Richard	NNP	I-NP	I-PER	I-PER
@@ -40115,7 +40115,7 @@ victory	NN	I-NP	O	O
 
 Ironically	RB	I-ADVP	O	O
 ,	,	O	O	O
-Karbacher	NNP	I-NP	I-PER	O
+Karbacher	NNP	I-NP	I-PER	I-LOC
 two	CD	B-NP	O	O
 years	NNS	I-NP	O	O
 ago	RB	I-ADVP	O	O
@@ -40305,7 +40305,7 @@ second	JJ	I-NP	O	O
 set	NN	I-NP	O	O
 .	.	O	O	O
 
-Edberg	RB	I-ADVP	I-PER	I-PER
+Edberg	RB	I-ADVP	I-PER	O
 lost	VBD	I-VP	O	O
 his	PRP$	I-NP	O	O
 own	JJ	I-NP	O	O
@@ -40602,11 +40602,11 @@ goalless	JJ	I-NP	O	O
 draw	NN	I-NP	O	O
 .	.	O	O	O
 
-Scotland	NNP	I-NP	I-LOC	I-LOC
+Scotland	NNP	I-NP	I-LOC	I-PER
 ,	,	O	O	O
 who	WP	I-NP	O	O
 thrashed	VBD	I-VP	O	O
-Belarus	NNP	I-NP	I-LOC	I-LOC
+Belarus	NNP	I-NP	I-LOC	I-ORG
 5-1	CD	I-NP	O	O
 in	IN	I-PP	O	O
 their	PRP$	I-NP	O	O
@@ -40745,7 +40745,7 @@ is	VBZ	I-VP	O	O
 acceptable	JJ	I-ADJP	O	O
 ,	,	O	O	O
 "	"	O	O	O
-Scottish	NNP	I-NP	I-MISC	I-MISC
+Scottish	NNP	I-NP	I-MISC	I-ORG
 coach	NN	I-NP	O	O
 Craig	NNP	I-NP	I-PER	I-PER
 Brown	NNP	I-NP	I-PER	I-PER
@@ -41062,7 +41062,7 @@ Jacquet	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
 their	PRP$	I-NP	O	O
 Euro	NNP	I-NP	I-MISC	I-MISC
-96	CD	I-NP	I-MISC	I-MISC
+96	CD	I-NP	I-MISC	O
 semifinal	JJ	I-NP	O	O
 elimination	NN	I-NP	O	O
 having	VBG	I-VP	O	O
@@ -41208,7 +41208,7 @@ mistake	NN	I-NP	O	O
 by	IN	I-PP	O	O
 midfielder	NN	I-NP	O	O
 Joaquin	NNP	I-NP	I-PER	I-PER
-del	FW	I-NP	I-PER	I-PER
+del	FW	I-NP	I-PER	O
 Olmo	NNP	I-NP	I-PER	I-ORG
 .	.	O	O	O
 
@@ -41305,7 +41305,7 @@ Thuram	NNP	I-NP	I-PER	I-PER
 14	CD	I-NP	O	O
 -	:	I-NP	O	O
 Sabri	NNP	I-NP	I-PER	I-PER
-Lamouchi	NNP	I-NP	I-PER	O
+Lamouchi	NNP	I-NP	I-PER	I-ORG
 87th	NNP	I-NP	O	I-ORG
 )	)	O	O	O
 ,	,	O	O	O
@@ -41378,7 +41378,7 @@ Loko	NNP	I-NP	I-PER	I-PER
 15	CD	I-NP	O	O
 -	:	I-NP	O	O
 Zinedine	NNP	I-NP	I-PER	I-PER
-Zidane	NNP	I-NP	I-PER	O
+Zidane	NNP	I-NP	I-PER	I-ORG
 46th	NNP	I-NP	O	O
 )	)	O	O	O
 
@@ -41430,7 +41430,7 @@ Gomez	NNP	I-NP	I-PER	I-PER
 -	:	I-NP	O	O
 Joaquin	NNP	I-NP	I-PER	I-PER
 del	FW	I-NP	I-PER	O
-Olmo	NNP	I-NP	I-PER	I-ORG
+Olmo	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
 6	CD	I-NP	O	O
 -	:	I-NP	O	O
@@ -41548,7 +41548,7 @@ SCRAPE	NNP	I-NP	O	O
 PAST	NNP	I-NP	O	O
 TURKEY	NNP	I-NP	I-LOC	I-ORG
 DESPITE	IN	I-PP	O	O
-CROWD	NNP	I-NP	O	I-ORG
+CROWD	NNP	I-NP	O	I-LOC
 TROUBLE	NN	I-NP	O	O
 .	.	O	O	O
 
@@ -41912,14 +41912,14 @@ from	IN	I-PP	O	O
 close	JJ	I-NP	O	O
 range	NN	I-NP	O	O
 with	IN	I-PP	O	O
-Recber	NNP	I-NP	I-PER	I-PER
+Recber	NNP	I-NP	I-PER	O
 beaten	JJ	I-NP	O	O
 .	.	O	O	O
 
 Teams	NNS	I-NP	O	O
 :	:	O	O	O
 
-Belgium	NN	I-NP	I-LOC	I-LOC
+Belgium	NN	I-NP	I-LOC	O
 -	:	O	O	O
 1	CD	I-NP	O	O
 -	:	I-NP	O	O
@@ -42003,7 +42003,7 @@ Bilde	NNP	I-NP	I-PER	I-PER
 )	)	O	O	O
 .	.	O	O	O
 
-Turkey	NNP	I-NP	I-LOC	I-LOC
+Turkey	NNP	I-NP	I-LOC	O
 -	:	O	O	O
 1	CD	I-NP	O	O
 -	:	I-NP	O	O
@@ -42190,7 +42190,7 @@ Martins	NNPS	I-NP	I-PER	I-PER
 22nd	CD	I-NP	O	O
 minute	NN	I-NP	O	O
 )	)	O	O	O
-Real	JJ	I-NP	I-ORG	I-ORG
+Real	JJ	I-NP	I-ORG	O
 Madrid	NNP	I-NP	I-ORG	I-ORG
 1	CD	I-NP	O	O
 (	(	O	O	O
@@ -42587,7 +42587,7 @@ BOXING	VBG	I-VP	O	O
 -	:	O	O	O
 MILLER	NN	I-NP	I-PER	O
 DEFENDS	VBZ	I-VP	O	O
-WBA	NNP	I-NP	I-ORG	O
+WBA	NNP	I-NP	I-ORG	I-ORG
 CRUISERWEIGHT	NNP	I-NP	O	O
 TITLE	NNP	I-NP	O	O
 .	.	O	O	O
@@ -42601,7 +42601,7 @@ Miller	NNP	I-NP	I-PER	I-PER
 successfully	RB	I-ADVP	O	O
 defended	VBD	I-VP	O	O
 his	PRP$	I-NP	O	O
-WBA	NNP	I-NP	I-ORG	O
+WBA	NNP	I-NP	I-ORG	I-ORG
 cruiserweight	NN	I-NP	O	O
 title	NN	I-NP	O	O
 when	WRB	I-ADVP	O	O
@@ -42961,7 +42961,7 @@ SOCCER	NN	I-NP	O	O
 -	:	O	O	O
 ROMANIA	NNP	I-NP	I-LOC	I-LOC
 BEAT	NN	I-INTJ	O	O
-LITHUANIA	NNP	I-NP	I-LOC	I-LOC
+LITHUANIA	NNP	I-NP	I-LOC	I-ORG
 IN	IN	I-PP	O	O
 U-21	NNP	I-NP	O	I-MISC
 QUALIFIER	NNP	I-NP	O	O
@@ -43032,7 +43032,7 @@ LONDON	NNP	I-NP	I-LOC	I-LOC
 1996-09-01	NNP	I-NP	O	I-PER
 
 A	DT	I-NP	O	O
-British	NNP	I-NP	I-MISC	I-MISC
+British	NNP	I-NP	I-MISC	I-ORG
 newspaper	NN	I-NP	O	O
 said	VBD	I-VP	O	O
 Margaret	NNP	I-NP	I-PER	I-PER
@@ -43068,7 +43068,7 @@ threats	NNS	I-NP	O	O
 .	.	O	O	O
 
 The	DT	I-NP	I-ORG	O
-Sunday	NNP	I-NP	I-ORG	O
+Sunday	NNP	I-NP	I-ORG	I-ORG
 Telegraph	NNP	I-NP	I-ORG	I-ORG
 quoted	VBD	I-VP	O	O
 Majorie	NNP	I-NP	I-PER	I-PER
@@ -43378,7 +43378,7 @@ troops	NNS	I-NP	O	O
 under	IN	I-PP	O	O
 Duke	NNP	I-NP	O	I-LOC
 of	IN	I-PP	O	O
-Orleans	NNP	I-NP	I-LOC	I-ORG
+Orleans	NNP	I-NP	I-LOC	I-LOC
 besieging	VBG	I-VP	O	O
 Turin	NNP	I-NP	I-LOC	I-LOC
 were	VBD	I-VP	O	O
@@ -43427,12 +43427,12 @@ ending	VBG	I-VP	O	O
 War	NNP	I-NP	I-MISC	I-PER
 of	IN	I-PP	I-MISC	O
 Spanish	NNP	I-NP	I-MISC	I-MISC
-Succession	NNP	I-NP	I-MISC	I-ORG
+Succession	NNP	I-NP	I-MISC	I-LOC
 .	.	O	O	O
 
 Charles	NNP	I-NP	I-PER	I-PER
 ceded	VBD	I-VP	O	O
-Alsace	NNP	I-NP	I-LOC	I-PER
+Alsace	NNP	I-NP	I-LOC	I-ORG
 and	CC	I-NP	O	O
 Strasbourg	NNP	I-NP	I-LOC	I-LOC
 to	TO	I-PP	O	O
@@ -43489,7 +43489,7 @@ independence	NN	I-NP	O	O
 from	IN	I-PP	O	O
 Portugal	NNP	I-NP	I-LOC	I-LOC
 and	CC	I-NP	O	O
-Pedro	NNP	I-NP	I-PER	I-LOC
+Pedro	NNP	I-NP	I-PER	O
 I	PRP	B-NP	I-PER	O
 became	VBD	I-VP	O	O
 first	RB	I-VP	O	O
@@ -43512,7 +43512,7 @@ born	VBN	I-VP	O	O
 .	.	O	O	O
 
 As	IN	I-SBAR	O	O
-Liberal	NNP	I-NP	I-MISC	I-MISC
+Liberal	NNP	I-NP	I-MISC	I-ORG
 prime	JJ	I-NP	O	O
 minister	NN	I-NP	O	O
 1905-1908	CD	I-NP	O	O
@@ -43536,7 +43536,7 @@ pass	VB	I-VP	O	O
 his	PRP$	I-NP	O	O
 Trades	NNP	I-NP	I-MISC	I-ORG
 Disputes	NNP	I-NP	I-MISC	I-MISC
-Act	NNP	I-NP	I-MISC	I-PER
+Act	NNP	I-NP	I-MISC	I-MISC
 which	WDT	B-NP	O	O
 gave	VBD	I-VP	O	O
 labour	NN	I-NP	O	O
@@ -43636,7 +43636,7 @@ known	VBN	I-VP	O	O
 for	IN	I-PP	O	O
 "	"	O	O	O
 Viva	FW	I-VP	I-MISC	O
-Zapata	NNP	I-NP	I-MISC	I-MISC
+Zapata	NNP	I-NP	I-MISC	I-PER
 "	"	O	O	O
 and	CC	O	O	O
 "	"	O	O	O
@@ -43862,7 +43862,7 @@ The	DT	I-NP	O	O
 United	NNP	I-NP	I-LOC	I-LOC
 States	NNP	I-NP	I-LOC	I-LOC
 won	VBD	I-VP	O	O
-Saudi	NNP	I-NP	I-MISC	I-MISC
+Saudi	NNP	I-NP	I-MISC	I-LOC
 and	CC	I-NP	O	O
 Kuwaiti	NNP	I-NP	I-MISC	I-LOC
 pledges	VBZ	I-VP	O	O
@@ -44091,7 +44091,7 @@ of	IN	I-PP	O	O
 the	DT	I-NP	O	O
 public	JJ	I-NP	O	O
 recognised	VBD	I-VP	O	O
-Holland	NNP	I-NP	I-PER	I-ORG
+Holland	NNP	I-NP	I-PER	I-LOC
 in	IN	I-PP	O	O
 a	DT	I-NP	O	O
 newsagent	JJ	I-NP	O	O
@@ -44354,7 +44354,7 @@ the	DT	I-NP	O	O
 union	NN	I-NP	O	O
 of	IN	I-PP	O	O
 the	DT	I-NP	O	O
-Scottish	NNP	I-NP	I-MISC	I-MISC
+Scottish	NNP	I-NP	I-MISC	I-ORG
 and	CC	I-NP	O	O
 English	NNP	I-NP	I-MISC	I-MISC
 parliaments	NNS	I-NP	O	O
@@ -44379,7 +44379,7 @@ only	RB	I-NP	O	O
 of	IN	I-PP	O	O
 the	DT	I-NP	O	O
 72	CD	I-NP	O	O
-Scottish	JJ	I-NP	I-MISC	I-MISC
+Scottish	JJ	I-NP	I-MISC	O
 seats	NNS	I-NP	O	O
 in	IN	I-PP	O	O
 parliament	NN	I-NP	O	O
@@ -45154,7 +45154,7 @@ pro-baseball	NN	I-NP	O	O
 games	NNS	I-NP	O	O
 .	.	O	O	O
 
-SEOUL	VB	I-VP	I-LOC	O
+SEOUL	VB	I-VP	I-LOC	I-LOC
 1996-08-31	NNP	I-NP	O	O
 
 Results	NNS	I-NP	O	O
@@ -45284,7 +45284,7 @@ TOWN	NNP	I-NP	I-LOC	I-PER
 South	JJ	I-NP	I-MISC	I-MISC
 African	JJ	I-NP	I-MISC	I-MISC
 right-wing	NN	I-NP	O	O
-Afrikaners	NNPS	I-NP	O	I-MISC
+Afrikaners	NNPS	I-NP	O	I-ORG
 on	IN	I-PP	O	O
 Saturday	NNP	I-NP	O	O
 revived	VBD	I-VP	O	O
@@ -45487,7 +45487,7 @@ of	IN	I-PP	O	O
 self-rule	NN	I-NP	O	O
 for	IN	I-PP	O	O
 the	DT	I-NP	O	O
-Afrikaners	NNPS	I-NP	I-MISC	I-MISC
+Afrikaners	NNPS	I-NP	I-MISC	I-ORG
 ,	,	O	O	O
 descendants	NNS	I-NP	O	O
 of	IN	I-PP	O	O
@@ -45534,7 +45534,7 @@ people	NNS	I-NP	O	O
 whites	NNS	I-NP	O	O
 and	CC	O	O	O
 mixed-race	NN	I-NP	O	O
-Coloureds	NNPS	I-NP	O	I-MISC
+Coloureds	NNPS	I-NP	O	O
 --	:	O	O	O
 speak	VB	I-VP	O	O
 Afrikaans	NNS	I-NP	I-MISC	O
@@ -45932,7 +45932,7 @@ a	DT	I-NP	O	O
 violent	JJ	I-NP	O	O
 confrontation	NN	I-NP	O	O
 with	IN	I-PP	O	O
-Serbs	NNP	I-NP	I-MISC	I-MISC
+Serbs	NNP	I-NP	I-MISC	I-LOC
 .	.	O	O	O
 
 "	"	O	O	O
@@ -46122,7 +46122,7 @@ Stremaitis	NNP	I-NP	I-PER	I-PER
 
 URUS-MARTAN	NNP	I-NP	I-LOC	I-LOC
 ,	,	O	O	O
-Russia	NNP	I-NP	I-LOC	I-LOC
+Russia	NNP	I-NP	I-LOC	I-PER
 1996-08-31	NNP	I-NP	O	I-PER
 
 Crowds	NNS	I-NP	O	O
@@ -46177,7 +46177,7 @@ of	IN	I-PP	O	O
 the	DT	I-NP	O	O
 town	NN	I-NP	O	O
 of	IN	I-PP	O	O
-Urus-Martan	JJ	I-NP	I-LOC	O
+Urus-Martan	JJ	I-NP	I-LOC	I-LOC
 on	IN	I-PP	O	O
 Saturday	NNP	I-NP	O	O
 to	TO	I-VP	O	O
@@ -46628,7 +46628,7 @@ Greatest	NNP	I-NP	O	O
 )	)	O	O	O
 and	CC	O	O	O
 "	"	O	O	O
-Freedom	NNP	I-NP	O	I-ORG
+Freedom	NNP	I-NP	O	O
 for	IN	I-PP	O	O
 Chechnya	NNP	I-NP	I-LOC	I-LOC
 !	.	O	O	O
@@ -46713,7 +46713,7 @@ group	NN	I-NP	O	O
 to	TO	I-VP	O	O
 bid	VB	I-VP	O	O
 for	IN	I-PP	O	O
-Ruch	NNP	I-NP	I-ORG	I-ORG
+Ruch	NNP	I-NP	I-ORG	I-LOC
 newsstand	NN	I-NP	O	O
 chain	NN	I-NP	O	O
 -	:	I-NP	O	O
@@ -46730,7 +46730,7 @@ including	VBG	I-PP	O	O
 the	DT	I-NP	O	O
 Bank	NNP	I-NP	I-ORG	I-ORG
 Rozwoju	NNP	I-NP	I-ORG	I-ORG
-Exportu	NNP	I-NP	I-ORG	I-ORG
+Exportu	NNP	I-NP	I-ORG	I-PER
 SA	NNP	I-NP	I-ORG	I-PER
 (	(	O	O	O
 BRE	NNP	I-NP	I-ORG	I-ORG
@@ -46879,7 +46879,7 @@ consortium	NN	I-NP	O	O
 of	IN	I-PP	O	O
 press	NN	I-NP	O	O
 distributor	NN	I-NP	O	O
-Hachette	NNP	I-NP	I-ORG	I-ORG
+Hachette	NNP	I-NP	I-ORG	I-PER
 and	CC	O	O	O
 Polish	JJ	I-NP	I-MISC	I-MISC
 publishers	NNS	I-NP	O	O
@@ -47072,7 +47072,7 @@ Polish	NNP	I-NP	I-MISC	I-MISC
 SPC	NNP	I-NP	I-ORG	I-ORG
 group	NN	I-NP	O	O
 and	CC	O	O	O
-Swiss	JJ	I-NP	I-MISC	I-MISC
+Swiss	JJ	I-NP	I-MISC	O
 firms	NNS	I-NP	O	O
 --	:	O	O	O
 placed	VBD	I-VP	O	O
@@ -47116,7 +47116,7 @@ ended	VBD	I-VP	O	O
 up	RP	I-PRT	O	O
 bidding	NN	I-VP	O	O
 for	IN	I-PP	O	O
-Ruch	NNP	I-NP	I-ORG	I-ORG
+Ruch	NNP	I-NP	I-ORG	I-LOC
 ,	,	O	O	O
 in	IN	I-PP	O	O
 which	WDT	I-NP	O	O
@@ -47147,7 +47147,7 @@ fulfilled	VBN	I-VP	O	O
 
 --	:	I-NP	O	O
 Anthony	NNP	I-NP	I-PER	I-ORG
-Barker	NNP	I-NP	I-PER	I-PER
+Barker	NNP	I-NP	I-PER	I-ORG
 +48	CD	I-NP	O	O
 22	CD	I-NP	O	O
 653	CD	I-NP	O	O
@@ -47224,7 +47224,7 @@ attackers	NNS	I-NP	O	O
 had	VBD	I-VP	O	O
 seized	VBN	I-VP	O	O
 two	CD	I-NP	O	O
-Kalashnikov	NNP	B-NP	I-MISC	I-MISC
+Kalashnikov	NNP	B-NP	I-MISC	O
 assault	NN	I-NP	O	O
 rifles	NNS	I-NP	O	O
 and	CC	O	O	O
@@ -47304,7 +47304,7 @@ on	IN	I-PP	O	O
 Saturday	NNP	I-NP	O	O
 .	.	O	O	O
 
-Puig	NNP	I-NP	I-PER	I-ORG
+Puig	NNP	I-NP	I-PER	I-LOC
 's	POS	B-NP	O	O
 first	JJ	I-NP	O	O
 novel	NN	I-NP	O	O
@@ -47354,7 +47354,7 @@ life	NN	I-NP	O	O
 of	IN	I-PP	O	O
 Santiago	NNP	I-NP	I-LOC	I-LOC
 de	NNP	I-NP	I-LOC	I-LOC
-Cuba	NNP	I-NP	I-LOC	I-LOC
+Cuba	NNP	I-NP	I-LOC	I-PER
 ,	,	O	O	O
 Puig	NNP	I-NP	I-PER	I-LOC
 's	POS	B-NP	O	O
@@ -47367,7 +47367,7 @@ pre-Castro	JJ	I-NP	I-MISC	O
 government	NN	I-NP	O	O
 of	IN	I-PP	O	O
 Fulgencio	NNP	I-NP	I-PER	I-LOC
-Batista	NNP	I-NP	I-PER	I-ORG
+Batista	NNP	I-NP	I-PER	I-LOC
 .	.	O	O	O
 
 The	DT	I-NP	O	O
@@ -47381,7 +47381,7 @@ as	IN	I-PP	O	O
 "	"	O	O	O
 In	IN	I-PP	I-MISC	O
 the	DT	I-NP	I-MISC	O
-Year	NNP	I-NP	I-MISC	O
+Year	NNP	I-NP	I-MISC	I-ORG
 of	IN	I-PP	I-MISC	I-ORG
 January	NNP	I-NP	I-MISC	O
 "	"	O	O	O
@@ -47399,7 +47399,7 @@ Collapse	NNP	I-NP	I-MISC	I-LOC
 ,	,	O	O	O
 "	"	O	O	O
 Sleeping	NN	I-NP	I-MISC	O
-Bread	NNP	I-NP	I-MISC	I-ORG
+Bread	NNP	I-NP	I-MISC	I-MISC
 "	"	O	O	O
 (	(	O	O	O
 1975	CD	I-NP	O	O
@@ -47450,7 +47450,7 @@ Granma	NNP	I-NP	I-ORG	I-PER
 called	VBD	I-VP	O	O
 "	"	O	O	O
 Sleeping	NN	I-NP	I-MISC	O
-Bread	NNP	I-NP	I-MISC	I-ORG
+Bread	NNP	I-NP	I-MISC	I-MISC
 "	"	O	O	O
 Puig	NNP	I-NP	I-PER	I-PER
 's	POS	I-NP	O	O
@@ -47609,7 +47609,7 @@ American	NNP	I-NP	I-MISC	I-MISC
 tour	NN	I-NP	O	O
 .	.	O	O	O
 
-Albright	NN	I-NP	I-PER	O
+Albright	NN	I-NP	I-PER	I-PER
 will	MD	I-VP	O	O
 meet	VB	I-VP	O	O
 Foreign	NNP	I-NP	O	O
@@ -47632,7 +47632,7 @@ council	NN	I-NP	O	O
 ,	,	O	O	O
 of	IN	I-PP	O	O
 which	WDT	I-NP	O	O
-Chile	NNP	B-NP	I-LOC	I-PER
+Chile	NNP	B-NP	I-LOC	I-LOC
 is	VBZ	I-VP	O	O
 a	DT	I-NP	O	O
 non-permanent	JJ	I-NP	O	O
@@ -47701,7 +47701,7 @@ leave	VB	I-VP	O	O
 that	DT	I-NP	O	O
 day	NN	I-NP	O	O
 for	IN	I-SBAR	O	O
-Bolivia	NNP	I-NP	I-LOC	I-LOC
+Bolivia	NNP	I-NP	I-LOC	I-PER
 to	TO	I-VP	O	O
 attend	VB	I-VP	O	O
 a	DT	I-NP	O	O
@@ -47784,7 +47784,7 @@ town	NN	I-NP	O	O
 of	IN	I-PP	O	O
 Tacambaro	NNP	I-NP	I-LOC	I-LOC
 ,	,	O	O	O
-Michoacan	NNP	I-NP	I-LOC	I-PER
+Michoacan	NNP	I-NP	I-LOC	I-LOC
 ,	,	O	O	O
 80	CD	I-NP	O	O
 km	NN	I-NP	O	O
@@ -47898,7 +47898,7 @@ in	IN	I-PP	O	O
 at	IN	I-NP	O	O
 least	JJS	I-NP	O	O
 three	CD	I-NP	O	O
-Mexican	JJ	I-NP	I-MISC	I-MISC
+Mexican	JJ	I-NP	I-MISC	O
 states	NNS	I-NP	O	O
 ,	,	O	O	O
 killing	VBG	I-VP	O	O
@@ -47971,8 +47971,8 @@ executive	JJ	I-NP	O	O
 director	NN	I-NP	O	O
 of	IN	I-PP	O	O
 the	DT	I-NP	O	O
-New	NNP	I-NP	I-MISC	I-MISC
-York-based	JJ	I-NP	I-MISC	I-MISC
+New	NNP	I-NP	I-MISC	I-LOC
+York-based	JJ	I-NP	I-MISC	O
 group	NN	I-NP	O	O
 Human	NNP	I-NP	I-ORG	I-ORG
 Rights	NNPS	I-NP	I-ORG	I-ORG
@@ -47994,7 +47994,7 @@ the	DT	I-NP	O	O
 national	JJ	I-NP	O	O
 "	"	O	O	O
 Strike	NN	I-NP	I-MISC	O
-Hard	NNP	I-NP	I-MISC	I-LOC
+Hard	NNP	I-NP	I-MISC	I-PER
 "	"	O	O	O
 campaign	NN	I-NP	O	O
 that	WDT	B-NP	O	O
@@ -48088,7 +48088,7 @@ to	TO	I-VP	O	O
 attend	VB	I-VP	O	O
 an	DT	I-NP	O	O
 Amnesty	NNP	I-NP	I-ORG	I-ORG
-International	NNP	I-NP	I-ORG	I-MISC
+International	NNP	I-NP	I-ORG	I-ORG
 conference	NN	I-NP	O	O
 on	IN	I-PP	O	O
 human	JJ	I-NP	O	O
@@ -48321,7 +48321,7 @@ gratitude	NN	I-NP	O	O
 to	TO	I-PP	O	O
 Indonesian	JJ	I-NP	I-MISC	I-MISC
 president	NN	I-NP	O	O
-Suharto	NNP	B-NP	I-PER	I-PER
+Suharto	NNP	B-NP	I-PER	I-ORG
 and	CC	O	O	O
 the	DT	I-NP	O	O
 Organisation	NNP	I-NP	I-ORG	I-ORG
@@ -48495,7 +48495,7 @@ democracy	NN	I-NP	O	O
 leader	NN	I-NP	O	O
 Aung	NNP	I-NP	I-PER	I-PER
 San	NNP	I-NP	I-PER	I-PER
-Suu	NNP	I-NP	I-PER	I-ORG
+Suu	NNP	I-NP	I-PER	I-PER
 Kyi	NNP	I-NP	I-PER	I-PER
 hit	VBD	I-VP	O	O
 out	RB	I-ADVP	O	O
@@ -48623,12 +48623,12 @@ over	IN	I-NP	O	O
 members	NNS	I-NP	O	O
 of	IN	I-PP	O	O
 Suu	NNP	I-NP	I-PER	I-ORG
-Kyi	NNP	I-NP	I-PER	I-ORG
+Kyi	NNP	I-NP	I-PER	I-LOC
 's	POS	B-NP	O	O
 National	NNP	I-NP	I-ORG	I-MISC
 League	NNP	I-NP	I-ORG	I-MISC
 for	IN	I-PP	I-ORG	O
-Democracy	NN	I-NP	I-ORG	I-ORG
+Democracy	NN	I-NP	I-ORG	O
 (	(	O	O	O
 NLD	NNP	I-NP	I-ORG	I-LOC
 )	)	O	O	O
@@ -48676,7 +48676,7 @@ Suu	NNP	I-NP	I-PER	I-PER
 Kyi	NNP	I-NP	I-PER	I-PER
 's	POS	B-NP	O	O
 assistant	JJ	I-NP	O	O
-Win	NNP	I-NP	I-PER	I-ORG
+Win	NNP	I-NP	I-PER	I-PER
 Htein	NNP	I-NP	I-PER	I-PER
 .	.	O	O	O
 
@@ -48727,7 +48727,7 @@ saying	VBG	I-VP	O	O
 officials	NNS	I-NP	O	O
 often	RB	I-ADVP	O	O
 arrested	VBN	I-VP	O	O
-NLD	NNP	I-NP	I-ORG	I-ORG
+NLD	NNP	I-NP	I-ORG	I-MISC
 supporters	NNS	I-NP	O	O
 in	IN	I-PP	O	O
 the	DT	I-NP	O	O
@@ -48841,7 +48841,7 @@ Law	NNP	I-NP	I-ORG	I-ORG
 and	CC	I-NP	I-ORG	O
 Order	NNP	I-NP	I-ORG	I-ORG
 Restoration	NNP	I-NP	I-ORG	I-PER
-Council	NNP	I-NP	I-ORG	I-ORG
+Council	NNP	I-NP	I-ORG	I-PER
 (	(	O	O	O
 SLORC	NNP	I-NP	I-ORG	I-ORG
 )	)	O	O	O
@@ -48989,7 +48989,7 @@ held	VBN	I-VP	O	O
 in	IN	I-PP	O	O
 Rangoon	NNPS	I-NP	I-LOC	I-LOC
 's	POS	B-NP	O	O
-Insein	NNP	I-NP	I-LOC	I-ORG
+Insein	NNP	I-NP	I-LOC	I-PER
 Prison	NNP	I-NP	I-LOC	I-PER
 .	.	O	O	O
 
@@ -49087,7 +49087,7 @@ Leander	NNP	I-NP	I-PER	I-PER
 (	(	O	I-PER	O
 Leo	NNP	O	I-PER	I-LOC
 )	)	O	I-PER	O
-Nichols	NNP	I-NP	I-PER	I-PER
+Nichols	NNP	I-NP	I-PER	I-ORG
 ,	,	O	O	O
 a	DT	I-NP	O	O
 close	JJ	I-NP	O	O
@@ -49193,7 +49193,7 @@ ethylene	NN	I-NP	O	O
 venture	NN	I-NP	O	O
 .	.	O	O	O
 
-BEIJING	VBG	I-VP	I-LOC	O
+BEIJING	VBG	I-VP	I-LOC	I-LOC
 1996-08-31	NNP	I-NP	O	O
 
 The	DT	I-NP	O	O
@@ -49302,7 +49302,7 @@ Mobil	NNP	I-NP	I-ORG	I-ORG
 ,	,	I-NP	O	O
 Shell	NNP	I-NP	I-ORG	I-ORG
 and	CC	I-NP	O	O
-Caltex	NNS	I-NP	I-ORG	I-ORG
+Caltex	NNS	I-NP	I-ORG	O
 ,	,	O	O	O
 were	VBD	I-VP	O	O
 also	RB	I-VP	O	O
@@ -49346,7 +49346,7 @@ war	NN	I-NP	O	O
 veteran	NN	I-NP	O	O
 .	.	O	O	O
 
-SEOUL	VB	I-VP	I-LOC	O
+SEOUL	VB	I-VP	I-LOC	I-LOC
 1996-08-31	NNP	I-NP	O	O
 
 North	NNP	I-NP	I-LOC	I-LOC
@@ -49399,8 +49399,8 @@ is	VBZ	I-VP	O	O
 waiting	VBG	I-VP	O	O
 ,	,	O	O	O
 "	"	O	O	O
-North	NNP	I-NP	I-ORG	I-MISC
-Korean	NNP	I-NP	I-ORG	I-MISC
+North	NNP	I-NP	I-ORG	I-ORG
+Korean	NNP	I-NP	I-ORG	I-ORG
 Red	NNP	I-NP	I-ORG	I-ORG
 Cross	NNP	I-NP	I-ORG	I-ORG
 president	NN	I-NP	O	O
@@ -49459,7 +49459,7 @@ captured	VBN	I-VP	O	O
 during	IN	I-PP	O	O
 the	DT	I-NP	O	O
 Korean	NNP	I-NP	I-MISC	I-MISC
-War	NNP	I-NP	O	I-MISC
+War	NNP	I-NP	O	I-ORG
 and	CC	O	O	O
 released	VBD	I-VP	O	O
 after	IN	I-PP	O	O
@@ -49493,7 +49493,7 @@ repatriation	NN	I-NP	O	O
 
 The	DT	I-NP	O	O
 domestic	JJ	I-NP	O	O
-Yonhap	JJ	I-NP	I-ORG	O
+Yonhap	JJ	I-NP	I-ORG	I-MISC
 news	NN	I-NP	O	O
 agency	NN	I-NP	O	O
 said	VBD	I-VP	O	O
@@ -49574,7 +49574,7 @@ veteran	NN	I-NP	O	O
 dissident	NN	I-NP	O	O
 .	.	O	O	O
 
-BEIJING	VBG	I-VP	I-LOC	O
+BEIJING	VBG	I-VP	I-LOC	I-LOC
 1996-08-31	NNP	I-NP	O	O
 
 Chinese	JJ	I-NP	I-MISC	I-MISC
@@ -49588,7 +49588,7 @@ Donghai	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
 the	DT	I-NP	O	O
 New	NNP	I-NP	I-MISC	I-LOC
-York-based	JJ	I-NP	I-MISC	I-MISC
+York-based	JJ	I-NP	I-MISC	O
 pressure	NN	I-NP	O	O
 group	NN	I-NP	O	O
 Human	NNP	I-NP	I-ORG	I-ORG
@@ -49617,7 +49617,7 @@ Wang	NNP	I-NP	I-PER	I-PER
 's	POS	B-NP	O	O
 family	NN	I-NP	O	O
 that	IN	I-SBAR	O	O
-Wang	NNP	I-NP	I-PER	I-PER
+Wang	NNP	I-NP	I-PER	I-LOC
 would	MD	I-VP	O	O
 be	VB	I-VP	O	O
 sent	VBN	I-VP	O	O
@@ -49689,8 +49689,8 @@ from	IN	I-PP	O	O
 the	DT	I-NP	O	O
 chaotic	JJ	I-NP	O	O
 1966-76	CD	I-ADVP	I-MISC	O
-Cultural	NNP	I-NP	I-MISC	I-MISC
-Revolution	NNP	I-NP	I-MISC	I-MISC
+Cultural	NNP	I-NP	I-MISC	O
+Revolution	NNP	I-NP	I-MISC	I-PER
 --	:	O	O	O
 or	CC	O	O	O
 say	VB	I-VP	O	O
@@ -49723,7 +49723,7 @@ comment	NN	I-NP	O	O
 The	DT	I-NP	O	O
 group	NN	I-NP	O	O
 demanded	VBD	I-VP	O	O
-Wang	NNP	I-NP	I-PER	I-ORG
+Wang	NNP	I-NP	I-PER	I-PER
 's	POS	B-NP	O	O
 release	NN	I-NP	O	O
 and	CC	O	O	O
@@ -49740,7 +49740,7 @@ returning	VBG	I-VP	O	O
 to	TO	I-PP	O	O
 its	PRP$	I-NP	O	O
 Cultural	NNP	I-NP	I-MISC	O
-Revolution	NNP	I-NP	I-MISC	I-MISC
+Revolution	NNP	I-NP	I-MISC	O
 days	NNS	I-NP	O	O
 .	.	O	O	O
 
@@ -49832,7 +49832,7 @@ at	IN	I-PP	O	O
 Beijing	NNP	I-NP	I-LOC	I-LOC
 's	POS	B-NP	O	O
 Tiananmen	NNP	I-NP	I-LOC	I-PER
-Square	NNP	I-NP	I-LOC	I-LOC
+Square	NNP	I-NP	I-LOC	I-PER
 on	IN	I-PP	O	O
 June	NNP	I-NP	O	O
 4	CD	I-NP	O	O
@@ -49893,7 +49893,7 @@ Wang	NNP	I-NP	I-PER	I-PER
 Donghai	NNP	I-NP	I-PER	I-PER
 .	.	O	O	O
 
-BEIJING	VBG	I-VP	I-LOC	O
+BEIJING	VBG	I-VP	I-LOC	I-LOC
 1996-08-31	NNP	I-NP	O	O
 
 Chinese	JJ	I-NP	I-MISC	I-MISC
@@ -49906,7 +49906,7 @@ Donghai	NNP	I-NP	I-PER	I-PER
 ,	,	O	O	O
 the	DT	I-NP	O	O
 New	NNP	I-NP	I-MISC	I-LOC
-York-based	JJ	I-NP	I-MISC	I-MISC
+York-based	JJ	I-NP	I-MISC	O
 pressure	NN	I-NP	O	O
 group	NN	I-NP	O	O
 Human	NNP	I-NP	I-ORG	I-ORG
@@ -50068,7 +50068,7 @@ at	IN	I-PP	O	O
 Beijing	NNP	I-NP	I-LOC	I-LOC
 's	POS	B-NP	O	O
 Tiananmen	NNP	I-NP	I-LOC	I-PER
-Square	NNP	I-NP	I-LOC	I-LOC
+Square	NNP	I-NP	I-LOC	I-PER
 on	IN	I-PP	O	O
 June	NNP	I-NP	O	O
 4	CD	I-NP	O	O
@@ -50093,8 +50093,8 @@ trafficker	NN	I-NP	O	O
 .	.	O	O	O
 
 HONG	IN	I-PP	I-LOC	I-LOC
-KONG	VBG	I-VP	I-LOC	O
-1996-08-31	NNP	I-NP	O	I-ORG
+KONG	VBG	I-VP	I-LOC	I-LOC
+1996-08-31	NNP	I-NP	O	I-LOC
 
 An	DT	I-NP	O	O
 88-year-old	JJ	I-NP	O	O
@@ -50254,7 +50254,7 @@ plastic	NN	I-NP	O	O
 containers	NNS	I-NP	O	O
 .	.	O	O	O
 
-BEIJING	VBG	I-VP	I-LOC	O
+BEIJING	VBG	I-VP	I-LOC	I-LOC
 1996-08-31	NNP	I-NP	O	O
 
 Two	CD	I-NP	O	O
@@ -50936,10 +50936,10 @@ northern	JJ	I-NP	O	O
 bordder	NN	I-NP	O	O
 .	.	O	O	O
 
-Hizbollah	NNP	I-NP	I-ORG	I-ORG
+Hizbollah	NNP	I-NP	I-ORG	I-PER
 (	(	O	O	O
 Party	NNP	I-NP	I-ORG	I-ORG
-of	IN	I-PP	I-ORG	I-ORG
+of	IN	I-PP	I-ORG	O
 God	NNP	I-NP	I-ORG	I-ORG
 )	)	O	O	O
 gunmen	NNS	I-NP	O	O
@@ -51601,7 +51601,7 @@ to	TO	I-VP	O	O
 represent	VB	I-VP	O	O
 President	NNP	I-NP	O	O
 Zine	NNP	I-NP	I-PER	I-PER
-al-Abidine	JJ	I-NP	I-PER	I-MISC
+al-Abidine	JJ	I-NP	I-PER	O
 Ben	NNP	I-NP	I-PER	I-PER
 Ali	NNP	I-NP	I-PER	I-PER
 at	IN	I-PP	O	O
@@ -51649,7 +51649,7 @@ government	NN	I-NP	O	O
 auto	NN	I-NP	O	O
 safety	NN	I-NP	O	O
 agency	NN	I-NP	O	O
-Saturday	NNP	B-NP	O	I-ORG
+Saturday	NNP	B-NP	O	O
 launched	VBD	I-VP	O	O
 a	DT	I-NP	O	O
 $	$	I-NP	O	O
@@ -51775,7 +51775,7 @@ the	DT	I-NP	O	O
 East	NNP	I-NP	I-LOC	I-LOC
 Coast	NNP	I-NP	I-LOC	I-LOC
 ,	,	O	O	O
-Interstates	NNP	I-NP	I-LOC	I-PER
+Interstates	NNP	I-NP	I-LOC	O
 80	CD	I-NP	I-LOC	O
 and	CC	I-NP	O	O
 90	CD	I-NP	I-LOC	O
@@ -51783,7 +51783,7 @@ in	IN	I-PP	O	O
 the	DT	I-NP	O	O
 Midwest	NNP	I-NP	I-LOC	I-LOC
 and	CC	I-NP	O	O
-Interstate	NNP	I-NP	I-LOC	I-ORG
+Interstate	NNP	I-NP	I-LOC	O
 5	CD	I-NP	I-LOC	O
 in	IN	I-PP	O	O
 California	NNP	I-NP	I-LOC	I-LOC
@@ -51795,13 +51795,13 @@ read	VBD	I-VP	O	O
 :	:	O	O	O
 "	"	O	O	O
 Air	NNP	I-NP	O	I-ORG
-Bag	NNP	B-NP	O	O
+Bag	NNP	B-NP	O	I-MISC
 Safety	NNP	I-NP	O	O
 :	:	O	O	O
 Everyone	NN	I-NP	O	O
 Buckled	NNP	I-NP	O	I-ORG
 ,	,	O	O	O
-Kids	NNPS	I-NP	O	I-MISC
+Kids	NNPS	I-NP	O	O
 in	IN	I-PP	O	O
 Back	RB	I-ADVP	O	O
 .	.	O	O	O
@@ -52011,14 +52011,14 @@ Two	CD	I-NP	O	O
 die	VBP	I-VP	O	O
 as	IN	I-PP	O	O
 New	NNP	I-NP	I-LOC	I-LOC
-Hampshire	NNP	I-NP	I-LOC	I-ORG
+Hampshire	NNP	I-NP	I-LOC	I-LOC
 motel	NN	I-NP	O	O
 explodes	VBZ	I-VP	O	O
 and	CC	I-VP	O	O
 burns	NNS	I-VP	O	O
 .	.	O	O	O
 
-ROCHESTER	NN	I-NP	I-LOC	I-LOC
+ROCHESTER	NN	I-NP	I-LOC	O
 ,	,	O	O	O
 N.H.	NNP	I-NP	I-LOC	I-LOC
 1996-08-30	CD	I-NP	O	O
@@ -52033,7 +52033,7 @@ details	NNS	I-NP	O	O
 An	DT	I-NP	O	O
 explosion	NN	I-NP	O	O
 leveled	VBD	I-VP	O	O
-Rochester	NNP	I-NP	I-LOC	I-ORG
+Rochester	NNP	I-NP	I-LOC	I-PER
 's	POS	B-NP	O	O
 one-story	JJ	I-NP	O	O
 Lilac	NNP	I-NP	I-LOC	I-ORG
@@ -52969,7 +52969,7 @@ link	NN	I-NP	O	O
 with	IN	I-PP	O	O
 the	DT	I-NP	O	O
 Marc	NNP	I-NP	I-PER	I-ORG
-Dutroux	NNP	I-NP	I-PER	I-PER
+Dutroux	NNP	I-NP	I-PER	I-MISC
 case	NN	I-NP	O	O
 ,	,	O	O	O
 the	DT	I-NP	O	O
@@ -53294,7 +53294,7 @@ in	IN	I-PP	O	O
 the	DT	I-NP	O	O
 news	NN	I-NP	O	O
 weekly	JJ	B-NP	O	O
-Der	NNP	I-NP	I-ORG	I-ORG
+Der	NNP	I-NP	I-ORG	I-PER
 Spiegel	NNP	I-NP	I-ORG	I-ORG
 ,	,	O	O	O
 which	WDT	I-NP	O	O
@@ -53544,7 +53544,7 @@ in	IN	I-PP	O	O
 ,	,	O	O	O
 told	VBD	I-VP	O	O
 Der	NNP	I-NP	I-ORG	I-PER
-Spiegel	NNP	I-NP	I-ORG	I-ORG
+Spiegel	NNP	I-NP	I-ORG	I-PER
 he	PRP	B-NP	O	O
 did	VBD	I-VP	O	O
 not	RB	I-VP	O	O
@@ -53768,7 +53768,7 @@ presented	VBN	I-VP	O	O
 with	IN	I-PP	O	O
 an	DT	I-NP	O	O
 "	"	O	O	O
-Artisans	NNPS	I-NP	I-MISC	I-MISC
+Artisans	NNPS	I-NP	I-MISC	O
 for	IN	I-PP	I-MISC	O
 Peace	NNP	I-NP	I-MISC	I-LOC
 "	"	O	O	O
@@ -53819,7 +53819,7 @@ it	PRP	B-NP	O	O
 intended	VBD	I-VP	O	O
 to	TO	I-PP	O	O
 pressure	NN	I-NP	O	O
-Buyoya	NNP	B-NP	I-PER	I-LOC
+Buyoya	NNP	B-NP	I-PER	O
 into	IN	I-PP	O	O
 unconditional	JJ	I-NP	O	O
 negotiations	NNS	I-NP	O	O
@@ -54234,7 +54234,7 @@ link	NN	I-NP	O	O
 with	IN	I-PP	O	O
 the	DT	I-NP	O	O
 Marc	NNP	I-NP	I-PER	I-ORG
-Dutroux	NNP	I-NP	I-PER	I-PER
+Dutroux	NNP	I-NP	I-PER	I-MISC
 case	NN	I-NP	O	O
 ,	,	O	O	O
 the	DT	I-NP	O	O
@@ -54259,7 +54259,7 @@ weeks	NNS	I-NP	O	O
 
 -DOCSTART-	-X-	-X-	O	O
 
-Controversial	NNP	I-NP	O	O
+Controversial	NNP	I-NP	O	I-ORG
 IRA	NNP	I-NP	I-ORG	I-PER
 film	NN	I-NP	O	O
 screened	VBD	I-VP	O	O
@@ -54293,7 +54293,7 @@ than	IN	I-PP	O	O
 over	IN	I-NP	O	O
 "	"	O	O	O
 Michael	NNP	I-NP	I-MISC	I-MISC
-Collins	NNP	I-NP	I-MISC	I-PER
+Collins	NNP	I-NP	I-MISC	I-MISC
 "	"	O	O	O
 ,	,	O	O	O
 his	PRP$	I-NP	O	O
@@ -54338,12 +54338,12 @@ Republican	NNP	I-NP	I-ORG	I-ORG
 Army	NNP	I-NP	I-ORG	I-ORG
 's	POS	B-NP	O	O
 Director	NNP	I-NP	O	I-ORG
-of	IN	I-PP	O	I-ORG
+of	IN	I-PP	O	O
 Intelligence	NNP	I-NP	O	I-ORG
 who	WP	B-NP	O	O
 fought	VBD	I-VP	O	O
 for	IN	I-PP	O	O
-Irish	JJ	I-NP	I-MISC	I-MISC
+Irish	JJ	I-NP	I-MISC	O
 independence	NN	I-NP	O	O
 from	IN	I-PP	O	O
 1919	CD	I-NP	O	O
@@ -54515,7 +54515,7 @@ the	DT	I-NP	O	O
 world	NN	I-NP	O	O
 ,	,	O	O	O
 from	IN	I-PP	O	O
-Mao	NNP	I-NP	I-PER	I-PER
+Mao	NNP	I-NP	I-PER	I-LOC
 Tse-Tung	NNP	I-NP	I-PER	I-PER
 in	IN	I-PP	O	O
 China	NNP	I-NP	I-LOC	I-LOC
@@ -54599,7 +54599,7 @@ Jordan	NNP	I-NP	I-PER	I-LOC
 film	NN	I-NP	O	O
 .	.	O	O	O
 
-Aidan	NNP	I-NP	I-PER	I-PER
+Aidan	NNP	I-NP	I-PER	I-ORG
 Quinn	NNP	I-NP	I-PER	I-PER
 portrays	VBZ	I-VP	O	O
 Harry	NNP	I-NP	I-PER	I-PER
@@ -54803,7 +54803,7 @@ I	PRP	I-NP	O	O
 have	VBP	I-VP	O	O
 over	IN	I-PP	O	O
 '	''	O	O	O
-Michael	NNP	I-NP	I-MISC	I-ORG
+Michael	NNP	I-NP	I-MISC	I-PER
 Collins	NNP	I-NP	I-MISC	I-PER
 '	''	O	O	O
 ,	,	O	O	O
