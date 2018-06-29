@@ -1,0 +1,22 @@
+﻿Transcriber's note:
+
+For Text: A word surrounded by a cedilla such as ~this~ signifies that
+the word is bolded in the text. A word surrounded by underscores like
+_this_ signifies the word is italics in the text. The italic and bold
+markup for single italized letters (such as variables in equations) and
+"foreign" abbreviations are deleted for easier reading.
+
+For numbers and equations: Parentheses have been added to clarify
+fractions. Underscores before bracketed numbers in equations denote a
+subscript. Superscripts are designated with a caret and brackets, e.g.
+11.1^{3} is 11.1 to the third power.
+
+Appendix A and B have been moved to the end of the book.
+Minor typos have been corrected.
+
+
+
+
+PREFACE
+
+

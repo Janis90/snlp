@@ -1,0 +1,105 @@
+﻿The Project Gutenberg EBook of Opticks, by Isaac Newton
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org
+
+
+Title: Opticks
+       or, a Treatise of the Reflections, Refractions, Inflections,
+       and Colours of Light
+
+Author: Isaac Newton
+
+Release Date: August 23, 2010 [EBook #33504]
+
+Language: English
+
+
+*** START OF THIS PROJECT GUTENBERG EBOOK OPTICKS ***
+
+
+
+
+Produced by Suzanne Lybarger, steve harris, Josephine
+Paolucci and the Online Distributed Proofreading Team at
+http://www.pgdp.net.
+
+
+
+
+
+
+OPTICKS:
+
+OR, A
+
+TREATISE
+
+OF THE
+
+_Reflections_, _Refractions_,
+_Inflections_ and _Colours_
+
+OF
+
+LIGHT.
+
+_The_ FOURTH EDITION, _corrected_.
+
+By Sir _ISAAC NEWTON_, Knt.
+
+LONDON:
+
+Printed for WILLIAM INNYS at the West-End of St. _Paul's_. MDCCXXX.
+
+TITLE PAGE OF THE 1730 EDITION
+
+
+
+
+SIR ISAAC NEWTON'S ADVERTISEMENTS
+
+
+
+
+Advertisement I
+
+
+_Part of the ensuing Discourse about Light was written at the Desire of
+some Gentlemen of the_ Royal-Society, _in the Year 1675, and then sent
+to their Secretary, and read at their Meetings, and the rest was added
+about twelve Years after to complete the Theory; except the third Book,
+and the last Proposition of the Second, which were since put together
+out of scatter'd Papers. To avoid being engaged in Disputes about these
+Matters, I have hitherto delayed the printing, and should still have
+delayed it, had not the Importunity of Friends prevailed upon me. If any
+other Papers writ on this Subject are got out of my Hands they are
+imperfect, and were perhaps written before I had tried all the
+Experiments here set down, and fully satisfied my self about the Laws of
+Refractions and Composition of Colours. I have here publish'd what I
+think proper to come abroad, wishing that it may not be translated into
+another Language without my Consent._
+
+_The Crowns of Colours, which sometimes appear about the Sun and Moon, I
+have endeavoured to give an Account of; but for want of sufficient
+Observations leave that Matter to be farther examined. The Subject of
+the Third Book I have also left imperfect, not having tried all the
+Experiments which I intended when I was about these Matters, nor
+repeated some of those which I did try, until I had satisfied my self
+about all their Circumstances. To communicate what I have tried, and
+leave the rest to others for farther Enquiry, is all my Design in
+publishing these Papers._
+
+_In a Letter written to Mr._ Leibnitz _in the year 1679, and published
+by Dr._ Wallis, _I mention'd a Method by which I had found some general
+Theorems about squaring Curvilinear Figures, or comparing them with the
+Conic Sections, or other the simplest Figures with which they may be
+compared. And some Years ago I lent out a Manuscript containing such
+Theorems, and having since met with some Things copied out of it, I have
+on this Occasion made it publick, prefixing to it an_ Introduction, _and
+subjoining a_ Scholium _concerning that Method. And I have joined with
+it another small Tract concerning the Curvilinear Figures of the Second
+Kind, which was also written many Years ago, and made known to some
+Friends, who have solicited the making it publick._
