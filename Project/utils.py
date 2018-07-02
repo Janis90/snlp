@@ -13,7 +13,7 @@ def read_params():
     ap.add_argument("-a", "--accuracy", required=False, action='store_true', default=None,
                     help="Your system prints the accuracy following the format given before. This is only called with 3-column test files")
 
-    ap.add_argument("-l", "--line", required=False, action='store_true', default=None,
+    ap.add_argument("-l", "--list", required=False, action='store_true', default=None,
                     help="Your system prints each generated target form (Tasks 1,2) or inflection feature bundle (Task 3) to the standard output with one instance per line")
 
     args = vars(ap.parse_args())
@@ -28,9 +28,9 @@ def read_params():
 
 def print_members(args):
     members = """
-        Janis Landwehr, 2547715, s9jaland@stud.uni-saarland.de;
-        Sven Stauden, 2549696,
-        Carsten Klaus, 2554140,
+        Janis Landwehr, 2547715, s9jaland@stud.uni-saarland.de
+        Sven Stauden, 2549696, s9svstau@stud.uni-saarland.de
+        Carsten Klaus, 2554140, s8caklau@stud.uni-saarland.de
         """
 
     print(members)
@@ -47,8 +47,5 @@ def validate_args(args, ap):
     if path_count == 1:
         ap.error('--tr and --te must be given together')
 
-    if not (args['accuracy'] or args['line']):
-        ap.error('--line or --accuracy need to be specified')
-
-    if args['accuracy'] and args['line']:
-        ap.error('only one of --line or --accuracy can be specified')
+    if not (args['accuracy'] or args['list']):
+        ap.error('--list or --accuracy need to be specified')
