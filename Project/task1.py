@@ -94,6 +94,10 @@ def main():
     print(params)
     calc_levenshtein_distance('schielen', 'geschielt')
 
+    #utils.read_file(params["train"])
+
+    utils.generate_suffix_changing_rules("__schielen","geschielt_")
+
 
 if __name__ == "__main__":
     main()
