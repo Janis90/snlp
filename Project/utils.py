@@ -28,6 +28,7 @@ def read_params():
 
 def print_members():
     members = """
+Group L06: Khaling
 Janis Landwehr, 2547715, s9jaland@stud.uni-saarland.de
 Sven Stauden, 2549696, s9svstau@stud.uni-saarland.de
 Carsten Klaus, 2554140, s8caklau@stud.uni-saarland.de
@@ -51,39 +52,9 @@ def validate_args(args, ap):
         ap.error('--list or --accuracy need to be specified')
 
 
-
 def read_file(path):
-    
+
     input = open(path, encoding="utf8")
     for instance in input:
         instance = instance.strip()
         print(instance)
-
-def generate_suffix_changing_rules(a,b):
-    
-    assert len(a) == len(b)
-    
-    rules = []
-    #rule = "$ > $"
-    suff_a = ""
-    suff_b= ""
-
-    for i in range(len(a),0,-1):
-        print(str(i))
-        
-        if a[i-1] == "_":
-            break
-
-        suff_a =  (a[i-1] + suff_a) if a[i-1] != "_" else suff_a
-        suff_b =  (b[i-1] + suff_b)  if b[i-1] != "_" else suff_b
-
-        rule = suff_a+"$ > "+suff_b + "$"
-        print(rule)
-        rules.append(rule)
-
-    return rules
-
-def generate_prefix_changing_rules(a,b):
-    pass
-
-

@@ -41,8 +41,6 @@ def calc_levenshtein_distance(source, target):
 
                 matrix[i][j] = min(case_1, case_2, case_3)
 
-    print(matrix)
-
     # create annotated words
     source_word = ''
     target_word = ''
@@ -56,12 +54,10 @@ def calc_levenshtein_distance(source, target):
             source_word = '_' + source_word
             target_word = target[j - 1] + target_word
             j = j - 1
-            print('i == 0')
         elif j == 0:
             target_word = '_' + target_word
             source_word = source[i - 1] + source_word
             i = i - 1
-            print('j == 0')
         else:
             above_e = matrix[i - 1][j]
             left_above_e = matrix[i - 1][j - 1]
@@ -88,15 +84,41 @@ def calc_levenshtein_distance(source, target):
     return source_word, target_word
 
 
+def generate_suffix_changing_rules(a, b):
+
+    assert len(a) == len(b)
+
+    rules = []
+    # rule = "$ > $"
+    suff_a = ""
+    suff_b = ""
+
+    for i in range(len(a), 0, -1):
+        print(str(i))
+
+        if a[i - 1] == "_":
+            break
+
+        suff_a = (a[i - 1] + suff_a) if a[i - 1] != "_" else suff_a
+        suff_b = (b[i - 1] + suff_b) if b[i - 1] != "_" else suff_b
+
+        rule = suff_a + "$ > " + suff_b + "$"
+        print(rule)
+        rules.append(rule)
+
+    return rules
+
+
+def generate_prefix_changing_rules(a, b):
+    pass
+
+
 def main():
     params = utils.read_params()
 
-    print(params)
-    calc_levenshtein_distance('schielen', 'geschielt')
+    utils.read_file(params["train"])
 
-    #utils.read_file(params["train"])
-
-    utils.generate_suffix_changing_rules("__schielen","geschielt_")
+    generate_suffix_changing_rules("__schielen", "geschielt_")
 
 
 if __name__ == "__main__":
