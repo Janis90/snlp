@@ -94,11 +94,13 @@ def main():
     # params = utils.read_params()
 
     # print(params)
-    calc_levenshtein_distance('schielen', 'geschielt')
+     calc_levenshtein_distance('schielen', 'geschielt')
 
     #utils.read_file(params["train"])
 
     utils.generate_suffix_changing_rules("__schielen","geschielt_")
+    utils.generate_prefix_changing_rules("__schielen","geschielt_")
+
 
 
 if __name__ == "__main__":
