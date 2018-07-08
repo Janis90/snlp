@@ -48,40 +48,34 @@ def calc_levenshtein_distance(source, target):
     i = s_len - 1
     j = t_len - 1
 
-    # TODO: irgendwo ist noch ein fehler drin
-    # (zum testen: http://www.let.rug.nl/kleiweg/lev/)
+    # matrix backtracking
     while i != 0 or j != 0:
         if i == 0:
             source_word = '_' + source_word
             target_word = target[j - 1] + target_word
             j = j - 1
-            print('i == 0: ' + str(i) + ' ' + str(j))
-
         elif j == 0:
             target_word = '_' + target_word
             source_word = source[i - 1] + source_word
             i = i - 1
-            print('j == 0: ' + str(i) + ' ' + str(j))
-
         else:
-            left_e = matrix[i - 1][j]
-            above_e = matrix[i][j - 1]
+            above_e = matrix[i - 1][j]
             left_above_e = matrix[i - 1][j - 1]
 
-            min_e = min(left_e, left_e, left_above_e)
+            min_e = min(above_e, above_e, left_above_e)
 
             if min_e == above_e:
-                source_word = '_' + source_word
-                target_word = target[j - 1] + target_word
-                j = j - 1
-            elif min_e == left_e:
                 target_word = '_' + target_word
                 source_word = source[i - 1] + source_word
                 i = i - 1
-            else:
+            elif min_e == left_above_e:
                 source_word = source[i - 1] + source_word
                 target_word = target[j - 1] + target_word
                 i = i - 1
+                j = j - 1
+            else:
+                source_word = '_' + source_word
+                target_word = target[j - 1] + target_word
                 j = j - 1
 
     print(source_word)
@@ -90,16 +84,15 @@ def calc_levenshtein_distance(source, target):
     return source_word, target_word
 
 
+
 def main():
-    # params = utils.read_params()
+    params = utils.read_params()
 
-    # print(params)
-     calc_levenshtein_distance('schielen', 'geschielt')
-
-    #utils.read_file(params["train"])
+    utils.read_file(params["train"])
 
     utils.generate_suffix_changing_rules("__schielen","geschielt_")
     utils.generate_prefix_changing_rules("__schielen","geschielt_")
+
 
 
 

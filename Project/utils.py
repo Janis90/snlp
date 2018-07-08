@@ -27,7 +27,9 @@ def read_params():
 
 
 def print_members():
-	members = """
+    members = """
+Group L06: Khaling
+>>>>>>> 2f30e58bf854faadfe93ed8d55f70a71ecdf0900
 Janis Landwehr, 2547715, s9jaland@stud.uni-saarland.de
 Sven Stauden, 2549696, s9svstau@stud.uni-saarland.de
 Carsten Klaus, 2554140, s8caklau@stud.uni-saarland.de
@@ -49,7 +51,6 @@ def validate_args(args, ap):
 
 	if not (args['accuracy'] or args['list']):
 		ap.error('--list or --accuracy need to be specified')
-
 
 
 def read_file(path):
@@ -111,5 +112,3 @@ def generate_prefix_changing_rules(a,b):
 
 	print(rules)
 	return rules
-
-
