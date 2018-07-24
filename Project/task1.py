@@ -84,41 +84,16 @@ def calc_levenshtein_distance(source, target):
     return source_word, target_word
 
 
-def generate_suffix_changing_rules(a, b):
-
-    assert len(a) == len(b)
-
-    rules = []
-    # rule = "$ > $"
-    suff_a = ""
-    suff_b = ""
-
-    for i in range(len(a), 0, -1):
-        print(str(i))
-
-        if a[i - 1] == "_":
-            break
-
-        suff_a = (a[i - 1] + suff_a) if a[i - 1] != "_" else suff_a
-        suff_b = (b[i - 1] + suff_b) if b[i - 1] != "_" else suff_b
-
-        rule = suff_a + "$ > " + suff_b + "$"
-        print(rule)
-        rules.append(rule)
-
-    return rules
-
-
-def generate_prefix_changing_rules(a, b):
-    pass
-
 
 def main():
     params = utils.read_params()
 
     utils.read_file(params["train"])
 
-    generate_suffix_changing_rules("__schielen", "geschielt_")
+    utils.generate_suffix_changing_rules("__schielen","geschielt_")
+    utils.generate_prefix_changing_rules("__schielen","geschielt_")
+
+
 
 
 if __name__ == "__main__":
