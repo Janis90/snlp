@@ -84,16 +84,61 @@ def calc_levenshtein_distance(source, target):
     return source_word, target_word
 
 
+def generate_suffix_changing_rules(a, b):
+
+    assert len(a) == len(b)
+    assert a != b
+
+    rules = []
+    rules.append("$ > $")
+    suff_a = ""
+    suff_b = ""
+    seenStem = False
+
+    for i in range(len(a) - 1, -1, -1):
+
+        # entering prefix
+        if seenStem and (a[i] == "_" or b[i] == "_"):
+            break
+
+        # entering stem
+        if not seenStem and a[i] != "_" and b[i] != "_":
+            seenStem = True
+
+        suff_a = (a[i] + suff_a) if a[i] != "_" else suff_a
+        suff_b = (b[i] + suff_b) if b[i] != "_" else suff_b
+
+        rule = suff_a + "$ > " + suff_b + "$"
+        print(rule)
+        rules.append(rule)
+
+    return rules
+
+
+def generate_prefix_changing_rules(a, b):
+    assert len(a) == len(b)
+    assert a != b
+
+    rules = []
+    rules.append("$ > $")
+
+    pre_a = "$"
+    pre_b = "$"
+    for i in range(len(a)):
+        if a[i] == "_":
+            pre_b += b[i]
+        elif b[i] == "_":
+            pre_a += a[i]
+        else:
+            break
+    rules.append(pre_a + " > " + pre_b)
+
+    print(rules)
+    return rules
+
 
 def main():
     params = utils.read_params()
-
-    utils.read_file(params["train"])
-
-    utils.generate_suffix_changing_rules("__schielen","geschielt_")
-    utils.generate_prefix_changing_rules("__schielen","geschielt_")
-
-
 
 
 if __name__ == "__main__":
