@@ -1,7 +1,7 @@
 import numpy as np
 
 class Inflection():
-    """An inflection consists of the infinitiv (Grundform) form of a word and its inflection (Bäugung). Further
+    """An inflection consists of the infinitiv (Grundform) form of a word and its inflection (Beugung). Further
     an inflection object saves the inflection description features.
     """
 

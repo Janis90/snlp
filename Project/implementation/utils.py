@@ -1,5 +1,6 @@
 import argparse
 import sys
+import Inflection
 
 
 def read_params():
@@ -53,6 +54,13 @@ def validate_args(args, ap):
 
 def read_file(path):
     input = open(path, encoding="utf8")
+
+    inflections = []
+
     for instance in input:
         instance = instance.strip()
-        print(instance)
+        
+        inflection_triple = Inflection.Inflection.create_inflection(instance[0], instance[1], instance[2])
+        inflections.append(inflection_triple)
+
+    return inflections

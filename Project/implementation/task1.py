@@ -1,5 +1,13 @@
 import utils
 import numpy as np
+import ChangingRule
+
+
+# feature_combination : [suff_rule1, suff_rule 2, ...]
+suffix_changing_rules = {}
+
+# feature_combination : ordered list [pre_rule1, pre_rule 2, ...] 
+prefix_changing_rules = {}
 
 
 def calc_levenshtein_distance(source, target):
@@ -84,6 +92,41 @@ def calc_levenshtein_distance(source, target):
     return source_word, target_word
 
 
+def extract_changing_rules(inflections):
+    """
+        inflections: list of inflection objects
+
+        generates the suffix/prefix changing rules of every inflection instance
+        and stores them according to their feature
+    """
+
+    for inflection in inflections:
+
+        lemma, inflect = calc_levenshtein_distance(inflection.lemma, inflection.inflection)
+        features = inflection.inflection_desc_list
+
+        "First the suffix changing rules"        
+       
+        suffix_rules = ChangingRule.SuffixRule.generate_rules(lemma, inflect, features)
+        for rule in suffix_rules:
+            "Add to global collection of suffix rules"
+            suffix_changing_rules[features] = suffix_changing_rules[features].append(rule) 
+
+
+        "Then the prefix changing rules"
+       
+        prefix_rules = ChangingRule.PrefixRule.generate_rules(lemma, inflect, features)
+        for rule in prefix_rules:
+            "Add to global collection of prefix rules"
+            prefix_changing_rules[features] = prefix_changing_rules[features].append(rule)
+
+
+    #TODO IMPORTANT: SORT THE PREFIX CHANGING RULES 
+
+
+
+
+
 def generate_suffix_changing_rules(a, b):
 
     assert len(a) == len(b)
@@ -137,8 +180,50 @@ def generate_prefix_changing_rules(a, b):
     return rules
 
 
+def apply_most_overlapping_suffix_rule(lemma, inflection_feature):
+    
+    """Given a lemma of a word and feature, apply most overlapping suffix changing rule
+        e.g. lemma = "kaufen" and inflection_feature = V.PTCP;PST --> apply en$ > t$ to get "kauft" 
+
+        output: lemma inflected by suffix changing rule 
+    """
+
+    max_rule = None
+    max_score = 0
+
+    for rule in suffix_changing_rules[inflection_feature]:
+        score = rule.get_overlap_score(lemma)
+        if score > max_score:
+            max_rule = rule
+            max_score = score
+
+    assert max_rule
+    return max_rule.apply_rule(lemma)
+
+
+def apply_most_frequent_prefix_rule(lemma, inflection_feature):
+
+    """ PRECONDITION: prefix changing rules have to be sorted by frequency.
+
+    output: lemma inflected by most frequent prefix changing rule 
+    """
+
+    prefix_rule = prefix_changing_rules[inflection_feature][0]
+    inflection = prefix_rule.apply_rule(lemma)
+
+    return inflection
+
+
+
+
 def main():
     params = utils.read_params()
+    
+    inflections = utils.read_file(params["train"])
+
+    extract_changing_rules(inflections)
+
+
 
 
 if __name__ == "__main__":

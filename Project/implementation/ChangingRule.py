@@ -2,7 +2,7 @@ from task1 import calc_levenshtein_distance
 from Inflection import Inflection
 
 class ChangingRule():
-    """A ChaningRule descibes the process of changing an input word with a certain strategy to an output. The 
+    """A ChaningRule describes the process of changing an input word with a certain strategy to an output. The 
     ChangingRule base class is virtual. Use PrefixRule or SuffixRule for application.
     """
 
@@ -241,6 +241,7 @@ class SuffixRule(ChangingRule):
             return len(self.input)
         else:
             return 0
+
 
 if __name__ == "__main__":
 
