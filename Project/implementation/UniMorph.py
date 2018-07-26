@@ -16,10 +16,13 @@ class UniMorph():
 
     def __init__(self, feature):
 
-        assert feature in features, "{} is not a valid UniMorph feature".format(feature)
-
         self.feature = feature
-        self.type = features[feature]
+
+        if feature not in features:
+            print("WARNING: {} is not a valid UniMorph feature".format(feature))
+            self.type = "UNKNOWN"
+        else:
+            self.type = features[feature]
 
     def __str__(self):
         return self.feature
