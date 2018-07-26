@@ -68,6 +68,9 @@ class Word():
         self.stem = stem
         self.suffix = suffix
 
+    def to_string(self):
+        return "{}{}{}".format(self.prefix, self.stem, self.suffix)
+
     def __str__(self):
         return "{}{} - {} - {}{}".format("{", self.prefix, self.stem, self.suffix, "}")
 

@@ -61,9 +61,7 @@ def read_file(path):
     for instance in input:
         lemma, inflection, feature_list_str = instance.split()
 
-        # TODO: merge these two methods
-        features = UniMorph.get_features(feature_list_str)
-        feature_col = FeatureCollection(features)
+        feature_col = FeatureCollection.create_feature_collection(feature_list_str)
 
         new_inflection = Inflection.Inflection.create_inflection(lemma, inflection, feature_col)
         inflections.append(new_inflection)

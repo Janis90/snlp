@@ -16,9 +16,7 @@ class UniMorph():
 
     def __init__(self, feature):
 
-        if feature not in features:
-            print("{} is not a valid UniMorph feature".format(feature))
-            assert False
+        assert feature in features, "{} is not a valid UniMorph feature".format(feature)
 
         self.feature = feature
         self.type = features[feature]
@@ -46,8 +44,12 @@ class UniMorph():
 class FeatureCollection():
 
     def __init__(self, feature_list):
-
         self.features = set(feature_list)
+
+    @staticmethod
+    def create_feature_collection(feature_list_string, separator=";"):
+        feature_list = UniMorph.get_features(feature_list_string, separator=separator)
+        return FeatureCollection(feature_list)
 
     def __hash__(self):
         return str(self).__hash__()
