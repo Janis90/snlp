@@ -44,6 +44,7 @@ class Inflection():
         """
 
         lemma_word, inflection_word = Word.get_levinstein_partition(lemma, inflection)
+
         return Inflection(lemma_word, inflection_word, inflection_desc_list)
 
 
@@ -89,7 +90,7 @@ class Word():
 
         """
         if source == target:
-            return source, target
+            return Word("", source, ""), Word("", target, "")
 
         s_len = len(source) + 1
         t_len = len(target) + 1
@@ -151,15 +152,29 @@ class Word():
         target_word_a = np.array(list(target_word))
 
         stem_mask = np.zeros(len(source_word), dtype=bool)
+        prefix_mask = np.zeros(len(source_word), dtype=bool)
+        suffix_mask = np.zeros(len(source_word), dtype=bool)
 
         for i in range(len(source_word)):
             if source_word_a[i] != "_" and target_word_a[i] != "_":
                 stem_mask[i] = True
 
-        
+        for i in range(len(source_word)):
+            if (source_word_a[i] == "_" and target_word_a[i] != "_") or (source_word_a[i] != "_" and target_word_a[i] == "_"):
+                prefix_mask[i] = True
+            else: 
+                break
+
+        for i in reversed(range(len(source_word))):
+            if (source_word_a[i] == "_" and target_word_a[i] != "_") or (source_word_a[i] != "_" and target_word_a[i] == "_"):
+                suffix_mask[i] = True
+            else: 
+                break
+
         # generate source word
         stem = "".join(source_word_a[stem_mask])
-        prefix, suffix = source_word.split(stem)
+        prefix = "".join(source_word_a[prefix_mask])
+        suffix = "".join(source_word_a[suffix_mask])
         prefix = prefix.replace("_", "")
         suffix = suffix.replace("_", "")
 
@@ -167,7 +182,8 @@ class Word():
 
         # generate target word
         stem = "".join(target_word_a[stem_mask])
-        prefix, suffix = target_word.split(stem)
+        prefix = "".join(target_word_a[prefix_mask])
+        suffix = "".join(target_word_a[suffix_mask])
         prefix = prefix.replace("_", "")
         suffix = suffix.replace("_", "")
 

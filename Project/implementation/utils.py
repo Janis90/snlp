@@ -1,6 +1,7 @@
 import argparse
 import sys
 import Inflection
+from UniMorph import UniMorph, FeatureCollection
 
 
 def read_params():
@@ -58,9 +59,13 @@ def read_file(path):
     inflections = []
 
     for instance in input:
-        instance = instance.strip()
-        
-        inflection_triple = Inflection.Inflection.create_inflection(instance[0], instance[1], instance[2])
-        inflections.append(inflection_triple)
+        lemma, inflection, feature_list_str = instance.split()
+
+        # TODO: merge these two methods
+        features = UniMorph.get_features(feature_list_str)
+        feature_col = FeatureCollection(features)
+
+        new_inflection = Inflection.Inflection.create_inflection(lemma, inflection, feature_col)
+        inflections.append(new_inflection)
 
     return inflections
