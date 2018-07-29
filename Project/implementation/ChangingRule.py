@@ -41,6 +41,19 @@ class ChangingRule():
         pass
 
     def is_applicable(self, word):
+        """Checks if this rule can be applied to a given word string i.e. wheather the rule input matches with the given word.
+        
+        Parameters
+        ----------
+        word : string
+            Word for which the rule application should be checked
+        
+        Returns
+        -------
+        bool
+            True if the rule is applicable, else False
+        """
+
 
         if self.input == "":
             return True
@@ -87,6 +100,18 @@ class PrefixRule(ChangingRule):
 
     @staticmethod
     def empty_rule(inflection_desc_list):
+        """Simple instance of an empty PrefixRule
+        
+        Parameters
+        ----------
+        inflection_desc_list : PrefixRule
+        
+        Returns
+        -------
+        PrefixRule
+            
+        """
+
         return PrefixRule("", "", inflection_desc_list)
 
     @staticmethod
