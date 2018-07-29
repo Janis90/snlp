@@ -13,8 +13,20 @@ for f_class, f_list in class_features.items():
         features[single_f] = f_class
 
 class UniMorph():
+    """The UniMorph class handles the UniMorph feature descriptions for inflections. All UniMorph labels are organized in uniMorphSchema.json
+    """
+
 
     def __init__(self, feature):
+        """Creates a new UniMorph feature object. If the object is not listed in the .json file, a warning text will be displayed
+        
+        Parameters
+        ----------
+        feature : string
+            UniMorph feature wirtten as string
+        
+        """
+
 
         self.feature = feature
 
@@ -34,6 +46,20 @@ class UniMorph():
 
     @staticmethod
     def get_features(feature_list_string, separator=";"):
+        """Creates a list of UniMorph features out of a string with semicolon separated UniMorph feature strings.
+        
+        Parameters
+        ----------
+        feature_list_string : string
+            separated uni morph feature strings
+        separator : str, optional
+            separator symbol of the feautre strings (the default is ";")
+        
+        Returns
+        -------
+        List<UniMorph>
+        """
+
 
         feature_list = feature_list_string.split(separator)
 
@@ -45,12 +71,40 @@ class UniMorph():
         return feature_list
 
 class FeatureCollection():
+    """A feature collection is a representation of a list of UniMorph features. To guarantee uniquness and equality measure for feature
+    lists, use this class instead of List<UniMorph>
+    """
+
 
     def __init__(self, feature_list):
+        """Creates a FeatureCollection instance out of a list of UniMorp features
+        
+        Parameters
+        ----------
+        feature_list : List<UniMorph>
+            List of UniMorph features that should set up this collection
+        
+        """
+
         self.features = set(feature_list)
 
     @staticmethod
     def create_feature_collection(feature_list_string, separator=";"):
+        """Creates a FeatureCollection instance out of a string of UniMorph features. Use this method for parsing features.
+        
+        Parameters
+        ----------
+        feature_list_string : string
+            String containing the UniMorph features. E.g. "V;PST;NEG;3;DU"
+        separator : str, optional
+            String separator between single features (the default is ";")
+        
+        Returns
+        -------
+        FeatureCollection
+            A FeatureCollection instance containing all extracted features
+        """
+
         feature_list = UniMorph.get_features(feature_list_string, separator=separator)
         return FeatureCollection(feature_list)
 
