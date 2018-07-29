@@ -43,14 +43,19 @@ def validate_args(args, ap):
     path_count = len(
         [x for x in (args['train'], args['test']) if x is not None])
 
+    if not (args['accuracy'] or args['list']):
+        ap.error('--list or --accuracy need to be specified')
+    else: 
+        if not (args['test']): 
+            ap.error('--test must be given for evaluation')
+
     if path_count == 0:
         ap.error('--tr and --te need to be specified')
+
 
     if path_count == 1:
         ap.error('--tr and --te must be given together')
 
-    if not (args['accuracy'] or args['list']):
-        ap.error('--list or --accuracy need to be specified')
 
 
 def read_file(path):

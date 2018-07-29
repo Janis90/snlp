@@ -3,7 +3,7 @@ import json
 import numpy as np
 
 # load data from .json file
-with open('implementation/uniMorphSchema.json') as f:
+with open('uniMorphSchema.json') as f:
     class_features = json.load(f)
 
 # set all features into a single list

@@ -11,14 +11,15 @@ def prepare_test_data(inflections):
 
     for inflection in inflections:
         test_lemmas.append(inflection.lemma.to_string())
-        test_feature_descs.append(inflection.inflection_desc_list)
         test_ground_truth.append(inflection.inflection.to_string())
+        test_feature_descs.append(inflection.inflection_desc_list)
 
     return test_lemmas, test_feature_descs, test_ground_truth
 
 def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col):
 
     inflected_data = []
+    assert(len(lemma_list) == len(feature_desc_list))
 
     for i in range(len(lemma_list)):
         cur_lemma = lemma_list[i]
@@ -62,29 +63,47 @@ def compute_accuracy(predictions, ground_truth, verbose=False):
         if verbose:
             print("{}\t-\t {}\t\t{}".format(predictions[i], ground_truth[i], predictions[i] == ground_truth[i]))
             
-    return correct/total_count
+    return correct, correct/float(total_count)
 
+
+def outputResults(predictions, test_inflections):
+    
+    # is called when -l parameter was set
+    
+    for i in range(len(predictions)):
+        print(test_inflections[i].lemma.to_string() + "\t" + predictions[i] + "\t" + str(test_inflections[i].inflection_desc_list))
 
 
 def main():
     params = utils.read_params()
     
-    # TODO: Respect parameters!
-
     # Create rules from training
     train_inflections = utils.read_file(params["train"])
     prefix_rule_collection, suffix_rule_collection = RuleCollection.create_rule_collections(train_inflections)
 
     test_inflections = utils.read_file(params["test"])
     test_lemmas, test_feature_descs, test_ground_truth = prepare_test_data(test_inflections)
-
+    
     predictions = inflect_data(test_lemmas, test_feature_descs, prefix_rule_collection, suffix_rule_collection)
 
-    acc = compute_accuracy(predictions, test_ground_truth, verbose=True)
 
-    print("Training Samples: {}".format(len(train_inflections)))
-    print("Test Samples: {}".format(len(test_inflections)))
-    print("Accuracy: {}%".format(acc * 100))
+    # output list (lemma,  predicted_inflection,   features)
+    if params["list"]:
+        outputResults(predictions, test_inflections)        
+
+    print("\n")
+
+    # Output accuracy for given data
+    if params["accuracy"]:
+        correct, acc = compute_accuracy(predictions, test_ground_truth, verbose=False)    
+        print("trained on: " + params["train"].split('/')[-1])
+        print("- training instances: {}".format(len(train_inflections)))
+        print("tested on: " + params["test"].split('/')[-1])
+        print("- testing instances: {}".format(len(test_inflections)))
+        print("- correct instances: {}".format(correct))
+        print("- accuracy: {}%".format(acc * 100))
+
+    return 0
     
 
     # # Create testing data
