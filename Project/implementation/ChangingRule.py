@@ -223,8 +223,14 @@ class SuffixRule(ChangingRule):
 
 
 class RuleCollection():
+    """A RuleCollection instance stores and manages multiple chagning rules which could result from a training procedure.
+    """
 
     def __init__(self):
+        """Creates an empty RuleCollection instance. To create a rule collection given a list of Inflections use create_rule_collections()
+        
+        """
+
         self.rule_dict = {}
 
     def __str__(self):
@@ -239,6 +245,15 @@ class RuleCollection():
         return res_string
 
     def add_rule(self, new_rule):
+        """Adds a single ChangingRule instance to the collection.
+        
+        Parameters
+        ----------
+        new_rule : ChangingRule
+            The ChangingRule instance to add
+        
+        """
+
         feature_list = new_rule.infection_desc
 
         if str(feature_list) in self.rule_dict:
@@ -252,6 +267,23 @@ class RuleCollection():
             self.rule_dict[str(feature_list)] = {str(new_rule): {"rule": new_rule, "count": 1}}
                 
     def get_highest_overlap_rule(self, input_str, inflection_desc):
+        """Returns a single ChangingRule from this collection which provides the highest overlap for a given word string and a 
+        corresponding infelction feature collection. If multiple rules have the same overlap scoring, this methods returns the
+        rule which appeard as most frequent in the training.
+        
+        Parameters
+        ----------
+        input_str : string
+            Input word string (usually an infinitiv) for which a ChaningRule should be found.
+        inflection_desc : FeatureCollection
+            A collection for inflection features which describe the whiched inflection process.
+        
+        Returns
+        -------
+        ChangingRule
+            The most suitable ChanginRule instance from this collection which (1) fits to the given string, (2) provides the highest
+            overlap to the input string and (3) is the most frequent among all other rules with the same overlap score.
+        """
 
         # if feature combination did not appear in rule collection
         if str(inflection_desc) not in self.rule_dict:
@@ -290,6 +322,22 @@ class RuleCollection():
         return best_rule
 
     def get_highest_count_rule(self, input_str, inflection_desc):
+        """Returns the ChanginRule instance of this collection which (1) is applicable for the given inflection feature description,
+        (2) fits for a given input string and (3) appeard most frequent during the training stage.
+        
+        Parameters
+        ----------
+        input_str : string
+            Input string (usually infinitiv) for which the suitable ChanginRule should be found
+        inflection_desc : FeatureCollection
+            A FeatureCollection instance describing the inflection process.
+        
+        Returns
+        -------
+        ChangingRule
+            The most suitable ChanginRule instance
+        """
+
 
          # if feature combination did not appear in rule collection
         if str(inflection_desc) not in self.rule_dict:
@@ -312,11 +360,39 @@ class RuleCollection():
 
         return best_rule
 
-    def get_rules(self, inflection_desc):        
+    def get_rules(self, inflection_desc):     
+        """Returns a list of ChangingRule from this collection which fit for a given FeatureCollection. This method is thought for debugging.
+        
+        Parameters
+        ----------
+        inflection_desc : FeatureCollection
+            A FeatureCollection instance for which the ChangingRules of this collection should be filtered
+        
+        Returns
+        -------
+        Dict<{str(ChanginRule): {"rule": ChanginRule, "count": int}}>
+            A dictionary containing all applicable ChaningRules for the given FeatureCollection
+        """
+
         return self.rule_dict.get(str(inflection_desc), [])
 
     @staticmethod
     def create_rule_collections(inflection_list):
+        """Creates two instances of RuleCollections out of a list of Inflection instances - one for prefix rules and one for suffix rules.
+        For each Inflection first, the SuffixRules get extracted and packed into a RuleCollection instance; afterwards the same happens
+        for PrefixRules.
+        
+        Parameters
+        ----------
+        inflection_list : List<Inflection>
+            A list of Inflection instances for which the pre- and suffix rules should be extracted.
+        
+        Returns
+        -------
+        RuleCollection, RuleCollection
+            First an instance of a RuleCollection containing all PrefixRules and a RuleCollection withe the extractes SuffixRules.
+        """
+
 
         prefix_rule_collection = RuleCollection()
         suffix_rule_collection = RuleCollection()

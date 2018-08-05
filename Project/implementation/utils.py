@@ -59,6 +59,20 @@ def validate_args(args, ap):
 
 
 def read_file(path):
+    """Reads a text file containing inflection samples of shape <inflection> <infinitiv> <inflection features>. For each line of the
+    file, this methods creates an inflection instance and stores all together in a list.
+    
+    Parameters
+    ----------
+    path : string
+        path to the text file to read
+    
+    Returns
+    -------
+    List<Inflection>
+        A list containing all inflection instances extracted from the text file
+    """
+
     input = open(path, encoding="utf8")
 
     inflections = []
