@@ -154,40 +154,5 @@ def main():
 
     return 0
     
-
-    # # Create testing data
-
-    # lemma = "verkaufen"
-    # features_string = "V.PTCP;PST"
-
-    # feature_col = FeatureCollection.create_feature_collection(features_string)
-
-    # best_suffix_rule = suffix_rule_collection.get_highest_overlap_rule(lemma, feature_col)
-
-    # # use empty rule if no rule matches
-    # if best_suffix_rule is None:
-    #     best_suffix_rule = SuffixRule.empty_rule(feature_col)
-
-    # best_prefix_rule = prefix_rule_collection.get_highest_count_rule(lemma, feature_col)
-
-    # # use empty rule if no rule matches
-    # if best_prefix_rule is None:
-    #     best_prefix_rule = PrefixRule.empty_rule(feature_col)
-
-    # inflected_lemma = best_suffix_rule.apply_rule(lemma)
-    # inflected_lemma = best_prefix_rule.apply_rule(inflected_lemma)
-
-    # print(best_suffix_rule)
-    # print(prefix_rule_collection)
-    # print(inflected_lemma)
-
-    
-
-    # perfix1, stem1, suffix1 = apply_most_overlapping_suffix_rule(lemma, feature_col)
-    # perfix2, stem2, suffix2 = apply_most_overlapping_prefix_rule(lemma, feature_col)
-    # final = prefix2, stem1, suffix1
-
-
-
 if __name__ == "__main__":
     main()

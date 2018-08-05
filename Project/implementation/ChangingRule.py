@@ -230,7 +230,6 @@ class RuleCollection():
         """Creates an empty RuleCollection instance. To create a rule collection given a list of Inflections use create_rule_collections()
         
         """
-
         self.rule_dict = {}
 
     def __str__(self):
@@ -414,7 +413,76 @@ class RuleCollection():
         return prefix_rule_collection, suffix_rule_collection
 
 
+    def get_suitable_features(self, lemma_str, inflection_str):
+        """This method searches the most suitable rule which applied to the lemma_str provides the given inflection_str as output.
+        If multiple rules return the same correct inflection, the rule with the highest overlap and then with the highest count
+        is returned.
+        
+        Parameters
+        ----------
+        lemma_str : string
+            lemma of the word which should be inflected
+        inflection_str : string
+            inflected lemma string
+        
+        Returns
+        -------
+        FeatureCollection
+            The FeatureCollection instance of the most suitable rule. None if no rule could reproduce the requtested output
+        """
 
+        candidate_rules = []
+
+        # iterate over all rules
+        for feature_list, rule_data in self.rule_dict.items():
+            for rule_rep, single_rule in rule_data.items():
+                current_rule = single_rule["rule"]
+
+                # check wheather rule can be applied
+                if current_rule.is_applicable(lemma_str):
+
+                    # compute the inflection
+                    inflected_lemma = current_rule.apply_rule(lemma_str)
+
+                    # compare inflection with expected result
+                    if inflected_lemma == inflection_str:
+                        candidate_rules.append(single_rule)
+                        
+        if len(candidate_rules) == 0:
+            return
+
+        # out of a list of possible rules choose the with the highest overlap and than with the highest count
+
+        # compute the overlap score for all candidates and store the highest score
+        highest_overlap = 0
+        for single_rule in candidate_rules:
+            ov_score = single_rule["rule"].get_overlap_score(lemma_str)
+            single_rule["overlap"] = ov_score#
+
+            if ov_score > highest_overlap:
+                highest_overlap = ov_score
+
+        # filter out rules with a lower overlap score than the highest
+        filtered_candidate_rules = []
+        for single_rule in candidate_rules:
+            if single_rule["overlap"] == highest_overlap:
+                filtered_candidate_rules.append(single_rule)
+
+        # among the remaining rules, choose the one with the highest count
+        best_rule = filtered_candidate_rules[0]
+
+        for single_candidate in filtered_candidate_rules:
+            if single_candidate["count"] > best_rule["count"]:
+                best_rule = single_candidate
+
+        # print("rule: {}, overlap: {}, count: {}".format(best_rule["rule"], best_rule["overlap"], best_rule["count"]))
+
+        # return the feature list of the best rule
+        return best_rule["rule"].infection_desc
+
+
+
+        
 
 
 if __name__ == "__main__":
