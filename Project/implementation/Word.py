@@ -158,3 +158,62 @@ class LevinsteinPartition(WordSplitter):
         new_target_word = Word(prefix, stem, suffix)
 
         return new_source_word, new_target_word
+
+
+class KhalingXFixPartition(WordSplitter):
+
+    def __init__(self):
+        super().__init__()
+        self.prefix_list = ["ʔi", "mu", "mʌ"]
+
+        self.suffix_lists = [["ŋ", "i", "k", "n"], 
+                             ["de", "tʰer", "kʰʌ"], 
+                             ["ŋʌ", "nɛ", "ʌ", "u", "i", "k"], 
+                             ["t", "w"], 
+                             ["ʌkʌ", "iki", "ŋʌ", "ki", "ɛ", "ʌ", "u", "i"], 
+                             ["si", "su", "n"], 
+                             ["su", "nu", "ni"]]
+
+    def __check_and_cut_prefix(self, input_str):
+
+        for pos_prefix in self.prefix_list:
+            if input_str.startswith(pos_prefix):
+
+                # return prefix and the remaining word
+                return pos_prefix, input_str[len(pos_prefix):]
+
+        # if no prefix from the list found, return empty prefix
+        return "", input_str
+
+    def __check_and_cut_suffixes(self, input_string):
+
+        res_suffixes = []
+
+        for suffix_list in reversed(self.suffix_lists):
+            for pos_suffix in suffix_list:
+
+                # save suffix and cut off from word
+                if input_string.endswith(pos_suffix):
+                    res_suffixes.append(pos_suffix)
+
+                    input_string = input_string[:len(input_string) - len(pos_suffix)]
+
+        return input_string, reversed(res_suffixes)
+
+    def split_word(self, source, target):
+        src_prefix, scr_stem_suffix = self.__check_and_cut_prefix(source)
+        src_stem, src_suffix_list = self.__check_and_cut_suffixes(scr_stem_suffix)
+
+        source_word = Word(src_prefix, src_stem, "".join(src_suffix_list))
+
+        tgt_prefix, tgt_stem_suffix = self.__check_and_cut_prefix(target)
+        tgt_stem, tgt_suffix_list = self.__check_and_cut_suffixes(tgt_stem_suffix)
+
+        target_word = Word(tgt_prefix, tgt_stem, "".join(tgt_suffix_list))
+
+        # print("SOURCE: {} - TARGET: {}".format(source_word, target_word))
+
+        return source_word, target_word
+
+
+

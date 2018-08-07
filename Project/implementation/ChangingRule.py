@@ -136,7 +136,8 @@ class PrefixRule(ChangingRule):
         rules = []
 
         # TODO: Usually we get the empty rule as most common rule :(
-        rules.append(PrefixRule.empty_rule(inflection.inflection_desc_list))
+        # --> leaving this out is required instead empty rule is always most dominant
+        # rules.append(PrefixRule.empty_rule(inflection.inflection_desc_list))
 
         rule = PrefixRule(inflection.lemma.prefix, inflection.inflection.prefix, inflection.inflection_desc_list)
         rules.append(rule)
@@ -181,7 +182,7 @@ class SuffixRule(ChangingRule):
         
         rules = []
         # generate and insert empty rule
-        rules.append(SuffixRule.empty_rule(inflection.inflection_desc_list))
+        # rules.append(SuffixRule.empty_rule(inflection.inflection_desc_list))
 
         rule_source = inflection.lemma.suffix
         rule_target = inflection.inflection.suffix
@@ -189,7 +190,13 @@ class SuffixRule(ChangingRule):
         new_rule = SuffixRule(rule_source, rule_target, inflection.inflection_desc_list)
         rules.append(new_rule)
 
+        # TODO: problem when source and target stem have different lengths
         for i in reversed(range(len(list(inflection.lemma.stem)))):
+
+            if len(inflection.lemma.stem) <= i or len(inflection.inflection.stem) <= i:
+                break
+
+            print("i: {}, lemma stem: {}, inflectin stem: {}".format(i, len(inflection.lemma.stem), len(inflection.inflection.stem)))
             rule_source = inflection.lemma.stem[i] + rule_source
             rule_target = inflection.inflection.stem[i] + rule_target
             new_rule = SuffixRule(rule_source, rule_target, inflection.inflection_desc_list)
@@ -352,6 +359,7 @@ class RuleCollection():
                 continue            
 
             cur_count = single_rule_dict["count"]
+            # print("Rule: {} Count: {}".format(single_rule_dict["rule"], cur_count))
 
             if cur_count > highest_count:
                 highest_count = cur_count

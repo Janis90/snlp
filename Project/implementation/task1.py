@@ -28,7 +28,7 @@ def prepare_test_data(inflections):
 
     return test_lemmas, test_feature_descs, test_ground_truth
 
-def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col):
+def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col, xxx):
     """Applies learned rules in rule collections to a list of lemmas with corresponding FeatureCollections
     
     Parameters
@@ -58,6 +58,7 @@ def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col
 
         # get best rules
         best_prefix_rule = prefix_rule_col.get_highest_count_rule(cur_lemma, cur_features)
+        # print(best_prefix_rule)
         best_suffix_rule = suffix_rule_col.get_highest_overlap_rule(cur_lemma, cur_features)
 
         # use empty rule if no rule matches
@@ -73,6 +74,8 @@ def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col
         inflected_lemma = best_prefix_rule.apply_rule(inflected_lemma)
 
         inflected_data.append(inflected_lemma)
+
+        print("Lemma: {}, \tprefixrule: {}, \tsuffixrule: {}, \toutput: {} \texpected: {}".format(cur_lemma, best_prefix_rule, best_suffix_rule, inflected_lemma, str(xxx[i])))
 
     return inflected_data
 
@@ -133,7 +136,7 @@ def main():
     test_inflections = utils.read_file(params["test"])
     test_lemmas, test_feature_descs, test_ground_truth = prepare_test_data(test_inflections)
     
-    predictions = inflect_data(test_lemmas, test_feature_descs, prefix_rule_collection, suffix_rule_collection)
+    predictions = inflect_data(test_lemmas, test_feature_descs, prefix_rule_collection, suffix_rule_collection, xxx=test_ground_truth)
 
 
     # output list (lemma,  predicted_inflection,   features)

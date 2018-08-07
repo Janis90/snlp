@@ -1,5 +1,11 @@
 import numpy as np
-from Word import Word, LevinsteinPartition
+from Word import Word, LevinsteinPartition, KhalingXFixPartition
+from aenum import Enum
+ 
+class SplitMethod(Enum):
+    LEVINSTEIN = 1
+    KHALING_XFIX = 2
+
 
 class Inflection():
     """An inflection consists of the infinitiv (Grundform) form of a word and its inflection (Beugung). Further
@@ -25,7 +31,7 @@ class Inflection():
         self.inflection_desc_list = inflection_desc_list
 
     @staticmethod
-    def create_inflection(lemma, inflection, inflection_desc_list):
+    def create_inflection(lemma, inflection, inflection_desc_list, method=SplitMethod.KHALING_XFIX):
         """Creates an Inflectin object by two strings - one representing the lemma and the other one representing
         the inflection. The Inlfection gets created using levinstein distance.
         
@@ -44,7 +50,14 @@ class Inflection():
             Inlfection object describing the inflection of the inputs
         """
 
-        splitter = LevinsteinPartition()       
+        splitter = None
+
+        if method == SplitMethod.LEVINSTEIN:
+            splitter = LevinsteinPartition()   
+
+        if method == SplitMethod.KHALING_XFIX:
+            splitter = KhalingXFixPartition()
+            
         lemma_word, inflection_word = splitter.split_word(lemma, inflection)
 
         return Inflection(lemma_word, inflection_word, inflection_desc_list)
