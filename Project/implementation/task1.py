@@ -52,6 +52,8 @@ def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col
     inflected_data = []
     assert(len(lemma_list) == len(feature_desc_list))
 
+    print("Lemma;prefixrule;suffixrule;output;expected")
+
     for i in range(len(lemma_list)):
         cur_lemma = lemma_list[i]
         cur_features = feature_desc_list[i]
@@ -75,7 +77,9 @@ def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col
 
         inflected_data.append(inflected_lemma)
 
-        print("Lemma: {}, \tprefixrule: {}, \tsuffixrule: {}, \toutput: {} \texpected: {}".format(cur_lemma, best_prefix_rule, best_suffix_rule, inflected_lemma, str(xxx[i])))
+        # print debug outputs
+        if str(xxx[i]) != inflected_lemma: 
+            print("{};{};{};{};{}".format(cur_lemma, best_prefix_rule, best_suffix_rule, inflected_lemma, str(xxx[i])))
 
     return inflected_data
 
