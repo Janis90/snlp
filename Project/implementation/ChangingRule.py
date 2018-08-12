@@ -1,15 +1,15 @@
 from Inflection import Inflection
 
 class ChangingRule():
-    """A ChaningRule describes the process of changing an input word with a certain strategy to an output. The 
-    ChangingRule base class is virtual. Use PrefixRule or SuffixRule for application.
+    """A general ChaningRule describes the process of changing an input word with a certain strategy to an output. The 
+    ChangingRule base class refers to replacing a certain part of an input. PrefixRule or SuffixRule are applied for changes at the 
+    referring position.
     """
 
-    def __init__(self, str_in, str_out, inflection_desc_list):
+    def __init__(self, str_in, str_out, inflection_desc_list=None):
 
         self.input = str_in
         self.output = str_out
-
         self.infection_desc = inflection_desc_list
 
     def apply_rule(self, lemma):
@@ -19,10 +19,13 @@ class ChangingRule():
         ----------
         lemma : string
             Input word for which the rule should be applied
-        
-        """
 
-        pass
+        Returns
+        -------
+        string
+            The lemma string after the applied rule
+        """
+        return lemma.replace(self.input, self.output)
 
     def get_overlap_score(self, word):
         """Returns the amount of characters in the input word which match the rule condition. Returns 0 if the rule does not
@@ -34,11 +37,15 @@ class ChangingRule():
             String for which the overlap score of this rule should be applied on.
         
         """
-        pass
+        if self.input in word:
+            return len(self.input)
+        else:
+            return 0
 
     @staticmethod
     def generate_rules(inflection):
-        pass
+        print("A general ChangingRule cannot be created from an inflection. Use Prefix or Suffix rules")
+        raise NotImplementedError
 
     def is_applicable(self, word):
         """Checks if this rule can be applied to a given word string i.e. wheather the rule input matches with the given word.
@@ -53,7 +60,6 @@ class ChangingRule():
         bool
             True if the rule is applicable, else False
         """
-
 
         if self.input == "":
             return True
@@ -167,7 +173,6 @@ class PrefixRule(ChangingRule):
     def __hash__(self):
         return str(self).__hash__()
 
-
 class SuffixRule(ChangingRule):
 
     def __init__(self, str_in, str_out, inflection_desc_list):
@@ -216,6 +221,11 @@ class SuffixRule(ChangingRule):
     def get_overlap_score(self, word):
         input_word = word + "$"
         if self.input + "$" in input_word:
+
+            # if rule contains whole word
+            if len(self.input) == len(word):
+                return 0
+
             return len(self.input)
         else:
             return 0
@@ -228,11 +238,55 @@ class SuffixRule(ChangingRule):
     def __hash__(self):
         return str(self).__hash__()
 
+class ConditionalRule(ChangingRule):
+
+    def __init__(self, str_in, str_out, inflection_desc_list=None, condition_function=None):
+        super().__init__(str_in, str_out, inflection_desc_list)
+
+        self.condition_function = condition_function
+
+    def apply_rule(self, lemma):
+
+        if self.condition_function is not None:
+            if self.condition_function(self, lemma):
+                return lemma.replace(self.input, self.output)
+            else:
+                return lemma
+        else:
+            return lemma.replace(self.input, self.output)
+
+    def get_overlap_score(self, word):
+
+        if self.condition_function is not None:
+            if self.condition_function(self, word):
+                if self.input in word:
+                    return len(self.input)
+        
+        return 0
+
+    def is_applicable(self, word):
+
+        if self.condition_function is None:
+            if self.input == "":
+                return True
+            else:
+                return self.get_overlap_score(word) > 0
+        else:
+            if self.condition_function(self, word):
+                if self.input == "":
+                    return True
+                else:
+                    return self.get_overlap_score(word) > 0
+
+            else:
+                return False
+
+    def __str__(self):
+        return "{}$ > {}$ (conditional)".format(self.input, self.output)
 
 class RuleCollection():
     """A RuleCollection instance stores and manages multiple chagning rules which could result from a training procedure.
     """
-
     def __init__(self):
         """Creates an empty RuleCollection instance. To create a rule collection given a list of Inflections use create_rule_collections()
         
@@ -420,7 +474,6 @@ class RuleCollection():
 
         return prefix_rule_collection, suffix_rule_collection
 
-
     def get_suitable_features(self, lemma_str, inflection_str):
         """This method searches the most suitable rule which applied to the lemma_str provides the given inflection_str as output.
         If multiple rules return the same correct inflection, the rule with the highest overlap and then with the highest count
@@ -488,9 +541,18 @@ class RuleCollection():
         # return the feature list of the best rule
         return best_rule["rule"].infection_desc
 
+    def try_and_apply_all(self, input_str):
 
+        for inflection_desc, single_rule_dict in self.rule_dict.items():
+            for single_rule_name, rule_data in single_rule_dict.items():
 
-        
+                cur_rule = rule_data["rule"]
+
+                if cur_rule.is_applicable:
+                    input_str = cur_rule.apply_rule(input_str)
+
+        return input_str
+
 
 
 if __name__ == "__main__":

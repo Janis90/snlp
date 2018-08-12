@@ -1,6 +1,6 @@
 import utils
 import numpy as np
-from ChangingRule import SuffixRule, PrefixRule, RuleCollection
+from ChangingRule import SuffixRule, PrefixRule, ConditionalRule, RuleCollection
 from UniMorph import UniMorph, FeatureCollection
 
 def prepare_test_data(inflections):
@@ -27,6 +27,7 @@ def prepare_test_data(inflections):
         test_feature_descs.append(inflection.inflection_desc_list)
 
     return test_lemmas, test_feature_descs, test_ground_truth
+
 
 def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col, xxx):
     """Applies learned rules in rule collections to a list of lemmas with corresponding FeatureCollections
@@ -74,6 +75,10 @@ def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col
         # apply rules on lemma
         inflected_lemma = best_suffix_rule.apply_rule(cur_lemma)
         inflected_lemma = best_prefix_rule.apply_rule(inflected_lemma)
+
+        # Conditional Rules
+        cond_rules_col = prepare_conditional_rules()
+        inflected_lemma = cond_rules_col.try_and_apply_all(inflected_lemma)
 
         inflected_data.append(inflected_lemma)
 
@@ -127,6 +132,22 @@ def outputResults(predictions, test_inflections):
     
     for i in range(len(predictions)):
         print(test_inflections[i].lemma.to_string() + "\t" + predictions[i] + "\t" + str(test_inflections[i].inflection_desc_list))
+
+
+def prepare_conditional_rules():
+
+    rule_col = RuleCollection()
+
+    rule_col.add_rule(ConditionalRule("uu", "ugu", None, lambda rule, lemma: True))
+    rule_col.add_rule(ConditionalRule("ui", "ʉji", None, lambda rule, lemma: True))
+    rule_col.add_rule(ConditionalRule("ukʌ", "ʉkʌ", None, lambda rule, lemma: True))
+    rule_col.add_rule(ConditionalRule("ɛnɛ", "ɛjnɛ", None, lambda rule, lemma: True))
+    rule_col.add_rule(ConditionalRule("ɛtɛ", "ɛ̂jtɛ", None, lambda rule, lemma: True)) 
+    rule_col.add_rule(ConditionalRule("aɛ", "ɛ", None, lambda rule, lemma: True)) 
+    rule_col.add_rule(ConditionalRule("kak", "kâːk", None, lambda rule, lemma: True)) 
+    rule_col.add_rule(ConditionalRule("ŋensu", "ŋênsu", None, lambda rule, lemma: True))
+
+    return rule_col
 
 
 def main():

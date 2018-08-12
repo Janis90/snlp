@@ -17,7 +17,7 @@ class UniMorph():
     """
 
 
-    def __init__(self, feature):
+    def __init__(self, feature, give_warning=False):
         """Creates a new UniMorph feature object. If the object is not listed in the .json file, a warning text will be displayed
         
         Parameters
@@ -31,7 +31,8 @@ class UniMorph():
         self.feature = feature
 
         if feature not in features:
-            print("WARNING: {} is not a valid UniMorph feature".format(feature))
+            if give_warning:
+                print("WARNING: {} is not a valid UniMorph feature".format(feature))
             self.type = "UNKNOWN"
         else:
             self.type = features[feature]
