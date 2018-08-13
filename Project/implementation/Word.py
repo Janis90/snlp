@@ -26,6 +26,7 @@ class Word():
     def __str__(self):
         return "{}{} - {} - {}{}".format("{", self.prefix, self.stem, self.suffix, "}")
 
+
 class WordSplitter():
 
     def __init__(self):
@@ -33,6 +34,7 @@ class WordSplitter():
 
     def split_word(self, source, target):
         pass
+
 
 class LevinsteinPartition(WordSplitter):
 

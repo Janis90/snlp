@@ -2,6 +2,7 @@ import argparse
 import sys
 import Inflection
 from UniMorph import UniMorph, FeatureCollection
+from Inflection import SplitMethod
 
 
 def read_params():
@@ -58,7 +59,7 @@ def validate_args(args, ap):
 
 
 
-def read_file(path):
+def read_file(path, split_method=SplitMethod.LEVINSTEIN):
     """Reads a text file containing inflection samples of shape <inflection> <infinitiv> <inflection features>. For each line of the
     file, this methods creates an inflection instance and stores all together in a list.
     
@@ -82,7 +83,7 @@ def read_file(path):
 
         feature_col = FeatureCollection.create_feature_collection(feature_list_str)
 
-        new_inflection = Inflection.Inflection.create_inflection(lemma, inflection, feature_col)
+        new_inflection = Inflection.Inflection.create_inflection(lemma, inflection, feature_col, method=split_method)
         inflections.append(new_inflection)
 
     return inflections
