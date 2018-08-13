@@ -535,8 +535,6 @@ class RuleCollection():
             if single_candidate["count"] > best_rule["count"]:
                 best_rule = single_candidate
 
-        # print("rule: {}, overlap: {}, count: {}".format(best_rule["rule"], best_rule["overlap"], best_rule["count"]))
-
         # return the feature list of the best rule
         return best_rule["rule"].infection_desc
 

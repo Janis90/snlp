@@ -1,7 +1,8 @@
-import utils
+import implementation.utils as utils
 import numpy as np
-from ChangingRule import SuffixRule, PrefixRule, ConditionalRule, RuleCollection
-from UniMorph import UniMorph, FeatureCollection
+from implementation.ChangingRule import SuffixRule, PrefixRule, ConditionalRule, RuleCollection
+from implementation.UniMorph import UniMorph, FeatureCollection
+from implementation.Inflection import SplitMethod
 
 def prepare_test_data(inflections):
     """Creates out of a list of inlections three lists containing all lemmas, all feature lists and the expected inflection
@@ -29,7 +30,7 @@ def prepare_test_data(inflections):
     return test_lemmas, test_feature_descs, test_ground_truth
 
 
-def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col, xxx):
+def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col):
     """Applies learned rules in rule collections to a list of lemmas with corresponding FeatureCollections
     
     Parameters
@@ -49,11 +50,8 @@ def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col
         List of inflected lemma strings
     """
 
-
     inflected_data = []
     assert(len(lemma_list) == len(feature_desc_list))
-
-    print("Lemma;prefixrule;suffixrule;output;expected")
 
     for i in range(len(lemma_list)):
         cur_lemma = lemma_list[i]
@@ -76,15 +74,11 @@ def inflect_data(lemma_list, feature_desc_list, prefix_rule_col, suffix_rule_col
         inflected_lemma = best_suffix_rule.apply_rule(cur_lemma)
         inflected_lemma = best_prefix_rule.apply_rule(inflected_lemma)
 
-        # Conditional Rules
+        # create and apply language specific conditional rules
         cond_rules_col = prepare_conditional_rules()
         inflected_lemma = cond_rules_col.try_and_apply_all(inflected_lemma)
 
         inflected_data.append(inflected_lemma)
-
-        # print debug outputs
-        if str(xxx[i]) != inflected_lemma: 
-            print("{};{};{};{};{}".format(cur_lemma, best_prefix_rule, best_suffix_rule, inflected_lemma, str(xxx[i])))
 
     return inflected_data
 
@@ -126,18 +120,20 @@ def compute_accuracy(predictions, ground_truth, verbose=False):
     return correct, correct/float(total_count)
 
 
-def outputResults(predictions, test_inflections):
-    
-    # is called when -l parameter was set
-    
-    for i in range(len(predictions)):
-        print(test_inflections[i].lemma.to_string() + "\t" + predictions[i] + "\t" + str(test_inflections[i].inflection_desc_list))
-
-
 def prepare_conditional_rules():
+    """Creates a RuleCollection instance with Khaling specific rules which can be applied to clean up computed inflections. The rules 
+    from this collection are language specific and gaurantee several word construction rules of the language.
+    
+    Returns
+    -------
+    RuleCollection
+        RuleCollection instance which can be applied to ensure khaling specific word construction rules.
+    """
 
+    # create an empty rule collection
     rule_col = RuleCollection()
 
+    # add mutliple conditional rules, which get always applied
     rule_col.add_rule(ConditionalRule("uu", "ugu", None, lambda rule, lemma: True))
     rule_col.add_rule(ConditionalRule("ui", "ʉji", None, lambda rule, lemma: True))
     rule_col.add_rule(ConditionalRule("ukʌ", "ʉkʌ", None, lambda rule, lemma: True))
@@ -151,24 +147,26 @@ def prepare_conditional_rules():
 
 
 def main():
+
+    # read and parse the cli parameters
     params = utils.read_params()
     
-    # Create rules from training
-    train_inflections = utils.read_file(params["train"])
+    # create rules from training set 
+    train_inflections = utils.read_file(params["train"], split_method=SplitMethod.KHALING_XFIX)
     prefix_rule_collection, suffix_rule_collection = RuleCollection.create_rule_collections(train_inflections)
 
-    # Create test set
-    test_inflections = utils.read_file(params["test"])
+    # create rules from test set
+    test_inflections = utils.read_file(params["test"], split_method=SplitMethod.KHALING_XFIX)
     test_lemmas, test_feature_descs, test_ground_truth = prepare_test_data(test_inflections)
     
-    predictions = inflect_data(test_lemmas, test_feature_descs, prefix_rule_collection, suffix_rule_collection, xxx=test_ground_truth)
+    # compute the lemma inflections
+    predictions = inflect_data(test_lemmas, test_feature_descs, prefix_rule_collection, suffix_rule_collection)
 
-
-    # output list (lemma,  predicted_inflection,   features)
+    # output list for parameter -l
     if params["list"]:
-        outputResults(predictions, test_inflections)        
-
-    print("\n")
+        for single_prediciton in predictions:
+            print(single_prediciton)        
+        print("")
 
     # Output accuracy for given data
     if params["accuracy"]:
@@ -178,7 +176,7 @@ def main():
         print("tested on: " + params["test"].split('/')[-1])
         print("- testing instances: {}".format(len(test_inflections)))
         print("- correct instances: {}".format(correct))
-        print("- accuracy: {}%".format(acc * 100))
+        print("- accuracy: {0:.3f}".format(acc * 100))
 
     return 0
     

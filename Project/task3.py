@@ -11,6 +11,8 @@ def main():
     prefix_rule_collection, suffix_rule_collection = RuleCollection.create_rule_collections(train_inflections)
 
     # -- task 3 testing
+
+    # TODO: merge prefix and suffix rule outputs
     res_features = suffix_rule_collection.get_suitable_features("Abfall", "Abfall")
     print(res_features)
 

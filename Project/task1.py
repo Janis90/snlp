@@ -116,6 +116,7 @@ def compute_accuracy(predictions, ground_truth, verbose=False):
     return correct, correct/float(total_count)
 
 def main():
+    
     # read and parse the cli parameters
     params = utils.read_params()
     
