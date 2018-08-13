@@ -1,4 +1,4 @@
-from Inflection import Inflection
+from implementation.Inflection import Inflection
 
 class ChangingRule():
     """A general ChaningRule describes the process of changing an input word with a certain strategy to an output. The 
@@ -201,7 +201,6 @@ class SuffixRule(ChangingRule):
             if len(inflection.lemma.stem) <= i or len(inflection.inflection.stem) <= i:
                 break
 
-            print("i: {}, lemma stem: {}, inflectin stem: {}".format(i, len(inflection.lemma.stem), len(inflection.inflection.stem)))
             rule_source = inflection.lemma.stem[i] + rule_source
             rule_target = inflection.inflection.stem[i] + rule_target
             new_rule = SuffixRule(rule_source, rule_target, inflection.inflection_desc_list)

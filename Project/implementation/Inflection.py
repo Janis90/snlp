@@ -1,5 +1,5 @@
 import numpy as np
-from Word import Word, LevinsteinPartition, KhalingXFixPartition
+from implementation.Word import Word, LevinsteinPartition, KhalingXFixPartition
 from aenum import Enum
  
 class SplitMethod(Enum):

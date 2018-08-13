@@ -1,8 +1,8 @@
-import utils
+import implementation.utils as utils
 import numpy as np
-from ChangingRule import SuffixRule, PrefixRule, ConditionalRule, RuleCollection
-from UniMorph import UniMorph, FeatureCollection
-from Inflection import SplitMethod
+from implementation.ChangingRule import SuffixRule, PrefixRule, ConditionalRule, RuleCollection
+from implementation.UniMorph import UniMorph, FeatureCollection
+from implementation.Inflection import SplitMethod
 
 def prepare_test_data(inflections):
     """Creates out of a list of inlections three lists containing all lemmas, all feature lists and the expected inflection
@@ -115,15 +115,8 @@ def compute_accuracy(predictions, ground_truth, verbose=False):
             
     return correct, correct/float(total_count)
 
-
-def outputResults(predictions, test_inflections):
-    
-    # is called when -l parameter was set
-    for i in range(len(predictions)):
-        print(test_inflections[i].lemma.to_string() + "\t" + predictions[i] + "\t" + str(test_inflections[i].inflection_desc_list))
-
-
 def main():
+    # read and parse the cli parameters
     params = utils.read_params()
     
     # create rules from training with levinstein splitting
@@ -141,14 +134,13 @@ def main():
     # inlfect the test data
     predictions = inflect_data(test_lemmas, test_feature_descs, prefix_rule_collection, suffix_rule_collection)
 
-    print("\n")
+    # output list for -l parameter
+    if params["list"]:   
+        for single_prediction in predictions:
+            print(single_prediction) 
+        print("")
 
-    # output list (lemma,  predicted_inflection,   features)
-    if params["list"]:
-        outputResults(predictions, test_inflections)     
-        print("\n")   
-
-    # Output accuracy for given data
+    # output accuracy for given data
     if params["accuracy"]:
         correct, acc = compute_accuracy(predictions, test_ground_truth, verbose=False)    
         print("trained on: " + params["train"].split('/')[-1])
@@ -156,7 +148,7 @@ def main():
         print("tested on: " + params["test"].split('/')[-1])
         print("- testing instances: {}".format(len(test_inflections)))
         print("- correct instances: {}".format(correct))
-        print("- accuracy: {}%".format(acc * 100))
+        print("- accuracy: {0:.3f}".format(acc * 100))
 
     return 0
     

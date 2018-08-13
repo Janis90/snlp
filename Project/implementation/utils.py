@@ -1,8 +1,8 @@
 import argparse
 import sys
-import Inflection
-from UniMorph import UniMorph, FeatureCollection
-from Inflection import SplitMethod
+import implementation.Inflection
+from implementation.UniMorph import UniMorph, FeatureCollection
+from implementation.Inflection import SplitMethod
 
 
 def read_params():
@@ -83,7 +83,7 @@ def read_file(path, split_method=SplitMethod.LEVINSTEIN):
 
         feature_col = FeatureCollection.create_feature_collection(feature_list_str)
 
-        new_inflection = Inflection.Inflection.create_inflection(lemma, inflection, feature_col, method=split_method)
+        new_inflection = implementation.Inflection.Inflection.create_inflection(lemma, inflection, feature_col, method=split_method)
         inflections.append(new_inflection)
 
     return inflections
