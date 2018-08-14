@@ -79,7 +79,6 @@ class FeatureCollection():
     lists, use this class instead of List<UniMorph>
     """
 
-
     def __init__(self, feature_list):
         """Creates a FeatureCollection instance out of a list of UniMorp features
         
@@ -128,57 +127,19 @@ class FeatureCollection():
 
         return res_str[:-1]
 
-    def merge_with_collection1(self, feature_collection):
-
-        merged_collection = None
-        overlap = 0
-
-        type_dict = {}
-
-        # sort features from this feature collection
-        for single_feature in self.features:
-            # TODO: person/unkonwn can have multiple entries
-            
-            if single_feature.type == "UNKNOWN" or single_feature.type == "Person":
-                continue
-
-            if single_feature.type in type_dict:
-                type_dict[single_feature.type].append(single_feature)
-                print("Dimension: {}".format(single_feature.type))
-                for i in type_dict[single_feature.type]:
-                    print(i)
-                assert False
-                type_dict[single_feature.type].append(single_feature)
-            else: 
-                type_dict[single_feature.type] = [single_feature]
-
-        # sort in features from the other feature collection
-        for single_feature in feature_collection.features:
-            if single_feature.type in type_dict:
-
-                if single_feature in type_dict[single_feature.type]:
-                    overlap += 1
-                else:
-                    # could here return None, 0
-                    type_dict[single_feature.type].append(single_feature)
-
-            else: 
-                type_dict[single_feature.type] = [single_feature]
-
-        final_features = []
-
-        for feature_type, feature_set in type_dict.items():
-
-            if len(feature_set) > 1:
-                return None, 0
-
-            final_features.append(feature_set[0])
-
-        merged_collection = FeatureCollection(final_features)
-
-        return merged_collection, overlap
-
-    def merge_with_collection2(self, feature_collection):
+    def get_feature_intersection(self, feature_collection):
+        """Returns a FeatureCollection instance only containing the features which are in this collectiona AND in the parameter feature collection
+        
+        Parameters
+        ----------
+        feature_collection : FeatureCollection
+            FeatureCollection instance to intersect this collection with
+        
+        Returns
+        -------
+        FeatureCollection
+            FeatureCollection instance after the intersection between this and the parameter's FeatureCollection instance
+        """
         
         merged_collection = []
 
@@ -188,10 +149,21 @@ class FeatureCollection():
 
         return FeatureCollection(merged_collection), len(merged_collection)
 
-    def merge_with_collection(self, feature_collection):
+    def get_feature_union(self, feature_collection):
+        """Returns a FeatureCollection instance containin all feature which are in this collection OR in the given FeatureCollection
+        
+        Parameters
+        ----------
+        feature_collection : FeatureCollection
+            FeatureCollection instance to unify this feature collection with
+        
+        Returns
+        -------
+        FeatureCollection
+            FeatureCollection instance containing all features from this and from the parameter's FeatureCollections.
+        """
         
         merged_collection = self.features.union(feature_collection.features)
-
         return FeatureCollection(list(merged_collection)), len(merged_collection)
 
 

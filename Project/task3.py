@@ -4,161 +4,271 @@ from implementation.ChangingRule import SuffixRule, PrefixRule, ConditionalRule,
 from implementation.UniMorph import UniMorph, FeatureCollection
 from implementation.Inflection import SplitMethod
 
-def compute_test_metrics(predictions, gt):
+def compute_test_metrics(predictions, ground_truth):
+    """Computes for a given list of predicted and expected FeatureCollections the Precision, Recall, Accuracy and F-Score rating.
+    
+    Parameters
+    ----------
+    predictions : List<FeatureColleciton>
+        List of FeatureColleciton instances which contain the features that got predicted.
+    ground_truth : List<FeatureColleciton>
+        List of FeatureColleciton instances which contain the features that come from the test dataset representing the ground truth.
+    
+    Returns
+    -------
+    float, float, float
+        Precision, Recall, Accuracy, F-Score
+    """
 
     tp = 0
     fp = 0
     fn = 0
 
+    true_predicted = 0
+    
+    # iterate over all instances
     for i in range(len(predictions)):
 
+        if predictions[i] == ground_truth[i]:
+            true_predicted += 1
+
         for sinlge_feature in predictions[i].features:
-            
-            if sinlge_feature in gt[i].features:
+            if sinlge_feature in ground_truth[i].features:
+                # predicted feature is correct
                 tp += 1
             else:
+                # predicted feature is incorrect
                 fp += 1
 
-        for single_feature in gt[i].features:
+        for single_feature in ground_truth[i].features:
             if single_feature not in predictions[i].features:
+                # feature in ground truth is missing in prediction
                 fn += 1
 
-        print(predictions[i], gt[i], tp, fp, fn)
+    # computing the test metrics
     precision = tp / (tp + fp)
     recall = tp / (tp + fn)
+    accuracy = true_predicted / len(predictions)
     f1 = (2 * precision * recall)/ (precision + recall)
 
-    return precision, recall, f1
+    return precision, recall, accuracy, f1
+
 
 def get_suitable_prefix_rules(lemma_str, inflection_str, rule_collection):
+    """Returns a list of prefix rules from the RuleCollection instance which changes the lemma string in a way so that its beginning 
+    equals to the one of the inflection string.
+    
+    Parameters
+    ----------
+    lemma_str : string
+        Lemma string which gets manipulated. 
+    inflection_str : string
+        Resulting string how the lemma's beginning should look like after applying one of the suitable prefix rules
+    rule_collection : RuleColleciton
+        RuleCollection instance containing all prefix rules which should be checked to fit for the infection task
+    
+    Returns
+    -------
+    List<ChangingRules>
+        A list of chaninging rules which change the lemma in a way so that the beginning equals to the one of the inflection string
+    """
 
     suitable_rules = []
 
+    # iterate over all rules
     for single_rule in rule_collection.get_rules():
 
+        # check if the current rule is applicable to the lemma
         if single_rule.is_applicable(lemma_str):
+
+            # apply the prefix tule to the lemma
             intermediate_inflection = single_rule.apply_rule(lemma_str)
 
+            # check the amount of the changed characters
             rule_size = len(single_rule.output)
 
+            # store rule if:
+            # (1) The beginning of the changed lemma equals to the beginning of the inflection string
+            # or (2) when the rule's output is empty, the first character of the lemma must equal to the first character of the inflection string
             if (rule_size > 0 and intermediate_inflection[:rule_size] == inflection_str[:rule_size]) or (rule_size == 0 and intermediate_inflection[0] == inflection_str[0]) :
                 suitable_rules.append(single_rule)
 
     return suitable_rules
 
+
 def get_suitable_suffix_rules(inter_inflection, inflection_str, rule_collection):
+    """Returns a list of changing rules which, applied to the intermediate inflection return the inflection string.
+    
+    Parameters
+    ----------
+    inter_inflection : string
+        the intermediate inflection is a lemma with applied prefix rule. After applying a suffix rule to it, this string should become the inflection
+    inflection_str : string
+        the target inflection string. If an intermediate inflection equals to this string after suffix rule application, the rule gets stored
+    rule_collection : RuleCollection
+        RuleCollection instance from which all rules get considered if they are suitable ChangingRules for this task
+    
+    Returns
+    -------
+    List<ChangingRule>
+        List of SuffixRule instance, which all applied to the intermediate inflection become the inflection string.
+    """
 
     suitable_rules = []
 
+    # iterate over all rules of the collection
     for current_rule in rule_collection.get_rules():
 
+        # check if the rule is applicable to the intermediate inflection
         if current_rule.is_applicable(inter_inflection):
 
-            # compute the inflection
+            # apply the rule
             inflected_lemma = current_rule.apply_rule(inter_inflection)
 
-            # compare inflection with expected result
+            # compare inflection with expected result -  if equality holds, store the rule
             if inflected_lemma == inflection_str:
                 suitable_rules.append(current_rule)
 
     return suitable_rules
 
+
 def get_suitable_suffix_rules_soft(inflection_str, rule_collection):
+    """Returns a list of suffix rules whith an output suiting to the inflection string parameter.
+    
+    Parameters
+    ----------
+    inflection_str : string
+        inflection string whose end should equal to the selected suffix rule outputs
+    rule_collection : RuleCollection
+        RuleCollection instance from which all suffix rules should be checked to be suitable
+    
+    Returns
+    -------
+    List<ChangingRules>
+        List of ChangingRule instances which all have an output which would fit to the inflection string 
+    """
+
     suitable_rules = []
 
+    # iterate over all rules in the collection
     for current_rule in rule_collection.get_rules():
         
+        # the the length of the rule output
         out_len = len(current_rule.output)
+
+        # check if the rule output fits to the ending of the inflection string, if it does, store the rule
         if current_rule.output == inflection_str[- out_len:]:
             suitable_rules.append(current_rule)
 
     return suitable_rules
 
 
-def merge_rule_feautres(rule_list_1, rule_list_2, prefix_rule_col, suffix_rule_col):
+def merge_rule_feautres(prefix_rule_list, suffix_rule_list, prefix_rule_col, suffix_rule_col):
+    """Out of a list of prefix rules and a list of suffix rules, this method exctracts the features which are likely to fit the problem.
+    First rule combinations are set up which provide a high overlap in features. From the rules with the highest overlaps, the union
+    of all rule features will be returned.
+    
+    Parameters
+    ----------
+    prefix_rule_list : List<ChanginRule>
+        List of all prefix rules which might contain the relevant features
+    suffix_rule_list : List<ChangingRule>
+        List of all suffix rules which might contain the relevant features
+    prefix_rule_col : RuleCollection
+        RuleCollection instance which contains all prefix rules, which should be considered
+    suffix_rule_col : RuleCollection
+        RuleColleciton sintacen which contains all suffix rules, which should be considered
+    
+    Returns
+    -------
+    FeatureCollection
+        FeatureCollection instance which contains the combined features resulted from the application of the rule strategy
+    """
+
 
     best_overlap = -1
     best_features = None
 
-    dbg_list = []
+    combined_rule_data = []
 
-    for single_rule_1 in rule_list_1:
-        for single_rule_2 in rule_list_2:
-            merging, overlap = single_rule_1.infection_desc.merge_with_collection2(single_rule_2.infection_desc)
+    # consider all prefix suffix rule combinations
+    for single_prefix_rule in prefix_rule_list:
+        for single_suffix_rule in suffix_rule_list:
 
-            dbg_list.append((single_rule_1, single_rule_2, merging, overlap))
+            # get the features which are present in both rules.
+            intersect_features, overlap = single_prefix_rule.infection_desc.get_feature_intersection(single_suffix_rule.infection_desc)
 
+            # append these features together with the rules and the overlap score
+            combined_rule_data.append((single_prefix_rule, single_suffix_rule, intersect_features, overlap))
+
+            # track and store the highest overlap score
             if overlap > best_overlap:
                 best_overlap = overlap
-                best_features = merging
-
-    overlaps = 0
 
     best_overlap_rules = []
 
+    # only store the rules which achieved the highest overlap score
+    for (prefix_rule, suffix_rule, int_features, overlap_val) in combined_rule_data:
+        if overlap_val == best_overlap:
+            best_overlap_rules.append((prefix_rule, suffix_rule, int_features, overlap_val))
 
-    # print("Rules with same overlap:")
-    for (r1, r2, m, ovl) in dbg_list:
-        if ovl == best_overlap:
-            overlaps += 1
-            best_overlap_rules.append((r1, r2, m, ovl))
-            # print("Rule1: {} - {} Rule2: {} - {} | Merge: {}".format(r1, r1.infection_desc, r2, r2.infection_desc, m))
-
-    best_count = -1
-    # best_rule = None
     unified_features = set()
     
-    for (r1, r2, m, ovl) in best_overlap_rules:
-        # prefix_count = prefix_rule_col.get_rule_count(r1)
-        # suffix_count = suffix_rule_col.get_rule_count(r2)
+    # unify all features of the remaining feature collections with the same high overlap score
+    for (prefix_rule, suffix_rule, int_features, overlap_val) in best_overlap_rules:
+        unified_features = unified_features.union(int_features.features)
 
-        unified_features = unified_features.union(m.features)
-
-        # cur_count = prefix_count + suffix_count
-
-        # if best_count < cur_count:
-        #     best_count = cur_count
-        #     best_features = m
+    # create and return one single feature collection instance out of the unified features
     best_features = FeatureCollection(list(unified_features))
+
     return best_features
 
 
 def infer_inflection_features(lemma_str, inflection_str, prefix_rule_col, suffix_rule_col):
+    """This funciton returns the feautres which are likely to describe the relation between the given lemma and the given inflection string
+        
+    Parameters
+    ----------
+    lemma_str : string
+        string representing the lemma of a word
+    inflection_str : string
+        string representing the target inflection of the lemma
+    prefix_rule_col : RuleCollection
+        RuleCollection instance containing all prefix rules to be considered
+    suffix_rule_col : RuleCollection
+        RuleCollection instnance containing all suffix rules to be considered
+    
+    Returns
+    -------
+    FeatureCollection
+        A single feature collection which represents the inference of the features form the lemma to the inflection
+    """
 
+
+    # get the prefix rules which suit the problem
     prefix_rule_candidates = get_suitable_prefix_rules(lemma_str, inflection_str, prefix_rule_col)
 
-    # print("Prefix Rules")
-    # for i in prefix_rule_candidates:
-        # print("Rule: {} - {}".format(i, i.infection_desc))
-    
+    # apply one of the prefix rules (all effects are the same) to the the intermediate inflection
     int_lemma = prefix_rule_candidates[0].apply_rule(lemma_str)
 
+    # get the suffix rules which suit the problem with the intermediate inflection
     suffix_rule_candidates = get_suitable_suffix_rules(int_lemma, inflection_str, suffix_rule_col)
 
+    # if we have no suitable prefix rules TODO
     if len(prefix_rule_candidates) == 0:
+        assert False
         return suffix_rule_candidates[0]
 
-    # print("Suffix Rules")
-    # for i in suffix_rule_candidates:
-        # print("Rule: {} - {}".format(i, i.infection_desc))
-
+    # if we have no suitable suffix rules found
     if len(suffix_rule_candidates) == 0:
-        # print("\n-- no suffix rules fount\n")
-
+        
+        # use the rules which only fits by their output
         soft_rules = get_suitable_suffix_rules_soft(inflection_str, suffix_rule_col)
-        # print("Soft Rules")
         suffix_rule_candidates = soft_rules
-        # for r1 in soft_rules:
-            # print("Rule: {} - {}".format(r1, r1.infection_desc))
-        # return prefix_rule_candidates[0]
 
+    # merge together all features to get the most likely features from all related rules
     best_features = merge_rule_feautres(prefix_rule_candidates, suffix_rule_candidates, prefix_rule_col, suffix_rule_col)
 
-    # if best_features is None:
-    #     print("\n no merging possible")
-    #     return FeatureCollection([])
-
-    # print("\n best features: {}".format(best_features))
     return best_features
 
 
@@ -203,24 +313,26 @@ def main():
 
     predicted_feature_descriptions = []
 
+    # iterate over all instances of the test set
     for i in range(len(test_lemmas)):
+
+        # extract current lemma and the current target inflection
         cur_lemma = test_lemmas[i]
         cur_inflection = test_inflection[i]
 
+        # infer the features to the current data
         pred_features = infer_inflection_features(cur_lemma, cur_inflection, prefix_rule_collection, suffix_rule_collection)
-        if pred_features is not None:
-            predicted_feature_descriptions.append(pred_features)
+        
+        # if no features have been found, use an empty feature collection
+        if pred_features is None:
+            pred_features = FeatureCollection([])
 
-        print("Lemma: {} Inflection: {} Features: {} Prediction: {}".format(cur_lemma, cur_inflection, test_feature_descs[i], pred_features))
+        # store the current result
+        predicted_feature_descriptions.append(pred_features)
 
-    prec, rec, f1 = compute_test_metrics(predicted_feature_descriptions, test_feature_descs)
-    print("\n\nRESULTS:\n Precision: {}\n RECALL: {} \n F1-SCORE: {}".format(prec, rec, f1))
-
-    # eye debugging
-    # for i in range(len(test_feature_descs)):
-    #     print("predicted: {}\t\texpected: {}\t\t{}".format(predicted_feature_descriptions[i], test_feature_descs[i], predicted_feature_descriptions[i] == test_feature_descs[i]))
-
-
+    # compute the test metrics from the results
+    prec, rec, acc, f1 = compute_test_metrics(predicted_feature_descriptions, test_feature_descs)
+    print("\n\nRESULTS:\n Precision: {}\n Recall: {} \n Accuracy: {} \n F1-SCORE: {}".format(prec, rec, acc, f1))
 
 if __name__ == "__main__":
     main()

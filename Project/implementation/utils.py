@@ -58,7 +58,6 @@ def validate_args(args, ap):
         ap.error('--tr and --te must be given together')
 
 
-
 def read_file(path, split_method=SplitMethod.LEVINSTEIN):
     """Reads a text file containing inflection samples of shape <inflection> <infinitiv> <inflection features>. For each line of the
     file, this methods creates an inflection instance and stores all together in a list.

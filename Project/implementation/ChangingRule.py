@@ -173,6 +173,7 @@ class PrefixRule(ChangingRule):
     def __hash__(self):
         return str(self).__hash__()
 
+
 class SuffixRule(ChangingRule):
 
     def __init__(self, str_in, str_out, inflection_desc_list):
@@ -237,6 +238,7 @@ class SuffixRule(ChangingRule):
     def __hash__(self):
         return str(self).__hash__()
 
+
 class ConditionalRule(ChangingRule):
 
     def __init__(self, str_in, str_out, inflection_desc_list=None, condition_function=None):
@@ -283,6 +285,7 @@ class ConditionalRule(ChangingRule):
     def __str__(self):
         return "{}$ > {}$ (conditional)".format(self.input, self.output)
 
+
 class RuleCollection():
     """A RuleCollection instance stores and manages multiple chagning rules which could result from a training procedure.
     """
@@ -326,17 +329,34 @@ class RuleCollection():
             self.rule_dict[str(feature_list)] = {str(new_rule): {"rule": new_rule, "count": 1}}
 
     def get_rule_count(self, rule):
+        """Returns the count value of a certain rule for this collection. If the given rule does not appear in this collection, 0 will
+        be returned.
+        
+        Parameters
+        ----------
+        rule : ChangingRule
+            The changing rule for which the count value is asked for
+        
+        Returns
+        -------
+        int
+            Count value for the given ChangingRule in this collection
+        """
+
+        # features of the parameter rule
         features = str(rule.infection_desc)
+
+        # naming string of the parameter rule
         rule_name = str(rule)
 
+        # if an instance exists with the given features and the name return the count
         if features in self.rule_dict:
             if rule_name in self.rule_dict[features]:
                 return self.rule_dict[features][rule_name]["count"]
             
+        # if rule is not in this collection return 0
         return 0
 
-
-                
     def get_highest_overlap_rule(self, input_str, inflection_desc):
         """Returns a single ChangingRule from this collection which provides the highest overlap for a given word string and a 
         corresponding infelction feature collection. If multiple rules have the same overlap scoring, this methods returns the
@@ -535,54 +555,44 @@ class RuleCollection():
         return best_rule["rule"].infection_desc
 
     def try_and_apply_all(self, input_str):
+        """Applies all ChaningRules in the collection to a given input string if possible. This function is useful for RuleCollection with
+        conditional rules.
+        
+        Parameters
+        ----------
+        input_str : string
+            input string on which the rules should be applied
+        
+        Returns
+        -------
+        string
+            input string after all rules have been applied to it
+        """
 
-        for inflection_desc, single_rule_dict in self.rule_dict.items():
-            for single_rule_name, rule_data in single_rule_dict.items():
+        # iterate over all rules in this collection
+        for _, single_rule_dict in self.rule_dict.items():
+            for _, rule_data in single_rule_dict.items():
 
                 cur_rule = rule_data["rule"]
 
+                # if the current rule is applicable, then apply it
                 if cur_rule.is_applicable:
                     input_str = cur_rule.apply_rule(input_str)
 
         return input_str
 
     def get_rules(self):
+        """Returns a list of all rules stored in this RuleCollection instance.
+        
+        Returns
+        -------
+        List<ChangingRule>
+            a list of ChangingRule instances which are stored in this collection
+        """
 
         all_rules = []
-        for feature_desc, rule_dict in self.rule_dict.items():
-            for rule_name, single_rule_dict in rule_dict.items():
+        for _, rule_dict in self.rule_dict.items():
+            for _, single_rule_dict in rule_dict.items():
                 all_rules.append(single_rule_dict["rule"])
 
         return all_rules
-
-
-if __name__ == "__main__":
-
-    # Example using ChangingRules
-    # Using Inflection Objects
-    lemma = "schielen"
-    inflect = "geschielt"
-    feature_list = []
-
-    # create inflection object managing prefix, stem, suffix by levinstein
-    inflect_obj = Inflection.create_inflection(lemma, inflect, feature_list)
-
-    # create rules by only observing stem and suffix
-    suffix_rules = SuffixRule.generate_rules(inflect_obj, feature_list)
-
-    # print all suffix rules form the generation
-    for rule in suffix_rules:
-        print(rule)
-
-    # create prefix rules by only observing prefix
-    prefix_rules = PrefixRule.generate_rules(inflect_obj, feature_list)
-    for rule in prefix_rules:
-        print(rule)
-
-    # example applying rule 2 (en -> t) to word "verkaufen"
-    applied_rule = suffix_rules[2].apply_rule("verkaufen")
-    print(applied_rule)
-
-    # example for the overlap score
-    overlap = suffix_rules[2].get_overlap_score("verkaufen")
-    print(overlap)
