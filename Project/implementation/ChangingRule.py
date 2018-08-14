@@ -324,6 +324,18 @@ class RuleCollection():
                 self.rule_dict[str(feature_list)][str(new_rule)] = {"rule": new_rule, "count": 1}
         else:
             self.rule_dict[str(feature_list)] = {str(new_rule): {"rule": new_rule, "count": 1}}
+
+    def get_rule_count(self, rule):
+        features = str(rule.infection_desc)
+        rule_name = str(rule)
+
+        if features in self.rule_dict:
+            if rule_name in self.rule_dict[features]:
+                return self.rule_dict[features][rule_name]["count"]
+            
+        return 0
+
+
                 
     def get_highest_overlap_rule(self, input_str, inflection_desc):
         """Returns a single ChangingRule from this collection which provides the highest overlap for a given word string and a 
@@ -419,22 +431,6 @@ class RuleCollection():
                 best_rule = single_rule_dict["rule"]
 
         return best_rule
-
-    def get_rules(self, inflection_desc):     
-        """Returns a list of ChangingRule from this collection which fit for a given FeatureCollection. This method is thought for debugging.
-        
-        Parameters
-        ----------
-        inflection_desc : FeatureCollection
-            A FeatureCollection instance for which the ChangingRules of this collection should be filtered
-        
-        Returns
-        -------
-        Dict<{str(ChanginRule): {"rule": ChanginRule, "count": int}}>
-            A dictionary containing all applicable ChaningRules for the given FeatureCollection
-        """
-
-        return self.rule_dict.get(str(inflection_desc), [])
 
     @staticmethod
     def create_rule_collections(inflection_list):
@@ -550,6 +546,14 @@ class RuleCollection():
 
         return input_str
 
+    def get_rules(self):
+
+        all_rules = []
+        for feature_desc, rule_dict in self.rule_dict.items():
+            for rule_name, single_rule_dict in rule_dict.items():
+                all_rules.append(single_rule_dict["rule"])
+
+        return all_rules
 
 
 if __name__ == "__main__":
