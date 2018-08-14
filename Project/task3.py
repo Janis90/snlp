@@ -5,7 +5,7 @@ from implementation.UniMorph import UniMorph, FeatureCollection
 from implementation.Inflection import SplitMethod
 
 def compute_test_metrics(predictions, ground_truth):
-    """Computes for a given list of predicted and expected FeatureCollections the Precision, Recall, Accuracy and F-Score rating.
+    """Computes for a given list of predicted and expected FeatureCollections the Precision, Recall and F-Score rating.
     
     Parameters
     ----------
@@ -17,20 +17,15 @@ def compute_test_metrics(predictions, ground_truth):
     Returns
     -------
     float, float, float
-        Precision, Recall, Accuracy, F-Score
+        Precision, Recall, F-Score
     """
 
     tp = 0
     fp = 0
     fn = 0
-
-    true_predicted = 0
     
     # iterate over all instances
     for i in range(len(predictions)):
-
-        if predictions[i] == ground_truth[i]:
-            true_predicted += 1
 
         for sinlge_feature in predictions[i].features:
             if sinlge_feature in ground_truth[i].features:
@@ -48,10 +43,39 @@ def compute_test_metrics(predictions, ground_truth):
     # computing the test metrics
     precision = tp / (tp + fp)
     recall = tp / (tp + fn)
-    accuracy = true_predicted / len(predictions)
     f1 = (2 * precision * recall)/ (precision + recall)
 
-    return precision, recall, accuracy, f1
+    return precision, recall, f1
+
+
+def compute_accuracy(predictions, ground_truth):
+    """Computes the accuracy as well as the amount of true predicted instances
+    
+    Parameters
+    ----------
+    predictions : List<FeatureCollection>
+        List of predicted feature collections
+    ground_truth : List<FeatureCollection>
+        List of expected feature collections
+    
+    Returns
+    -------
+    float, int
+        Accuracy, amount of correctly predicted instances
+    """
+
+
+    true_predicted = 0
+    
+    # iterate over all instances
+    for i in range(len(predictions)):
+
+        if predictions[i] == ground_truth[i]:
+            true_predicted += 1
+
+    accuracy = true_predicted / len(predictions)
+
+    return accuracy, true_predicted
 
 
 def get_suitable_prefix_rules(lemma_str, inflection_str, rule_collection):
@@ -254,17 +278,17 @@ def infer_inflection_features(lemma_str, inflection_str, prefix_rule_col, suffix
     # get the suffix rules which suit the problem with the intermediate inflection
     suffix_rule_candidates = get_suitable_suffix_rules(int_lemma, inflection_str, suffix_rule_col)
 
-    # if we have no suitable prefix rules TODO
-    if len(prefix_rule_candidates) == 0:
-        assert False
-        return suffix_rule_candidates[0]
-
     # if we have no suitable suffix rules found
     if len(suffix_rule_candidates) == 0:
         
         # use the rules which only fits by their output
         soft_rules = get_suitable_suffix_rules_soft(inflection_str, suffix_rule_col)
         suffix_rule_candidates = soft_rules
+
+    # if we have no suitable prefix rules have been found, just use the suffix rules for merging
+    if len(prefix_rule_candidates) == 0:
+        prefix_rule_candidates = suffix_rule_candidates
+       
 
     # merge together all features to get the most likely features from all related rules
     best_features = merge_rule_feautres(prefix_rule_candidates, suffix_rule_candidates, prefix_rule_col, suffix_rule_col)
@@ -330,9 +354,27 @@ def main():
         # store the current result
         predicted_feature_descriptions.append(pred_features)
 
-    # compute the test metrics from the results
-    prec, rec, acc, f1 = compute_test_metrics(predicted_feature_descriptions, test_feature_descs)
-    print("\n\nRESULTS:\n Precision: {}\n Recall: {} \n Accuracy: {} \n F1-SCORE: {}".format(prec, rec, acc, f1))
+     # output list for -l parameter
+    if params["list"]:   
+        for single_prediction in predicted_feature_descriptions:
+            print(single_prediction) 
+        print("")
+
+    # output accuracy for given data
+    if params["accuracy"]:
+        acc, correct = compute_accuracy(predicted_feature_descriptions, test_feature_descs)    
+
+        print("trained on: " + params["train"].split('/')[-1])
+        print("- training instances: {}".format(len(train_inflections)))
+        print("tested on: " + params["test"].split('/')[-1])
+        print("- testing instances: {}".format(len(test_inflections)))
+        print("- correct instances: {}".format(correct))
+        print("- accuracy: {0:.3f}".format(acc * 100))
+
+
+    # # compute the test metrics from the results
+    # prec, rec, f1 = compute_test_metrics(predicted_feature_descriptions, test_feature_descs)
+    # print("\n\nRESULTS:\n Precision: {}\n Recall: {} \n F1-SCORE: {}".format(prec, rec, f1))
 
 if __name__ == "__main__":
     main()

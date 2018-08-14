@@ -16,8 +16,7 @@ class UniMorph():
     """The UniMorph class handles the UniMorph feature descriptions for inflections. All UniMorph labels are organized in uniMorphSchema.json
     """
 
-
-    def __init__(self, feature, give_warning=True):
+    def __init__(self, feature, give_warning=False):
         """Creates a new UniMorph feature object. If the object is not listed in the .json file, a warning text will be displayed
         
         Parameters
